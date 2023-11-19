@@ -1,0 +1,133 @@
+---
+import { Icon } from "astro-icon";
+interface Props {
+    title: string;
+    icon: string;
+    bg_color: string;
+    date: string;
+}
+const {
+    title,
+    icon = "IcRoundTimelapse",
+    bg_color = "background",
+    date,
+} = Astro.props as Props;
+---
+
+<div
+    class="countdown"
+    id="saison"
+    style={"background-color: var(--" + bg_color + ")"}
+>
+    <section>
+        <Icon name={icon} />
+        <div>
+            <h2>{title}</h2>
+            <slot />
+        </div>
+    </section>
+    <strong id="countdownField"></strong>
+    <span id="date" aria-hidden="true" style="display: none;">{date}</span>
+</div>
+
+<style>
+    .countdown {
+        display: grid;
+        justify-items: center;
+        padding-block: 7rem;
+        padding-inline: 1rem;
+        gap: 2rem;
+        margin-block: 2rem;
+        color: var(--text);
+    }
+    h2 {
+        letter-spacing: -2px;
+        font-weight: 700;
+        font-size: 2rem;
+        margin-bottom: .5rem;
+    }
+    [astro-icon] {
+        color: var(--accent);
+        height: var(--_icon_size);
+        vertical-align: bottom;
+        font-size: var(--_icon_size) !important;
+    }
+    strong {
+        font-size: 1.5rem;
+        max-width: 700px;
+        text-align: center;
+        text-wrap: balance;
+    }
+    section {
+        --_icon_size: 3rem;
+        display: grid;
+        grid-template-columns: var(--_icon_size) auto;
+        gap: 2rem;
+        margin-bottom: 2rem;
+        align-items: center;
+    }
+</style>
+
+<script>
+    // Set the date we're counting down to
+    //Bsp: Sep 13, 2023 20:00:00
+    var countDownDate = new Date(
+        document.getElementById("date").innerHTML
+    ).getTime();
+
+
+
+            // Get today's date and time
+            var now = new Date().getTime();
+
+// Find the distance between now and the count down date
+var distance = countDownDate - now;
+
+// Time calculations for days, hours, minutes and seconds
+var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+var hours = Math.floor(
+    (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+);
+var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+// Display the result in the element with id="demo"
+//with secounds        document.getElementById("countdownField").innerHTML = days + " Tage " + hours + " Stunden " + minutes + " Minuten und " + seconds + " Sekunden";
+
+document.getElementById("countdownField").innerHTML = days + " Tage " + hours + " Stunden und " + minutes + " Minuten";
+
+// If the count down is finished, write some text
+if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdownField").innerHTML = "Countdown beendet";
+}
+
+
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+//        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Display the result in the element with id="demo"
+//with secounds        document.getElementById("countdownField").innerHTML = days + " Tage " + hours + " Stunden " + minutes + " Minuten und " + seconds + " Sekunden";
+
+        document.getElementById("countdownField").innerHTML = days + " Tage " + hours + " Stunden und " + minutes + " Minuten";
+
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("countdownField").innerHTML = "Countdown beendet";
+        }
+    }, 10000);
+</script>

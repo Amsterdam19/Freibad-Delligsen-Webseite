@@ -1,0 +1,33 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import ImpressumGrid from "../components/impressum/ImpressumGrid.astro";
+import GridItem from "../components/impressum/GridItem.astro";
+import LizenzenGrid from "../components/impressum/LizenzenGrid.astro";
+---
+
+<MainLayout titel="Impressum" description="Impressum des Freibad Delligsens">
+    <div class="padding">
+    <ImpressumGrid titel="Impressum">
+        <div slot="left">
+            <GridItem titel="Vereinsname" content="Förderverein Freibad Delligsen e.V."/>
+            <GridItem titel="Anschrift" content="Postfach 1106, \n 31069 Delligsen"/>
+            <GridItem titel="Telefon" content="(0 51 87) 30 38 57"/>
+            <GridItem titel="E-Mail" content="foerderverein@freibad-delligsen.de"/>
+            <GridItem titel="Registergericht" content="Amtsgericht Holzminden"/>
+            <GridItem titel="Registernummer" content="VR 150503"/>
+        </div>
+        <div slot="right">
+            <GridItem titel="1. Vorsitzender" content="Dirk Löwe"/>
+            <GridItem titel="2. Vorsitzender" content="Ingo Käse"/>
+            <GridItem titel="Kassenwart" content="Achim Seidel"/>
+            <GridItem titel="Schriftführerin" content="Katrin Feichtinger"/>
+        </div>
+    </ImpressumGrid>
+    <LizenzenGrid />
+</div>
+</MainLayout>
+<style>
+    .padding {
+        padding: 2vw;
+    }
+</style>

@@ -1,0 +1,46 @@
+---
+import { Icon } from "astro-icon";
+import Grid from "../../components/Grid.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Back from "../../components/Back.astro";
+
+---
+
+<MainLayout titel="Webseite hochladen">
+    <Grid titel="Webseite hochladen">
+        <div>
+            <ol>
+                <li>Mit "freibad-delligsen.de"-Server verbinden <a href="/docs/node#conFTP"><Icon name="IcRoundLink"/></a></li>
+                <li>Auf der linken Seite: Rechtsklick auf <code>dist</code> und hochladen auswählen.
+                <br><br>
+            <img src="../assets/images/docs/upload.png" alt=""></li>
+            
+            </ol>
+            <Back url="/docs/" txt="Übersicht"/>
+          
+        </div>
+
+    </Grid>
+</MainLayout>
+
+<style>
+        [astro-icon] {
+        color: var(--main-color);
+        display: inline-block;
+        height: 24px;
+        vertical-align: bottom;
+        font-size: 24px !important;
+    }
+    ol > li {
+        margin: 30px;
+        padding: 16px;
+        background-color: white;
+        border-radius: 16px;
+        border: 1px solid var(--border-grey);
+    }
+    code {
+        background-color: gainsboro;
+        padding-inline: 16px;
+        border-radius: 16px;
+    }
+</style>

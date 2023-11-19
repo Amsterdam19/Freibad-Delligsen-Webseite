@@ -1,0 +1,130 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<div class="grid">
+  <h2>Lizenzen</h2>
+  <div class="item">
+    <h4>Astro</h4>
+    <div>
+      <a href="https://astro.build/">
+        <Icon name="IcRoundPublic" />
+      </a>
+      <a
+        title="MIT-Lizenz"
+        href="https://github.com/withastro/astro/blob/main/LICENSE"
+      >
+        <Icon name="IcRoundGavel" />
+      </a>
+      <a href="https://github.com/withastro/astro">
+        <Icon name="github" />
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <h4>The Montserrat Font Project</h4>
+    <div>
+      <a href="https://fonts.google.com/specimen/Montserrat">
+        <Icon name="IcRoundPublic" />
+      </a>
+      <a
+        title="SIL OPEN FONT LICENSE Version 1.1"
+        href="https://github.com/JulietaUla/Montserrat/blob/master/OFL.txt"
+      >
+        <Icon name="IcRoundGavel" />
+      </a>
+      <a href="https://github.com/JulietaUla/Montserrat">
+        <Icon name="github" />
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <h4>Material Icons / Material Symbols</h4>
+    <div>
+      <a href="https://fonts.google.com/icons">
+        <Icon name="IcRoundPublic" />
+      </a>
+      <a
+        title="Apache License Version 2.0"
+        href="https://www.apache.org/licenses/LICENSE-2.0.txt"
+      >
+        <Icon name="IcRoundGavel" />
+      </a>
+      <a href="https://github.com/withastro/astro">
+        <Icon name="github" />
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <h4>Open Street Map</h4>
+    <div>
+      <a href="https://www.openstreetmap.org/">
+        <Icon name="IcRoundPublic" />
+      </a>
+      <a
+        title="Open Data Commons Open Database License"
+        href="https://opendatacommons.org/licenses/odbl/"
+      >
+        <Icon name="IcRoundGavel" />
+      </a>
+      <a href="https://github.com/openstreetmap">
+        <Icon name="github" />
+      </a>
+    </div>
+  </div>
+  <div class="item">
+    <h4>swup</h4>
+    <div>
+      <a href="https://swup.js.org/">
+        <Icon name="IcRoundPublic" />
+      </a>
+      <a
+        title="MIT-Lizenz"
+        href="https://github.com/swup/swup/blob/master/LICENSE"
+      >
+        <Icon name="IcRoundGavel" />
+      </a>
+      <a href="https://github.com/swup/swup">
+        <Icon name="github" />
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .grid {
+    margin-top: 2rem;
+    color: var(--text);
+    display: grid;
+    max-width: 1500px;
+    margin-inline: auto;
+    gap: 30px;
+    background-color: var(--article);
+    padding: 4%;
+    border-radius: 16px;
+    border: var(--border-grey) 1px solid;
+  }
+  .item {
+    width: 100%;
+    display: grid;
+    gap: 1em;
+    grid-template-columns: 1fr auto;
+  }
+  h2 {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(120deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    width: fit-content;
+  }
+  a {
+    height: 24px;
+    display: inline-block;
+    text-decoration: none;
+    color: var(--text);
+    fill: var(--text);
+  }
+  [astro-icon] {
+    height: 24px;
+    width: 24px;
+  }
+</style>

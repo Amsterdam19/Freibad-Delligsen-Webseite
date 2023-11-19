@@ -1,0 +1,155 @@
+---
+import { Icon } from "astro-icon";
+import { Picture } from 'astro:assets';
+const { src, icon, label, active, width } = Astro.props;
+---
+
+<div class={"accordion-panel " + active}>
+  <h2>
+    <button
+      class="accordion-trigger"
+      aria-controls="panel1-content"
+      aria-expanded="true"
+    >
+      <Icon class="accordion-icon" name={icon} />
+      <span class="accordion-title" id="panel1-title">{label}</span>
+    </button>
+  </h2>
+
+  <div
+    class="accordion-content"
+    id="panel1-content"
+    aria-label={label}
+    aria-hidden="false"
+    role="region"
+  >
+    <Picture
+      class="accordion-image"
+      src={src}
+      formats={['avif', 'webp']}
+      widths={[400, 600, 1000]}
+      sizes="(max-width: 1000px) 100vw, 800px"
+      alt={label}
+    />
+  </div>
+</div>
+
+<style>
+  .accordion-panel {
+    position: relative;
+    isolation: isolate;
+    flex-basis: calc((var(--_panel-padding) * 2) + var(--_button-size));
+    overflow: hidden;
+    border-radius: calc(
+      ((var(--_panel-padding) * 2) + var(--_button-size)) / 2
+    );
+    box-shadow: var(--nav-shadow);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .accordion-panel {
+      transition: flex-basis 500ms, flex-grow 500ms;
+    }
+  }
+
+  .accordion-panel:nth-of-type(1) {
+    --_panel-color: red;
+  }
+  .accordion-panel:nth-of-type(2) {
+    --_panel-color: rgb(255, 94, 0);
+  }
+  .accordion-panel:nth-of-type(3) {
+    --_panel-color: orange;
+  }
+  .accordion-panel:nth-of-type(4) {
+    --_panel-color: rgb(0, 119, 255);
+  }
+  .accordion-panel:nth-of-type(5) {
+    --_panel-color: green;
+  }
+  .accordion * {
+    margin: 0;
+  }
+
+  .imgActive {
+    flex-basis: clamp(15rem, 40vh, 20rem);
+    flex-grow: 1;
+  }
+
+  .accordion-trigger {
+    align-items: flex-end;
+    outline: 0;
+  }
+
+  .accordion-panel:focus-within {
+    outline: 3px solid var(--_panel-color);
+    outline-offset: 4px;
+  }
+
+  .accordion-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: color-mix(in oklab, var(--background) 10%, white);
+    position: relative;
+    isolation: isolate;
+    height: calc(24px + 0.75rem * 2);
+    line-height: calc(24px + 0.75rem * 2);
+  }
+
+  @media (max-width: 44.999em) {
+    .accordion-title::after {
+      content: "";
+      position: absolute;
+      width: calc(100% + (var(--_button-size) * 2));
+      height: var(--_button-size);
+      background: hsl(0 0% 0% / 0.5);
+      z-index: -1;
+      left: calc((var(--_panel-gap) + var(--_button-size)) * -1);
+      border-radius: 100vw;
+    }
+  }
+
+  .accordion-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+
+    transition: filter 500ms;
+  }
+
+  .imgActive p {
+    display: none;
+  }
+
+  .accordion-trigger {
+    display: flex;
+    gap: var(--_panel-gap);
+    width: 100vw;
+    flex-direction: row;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    padding: var(--_panel-padding);
+    padding-right: calc(var(--_panel-padding) * 4);
+    justify-content: left;
+    position: absolute;
+    bottom: 0;
+    background-image: linear-gradient(
+      180deg,
+      transparent,
+      rgba(29, 29, 29, 0.815)
+    );
+  }
+
+  .accordion-icon {
+    color: var(--_panel-color);
+    background: var(--background);
+    width: var(--_button-size);
+    aspect-ratio: 1 / 1;
+    padding: 0.75rem;
+    border-radius: 50%;
+    z-index: 10;
+  }
+</style>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="212mm"
+   height="160mm"
+   viewBox="0 0 212 160"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="./b.svg"
+   inkscape:export-xdpi="95.794289"
+   inkscape:export-ydpi="95.794289"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 150.58657,62.67803 -0.0666,-6.827061 -0.68619,-1.711119 -0.12626,-12.950302 q -0.0274,-2.815283 -1.08616,-4.107657 -1.01694,-1.299802 -3.31438,-0.891377 -1.54556,0.274759 -3.12465,1.401527 -1.57978,1.056389 -2.69389,2.66453 l -3.10982,-9.952264 q 1.98446,-2.467905 4.77219,-4.091554 2.78773,-1.623649 5.46112,-2.098908 5.88983,-1.047055 9.14949,2.815221 3.30143,3.85485 3.39544,13.497193 l 0.20175,20.692328 z m -6.46776,1.854837 q -2.79871,0.497536 -4.69422,-0.787085 -1.89552,-1.284622 -2.88235,-3.788344 -0.98751,-2.574104 -1.01976,-5.882062 -0.0364,-3.730249 1.06608,-6.534888 1.10245,-2.804635 3.38685,-4.550319 2.32618,-1.753111 5.87679,-2.384313 l 4.76199,-0.846556 0.0748,7.671647 -3.25821,0.579222 q -1.50379,0.267333 -2.20567,1.238157 -0.6608,0.893019 -0.64502,2.511805 0.013,1.33726 0.60677,2.148265 0.63481,0.733195 1.67911,0.547547 0.96074,-0.170795 1.74618,-1.156473 0.82651,-1.063485 1.18393,-3.030634 l 1.25736,4.500247 q -0.50118,4.389843 -2.23501,6.813194 -1.73382,2.42335 -4.69962,2.95059 z"
+       id="path21"
+       style="font-weight:900;font-size:54.2686px;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Heavy';fill:#0e385e;fill-opacity:1;stroke-width:4.52237" />
+  </g>
+</svg>

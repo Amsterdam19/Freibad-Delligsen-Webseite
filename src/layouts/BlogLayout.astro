@@ -1,0 +1,55 @@
+---
+import MainLayout from "./MainLayout.astro";
+const { frontmatter } = Astro.props;
+const {title, date, description} = frontmatter;
+---
+
+<MainLayout titel={title} description={description}>
+    <div>
+        <h1>{title}</h1>
+        <time>{date}</time>
+        <p><slot/></p>
+    </div>
+</MainLayout>
+
+<style>
+    img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 16px;
+        border: var(--border-grey) 1px solid;
+    }
+    div {
+        color: #1f3952;
+        display: grid;
+        max-width: 800px;
+        width: 200vw;
+        height: fit-content;
+        gap: 30px;
+        background-color: white;
+        padding: 4%;
+        padding-bottom: 4%;
+        padding-bottom: 150px;
+        border-radius: 16px;
+        border: var(--border-grey) 1px solid;
+    }
+    h1 {
+        font-weight: 600;
+        line-height: 2.5rem;
+        font-size: 2rem;
+        max-width: 500px;
+    }
+    p {
+        text-align: justify;
+        max-width: 500px;
+    }
+    @media screen and (max-width: 1050px) {
+        div {
+            max-width: unset;
+            width: 100%;
+            border: none;
+            border-radius: 0;
+            gap: 20px;
+        }
+    }
+</style>

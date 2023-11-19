@@ -1,0 +1,125 @@
+---
+const { title, url, icon, current } = Astro.props;
+import { Icon } from "astro-icon";
+---
+
+<li class="fancy-li">
+  {
+    current === url ? (
+      <a class="navA active" href={"/" + url}>
+        <Icon name={icon} />
+        &nbsp;{title}
+      </a>
+    ) : (
+      <a class="navA" href={"/" + url}>
+        <Icon name={icon} />
+        &nbsp;{title}
+      </a>
+    )
+  }
+</li>
+
+<style>
+  li {
+    list-style: none;
+  }
+  li:hover a{
+    color: var(--primary);
+  }
+  .active,
+  .active:hover{
+    color: white !important;
+    background-color: var(--primary);
+  }
+  li:hover [astro-icon] {
+    fill: var(--primary);
+  }
+  .active [astro-icon] {
+    fill: white;
+  }
+  a {
+      /* no hyphens */
+  -moz-hyphens: none;
+  -o-hyphens: none;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+    display: flex;
+    flex-direction: row;
+    border-radius: var(--border-radius);
+    margin: 16px 5px;
+    padding: .7rem;
+    font-weight: 600;
+  font-size: 1.1rem;
+    color: var(--text);
+
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+  }
+  html.is-leaving .active {
+  }
+  [astro-icon] {
+    display: none;
+    fill: var(--text);
+    transition: all 0.2s ease-in-out;
+    width: 24px;
+    height: 24px;
+  }
+  @media screen and (max-width: 1270px) {
+    [astro-icon] {
+      max-width: unset;
+      display: block;
+    }
+  }
+  @media screen and (max-width: 1600px) {
+    a {
+      letter-spacing: 0px;
+    }
+  }
+  @media screen and (max-width: 1270px) {
+    li {
+      opacity: 0;
+    }
+    a {
+      margin-left: 24px;
+      border-radius: 16px;
+      align-items: center;
+      font-size: 22px;
+    }
+  }
+  @media screen and (max-width: 500px) {
+    li {
+      border-radius: 16px;
+      background-color: rgba(255, 255, 255, 0);
+      padding: 16px 16px;
+      width: min-content;
+      height: 60px;
+      opacity: 0;
+    }
+    a {
+      background-color: rgba(255, 255, 255, 0);
+      margin-left: 24px;
+      align-items: center;
+      font-size: x-large;
+      color: var(--text);
+    }
+  }
+  @media screen and (max-width: 400px) {
+    li {
+      background-color: rgba(255, 255, 255, 0);
+      padding: 16px 16px;
+      width: min-content;
+      height: 60px;
+      opacity: 0;
+    }
+
+    a {
+      background-color: rgba(255, 255, 255, 0);
+      margin-left: 24px;
+      padding: 16px, 16px;
+      border-radius: 16px;
+      align-items: center;
+      font-size: x-large;
+    }
+  }
+</style>
