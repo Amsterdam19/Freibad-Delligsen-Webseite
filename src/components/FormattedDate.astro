@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon";
+export interface Props {
+	date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+	<div>
+		<Icon name="IcRoundAccessTime" />
+		{
+			date.toLocaleDateString("de-de", {
+				year: "numeric",
+				month: "short",
+				day: "numeric",
+			})
+		}
+	</div>
+</time>
+<style>
+	div {
+		display: flex;
+		align-items: center;
+		gap: 2%;
+	}
+	[astro-icon] {
+		height: 1rem;
+		vertical-align: middle;
+		color: var(--accent);
+	}
+</style>

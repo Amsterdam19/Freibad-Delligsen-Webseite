@@ -1,0 +1,48 @@
+---
+import { Icon } from "astro-icon";
+const { url, txt } = Astro.props;
+---
+
+<a href={url} class="dontPrint">
+	<Icon name="IcRoundArrowBackIosNew" data-swup-transition="right" />
+	{txt}
+</a>
+<style>
+	@media print {
+		.dontPrint {
+			display: none;
+		}
+	}
+
+	a {
+		color: white;
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		min-width: 80px;
+		width: max-content;
+		height: 56px;
+		margin: 16px;
+		border-radius: var(--border-radius);
+		padding: 16px;
+		background-color: var(--primary);
+		transition: all 0.2s ease-in-out;
+		text-decoration: none;
+		font-weight: 600;
+		font-size: 20px;
+	}
+	a:hover {
+		opacity: 0.9;
+	}
+	a:hover [astro-icon] {
+		transform: rotate(90deg);
+		color: var(--accent);
+	}
+	[astro-icon="IcRoundArrowBackIosNew"] {
+		display: block;
+		width: 24px;
+		height: 24px;
+		margin-right: 16px;
+		transition: all 0.3s ease-in-out;
+	}
+</style>

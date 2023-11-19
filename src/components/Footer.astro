@@ -1,0 +1,155 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<footer class="footerDiv">
+  <div class="social">
+    <a class="a" href="/rss/" aria-label="Folgt uns via RSS"
+      ><div><Icon name="IcRoundRssFeed" /><span class="footerLink">RSS</span></div></a
+    >
+    <a
+      class="a"
+      target="_blank"
+      href="https://www.instagram.com/freibad_delligsen/"
+      aria-label="Folgt uns auf Instagram"
+      ><div><Icon name="instagram" /><span class="footerLink">Instagram</span></div></a
+    >
+    <a
+      class="a"
+      target="_blank"
+      href="https://www.facebook.com/Freibad.Delligsen/"
+      aria-label="Folgt uns auf Facebook"
+      ><div><Icon name="facebook" /><span class="footerLink">Facebook</span></div></a
+    >
+  </div>
+  <div class="link">
+    <a href="/impressum/">Impressum</a>
+    <a href="/documents/Datenschutzerklärung.pdf" target="_blank">Datenschutz</a
+    >
+    <a href="/ueber/">&Uuml;ber uns</a>
+  </div>
+  <p>
+    &copy; <span id="copyright"></span> F&ouml;rderverein Freibad Delligsen
+  </p>
+</footer>
+
+<script>
+  document.getElementById("copyright").textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>
+
+<style>
+  * {
+    /* hyphens */
+    -moz-hyphens: none;
+    -o-hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+  .footerLink {
+    font-size: 14pt;
+    color: color-mix(in oklab, var(--primary) 5%, white);
+    font-weight: 600;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    width: min-content;
+    margin-left: 16px;
+  }
+  @media screen and (min-width: 600px) {
+    @media (any-pointer: fine) {
+      a .footerLink {
+        width: 0;
+        margin: 0;
+      }
+      a:hover .footerLink {
+        width: 100px;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .social {
+      flex-direction: column;
+      align-items: center;
+    }
+    .a {
+      width: 200px;
+    }
+  }
+
+  a div {
+    height: 56px;
+    margin: 8px;
+    padding: 16px;
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-columns: 24px auto;
+    align-items: center;
+  }
+
+  [astro-icon] {
+    width: 24px;
+    height: 24px;
+    color: color-mix(in oklab, var(--primary) 5%, white);
+    fill: color-mix(in oklab, var(--primary) 5%, white);
+    transition: all 0.2s ease-in;
+  }
+
+  .footerDiv {
+    text-align: center;
+    margin: 1rem;
+    border-radius: var(--border-radius);
+    background-color: var(--secondary);
+    margin-top: 50px;
+  }
+
+  .social,
+  .link {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 5%;
+  }
+
+  .social {
+    display: flex;
+    justify-content: center;
+  }
+
+  .link a {
+    color: var(--text);
+    display: inline;
+    padding: 1rem;
+    font-size: 15pt;
+  }
+
+  p {
+    text-align: center;
+    width: 100%;
+    color: color-mix(in oklab, var(--accent), black);
+    font-size: larger;
+    padding: 1%;
+  }
+
+  @media screen and (min-width: 1000px) {
+    .social,
+    .link {
+      padding: 50px;
+    }
+    .social {
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      padding: 10px;
+    }
+  }
+</style>

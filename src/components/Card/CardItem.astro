@@ -1,0 +1,23 @@
+---
+const { titel, content } = Astro.props;
+---
+
+<div>
+    <p class="titel">{titel}</p>
+    <p>{content}</p>
+</div>
+
+<style>
+    div {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        width: 100%;
+        gap: 1rem;
+    }
+    .titel {
+        font-weight: 600;
+    }
+    p {
+        color: var(--text);
+    }
+</style>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="212mm"
+   height="160mm"
+   viewBox="0 0 212 160"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="./iPunkt.svg"
+   inkscape:export-xdpi="95.794289"
+   inkscape:export-ydpi="95.794289"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="false"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       d="m 123.3582,68.223552 q -3.13288,0.556943 -5.07498,-1.212927 -1.94208,-1.769871 -2.86252,-6.047996 -0.87868,-4.285551 -0.94593,-11.182995 -0.0666,-6.82706 0.80987,-11.35412 0.87575,-4.597439 2.77667,-7.050494 1.942,-2.530862 4.9078,-3.058102 3.00757,-0.534666 5.53721,1.412769 2.52964,1.947435 4.07734,6.184556 1.54701,4.166738 1.6074,10.36036 0.0604,6.193623 -1.39948,10.965408 -1.46054,4.701402 -3.94284,7.61033 -2.48298,2.838545 -5.49054,3.373211 z m -15.25357,2.006638 -0.50918,-52.223497 9.44043,-1.678257 0.18391,18.862395 -0.28048,14.150674 0.0954,14.083844 0.0508,5.208273 z m 12.87712,-13.992883 q 1.04429,-0.185647 1.87149,-1.178751 0.8272,-0.993104 1.31199,-2.771384 0.48411,-1.848662 0.46009,-4.312035 -0.0247,-2.533755 -0.54175,-4.063431 -0.51773,-1.60006 -1.36139,-2.296126 -0.84368,-0.696066 -1.88797,-0.510418 -1.0443,0.185648 -1.8715,1.178751 -0.8272,0.993102 -1.31199,2.771383 -0.48548,1.707899 -0.46078,4.241654 0.024,2.463372 0.54244,4.133812 0.51773,1.600059 1.3614,2.296127 0.84367,0.696066 1.88797,0.510418 z"
+       id="path20"
+       style="font-weight:900;font-size:54.2686px;font-family:Montserrat;-inkscape-font-specification:'Montserrat, Heavy';fill:#0e385e;fill-opacity:1;stroke-width:4.52237" />
+  </g>
+</svg>

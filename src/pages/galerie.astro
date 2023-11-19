@@ -1,0 +1,44 @@
+---
+import Grid from "../components/Grid.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import GalerieItem from "../components/Galerie/GalerieItem.astro";
+---
+
+<MainLayout titel="Galerie" description="Bildergalerie">
+    <Grid titel="Galerie">
+        <div class="gridGalerie">
+            <!--Spalte1 -->
+            <div class="column">
+                <GalerieItem img="Sprungturm" titel="Sprungturm" />
+                <GalerieItem img="Sprungturm2" titel="Das Becken" />
+                <GalerieItem img="Sonnenuntergang" titel="Abendstimmung" />
+                <GalerieItem img="3701" titel="Historische Ansicht Freibad Delligsen" />
+            </div>
+            <!--Spalte2 -->
+            <div class="column">
+                <GalerieItem img="Marathonschwimmen_2022-08-13" titel="Marathonschwimmen 2022" />
+                <GalerieItem img="IMG-20220507-WA0005" titel="Lichtkunst" />
+                <GalerieItem img="IMG-20220507-WA0027" titel="Lichtkunst" />
+                <GalerieItem img="Trabantentreffen_2022-08-13" titel="Trabantentreffen 2022" />
+            </div>
+        </div>
+    </Grid>
+</MainLayout>
+<style>
+    .gridGalerie {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .column {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    @media only screen and (max-width: 800px) {
+        .gridGalerie {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

@@ -1,0 +1,46 @@
+---
+// component imports
+import Link from "./Link.astro";
+
+const { prevUrl, nextUrl, currentPage, totalPage } = Astro.props;
+const prev = currentPage > 1 ? "" : "disabled";
+const next = currentPage < totalPage ? "" : "disabled";
+---
+
+<nav aria-label="Blog pages">
+      <Link
+        disabled={prev === "disabled"}
+        text="Zurück"
+        href={prevUrl}
+        ariaLabel="Zurück"
+        icon={{
+          name: "IcRoundArrowBack",
+          side: "left",
+        }}
+      />
+    
+  
+      <Link
+        disabled={next === "disabled"}
+        text="Weiter"
+        href={nextUrl}
+        ariaLabel="Weiter"
+        icon={{
+          name: "IcRoundArrowForward",
+          side: "right",
+        }}
+      />
+    
+  
+</nav>
+<p>Seite {currentPage} von {totalPage}</p>
+
+<style>
+    nav {
+        display: flex;
+        justify-content: center;
+    }
+    p {
+        text-align: center;
+    }
+</style>

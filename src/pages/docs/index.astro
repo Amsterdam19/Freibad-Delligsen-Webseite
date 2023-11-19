@@ -1,0 +1,40 @@
+---
+import Grid from "../../components/Grid.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+
+---
+
+<MainLayout titel="Dokumentation">
+    <Grid titel="Dokumentation">
+        <ul>
+            <li><a href="/docs/blog">Blogersteller</a></li>
+            <li><a href="/docs/node">Entwicklungsumgebung einrichten</a></li>
+            <li><a href="/docs/build">Webseite bauen</a></li>
+            <li><a href="/docs/upload">Webseite hochladen/ veröffentlichen</a></li>
+        </ul>
+    </Grid>
+</MainLayout>
+
+<style>
+    ul {
+        list-style: inside;
+        color: var(--main-color);
+        height: min-content;
+        padding: 4rem;
+        background-color: white;
+        border-radius: 16px;
+    }
+    li {
+        background-color: white;
+        margin: 16px;
+        padding: 16px;
+        border-radius: 16px;
+    }
+    li:hover {
+        background-color: var(--light-blue);
+    }
+    a {
+        text-decoration: none;
+        color: var(--main-color);
+    }
+</style>

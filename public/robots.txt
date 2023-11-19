@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+User-agent: *
+Disallow: /images/
+Disallow: /fonts/
+Disallow: /docs/
+Disallow: /documents/
+Disallow: /_astro/
+Disallow: /index_old/
+Disallow: /svg/
+
+Sitemap: http://freibad-delligsen.de/sitemap-index.xml

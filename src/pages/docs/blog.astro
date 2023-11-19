@@ -1,0 +1,401 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import InputField from "../../components/docs/InputField.astro";
+import { Icon } from "astro-icon";
+import Grid from "../../components/Grid.astro";
+import Back from "../../components/Back.astro";
+import Banner from "../../components/Banner.astro";
+---
+
+<MainLayout titel="Blog Ersteller">
+  <h1>Blog Ersteller</h1>
+  <div class="grid">
+    <!--Sektion -->
+    <section>
+      <a href="#woiwas" style="position: absolute; right: 56px;"
+        ><Icon name="IcRoundManageSearch" /><span style="font-size: 28px;"
+          >Wo ist was?</span
+        ></a
+      >
+      <h2>Pflichtfelder</h2>
+      <InputField inputName="Titel*" inputID="title" inputType="text" />
+      <hr />
+      <InputField
+        inputName="Beschreibung*"
+        inputID="description"
+        inputType="text"
+        inputHeight="200px"
+      />
+      <hr />
+      <InputField
+        inputName="Erstellungsdatum*"
+        inputID="pubDate"
+        inputType="date"
+      />
+      <hr />
+      <InputField
+        inputName="Bild*"
+        inputID="src"
+        inputType="file"
+        inputAccept="image/*"
+      />
+      <div id="imgPreview" style="width: 100%; justify-items: center;">
+        Bitte Bild auswählen.
+      </div>
+    </section>
+    <Banner bg_color="error" icon="IcRoundHideImage" title="Bildgröße beachten">
+      Bitte verwenden Sie keine Bilder, die größer als 5 MiB groß sind. Falls
+      doch komprimerien Sie sie zuvor (z.B. mit <a
+        href="https://f-droid.org/de/packages/ru.tech.imageresizershrinker/"
+        target="_blank">Image Resizer</a
+      >).
+    </Banner>
+    <!--Sektion -->
+    <section>
+      <div class="tgrid">
+        <div>
+          <h2>Tipps</h2>
+          <table>
+            <tr>
+              <th>Formatierung</th>
+              <th>Syntax</th>
+            </tr>
+            <tr>
+              <td>Überschrift</td>
+              <td>## Überschrift</td>
+            </tr>
+            <tr>
+              <td>Fett</td>
+              <td>**fettgedruckter Text**</td>
+            </tr>
+            <tr>
+              <td>Kursiv</td>
+              <td>*Kursiv gedruckter Text*</td>
+            </tr>
+            <tr>
+              <td>geordnete Aufzählung</td>
+              <td
+                >1. erstes Element <br />
+                2. zweites Element <br />
+                3. drittes Element</td
+              >
+            </tr>
+            <tr>
+              <td>Stichpunktaufzählung</td>
+              <td
+                >- erstes Element <br />
+                - zweites Element <br />
+                - drittes Element</td
+              >
+            </tr>
+            <tr>
+              <td>Link</td>
+              <td>[Titel der Webseite](https://www.example.com)</td>
+            </tr>
+          </table>
+          <a
+            style="display:block; text-align:end; width: 95%;"
+            href="https://www.markdownguide.org/cheat-sheet">mehr</a
+          >
+          <h2>Blogeintrag/Artikel</h2>
+          <textarea
+            name="article"
+            id="article"
+            cols="30"
+            rows="20"
+            style="width: 100%"></textarea>
+        </div>
+        <div style="display: grid; gap: 16px; height: fit-content;">
+          <h2>Bild innerhalb des Artikels einfügen?</h2>
+          <InputField
+            inputName="Bildtitel"
+            inputID="imgTitle"
+            inputType="text"
+          />
+          <InputField
+            inputName="Bild"
+            inputID="imgSrc"
+            inputType="file"
+            inputAccept="image/*"
+          />
+          <div id="previewTool" style="width: 100%; justify-items: center;">
+            Bitte Bild auswählen
+          </div>
+          <button id="genButton">gen</button>
+          <p>
+            Kopieren Sie den generierten Code und fügen ihn im Artikel an der
+            gewünschten Stelle wieder ein.
+          </p>
+          <code class="code" id="output"></code>
+        </div>
+      </div>
+    </section>
+    <!--Sektion -->
+    <section>
+      <Grid titel="Anleitung">
+        <ol style="max-width: 700px;">
+          <li style="padding:16px">Alle Pflichtfelder ausfüllen.</li>
+          <li style="padding:16px">
+            Entwicklungsumgebung einrichten <a href="/docs/node"
+              ><Icon name="IcRoundLink" /></a
+            >
+          </li>
+          <li style="padding: 16px;">
+            <button id="genMDX">Artikel generieren und herunterladen</button>
+          </li>
+          <li style="padding: 16px;">
+            Die heruntergeladene Datei <code id="dateiName">"titel".mdx</code> im
+            Ordner in den Unterordner <code>src/content/neues</code> verschieben.
+          </li>
+          <li style="padding: 16px;">
+            Sowohl das zu Beginn ausgewählte Bild als auch alle eingefügten
+            Bilder im Ordner in den Unterordner <code id="dateiImgPath"
+              >/Pfad/zu/Bilderordner</code
+            > kopieren.
+            <br />(Insofern der Ordner nicht existiert, ist er anzulegen).
+          </li>
+          <li style="padding:16px">
+            Webseite bauen<a href="/docs/build"><Icon name="IcRoundLink" /></a>
+          </li>
+          <li style="padding:16px">
+            Webseite hochladen <a href="/docs/upload"
+              ><Icon name="IcRoundLink" /></a
+            >
+          </li>
+        </ol>
+      </Grid>
+    </section>
+  </div>
+  <!--Sektion -->
+  <section id="woiwas">
+    <div style="max-width: 1400px; margin: auto;">
+      <h2>Wo ist was?</h2>
+      <hr />
+      <Grid titel="Übersicht">
+        <Icon name="neues" />
+      </Grid>
+      <hr />
+      <Grid titel="Blogeintrag">
+        <Icon name="blog" />
+      </Grid>
+    </div>
+  </section>
+  <Back url="/docs/" txt="Übersicht" />
+</MainLayout>
+
+<style>
+  * {
+    color: var(--text);
+  }
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  h1,
+  h2 {
+    text-align: center;
+    margin: 32px;
+  }
+  h1 {
+    width: fit-content;
+    margin-inline: auto;
+    background: linear-gradient(120deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  hr {
+    width: 800px;
+    margin-inline: auto;
+  }
+  .grid {
+    display: grid;
+    gap: 50px;
+    margin: 2%;
+  }
+  .code {
+    padding: 16px;
+    color: rgb(0, 43, 54);
+    background-color: rgb(253, 246, 227);
+    border-radius: 16px;
+  }
+  code {
+    background-color: gainsboro;
+    padding-inline: 16px;
+    border-radius: 16px;
+  }
+  .tgrid {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: 3fr 1fr;
+  }
+  section {
+    display: grid;
+    gap: 16px;
+    background-color: var(--article);
+    border: 1px solid var(--border-grey);
+    border-radius: 16px;
+    padding: 16px;
+  }
+  [astro-icon="IcRoundLink"] {
+    color: var(--text);
+    display: inline-block;
+    height: 24px;
+    vertical-align: bottom;
+    font-size: 24px !important;
+  }
+  [astro-icon="IcRoundManageSearch"] {
+    color: var(--text);
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    height: 48px;
+    vertical-align: bottom;
+    font-size: 48px !important;
+  }
+</style>
+<script>
+  //Prevent reload
+  window.addEventListener("beforeunload", (event) => {
+    event.returnValue = `Are you sure you want to leave?`;
+  });
+
+  const chooseFile = document.getElementById("src");
+  const imgPreview = document.getElementById("imgPreview");
+  chooseFile.addEventListener("change", function () {
+    getImgPreview(chooseFile, imgPreview, "previewID", "imgPreview");
+  });
+
+  const chooseTool = document.getElementById("imgSrc");
+  const previewTool = document.getElementById("previewTool");
+  chooseTool.addEventListener("change", function () {
+    getImgPreview(chooseTool, previewTool, "previewImg", "previewTool");
+  });
+  function getImgPreview(file, preview, id, divID) {
+    const files = file.files[0];
+    if (files) {
+      document.getElementById(divID).innerHTML = "";
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(files);
+      fileReader.addEventListener("load", function () {
+        preview.style.display = "grid";
+        preview.innerHTML = '<img src="' + this.result + '" id="' + id + '" />';
+      });
+    }
+  }
+
+  function getImgWidth(imgID) {
+    return document.getElementById(imgID).naturalWidth;
+  }
+  function getImgHeigth(imgID) {
+    return document.getElementById(imgID).naturalHeight;
+  }
+
+  const genButton = document.getElementById("genButton");
+  genButton.addEventListener("click", generateTool);
+  function generateTool() {
+    const imgName = document.getElementById("imgSrc").files[0].name;
+    const imgTitle = document.getElementById("imgTitle").value;
+    let width = getImgWidth("previewImg");
+    let heigth = getImgHeigth("previewImg");
+    let year = new Date().getFullYear().toString();
+    let title = document.getElementById("title").value;
+    console.log(width);
+    console.log(heigth);
+
+    const output = document.getElementById("output");
+    output.innerHTML =
+      '&lt;BlogImage src="/images/' +
+      year +
+      "/" +
+      title +
+      "/" +
+      imgName +
+      '" alt="' +
+      imgTitle +
+      '" width="' +
+      width +
+      '" height="' +
+      heigth +
+      '"/&gt;';
+  }
+
+  //mdx
+  const genMDX = document.getElementById("genMDX");
+  genMDX.addEventListener("click", mdxGen);
+  function mdxGen() {
+    const title = document.getElementById("title").value;
+    const description = document.getElementById("description").value;
+    const pubDate = document.getElementById("pubDate").value;
+    let year = new Date().getFullYear().toString();
+    const src =
+      "/images/" +
+      year +
+      "/" +
+      title +
+      "/" +
+      document.getElementById("src").files[0].name;
+    let width = getImgWidth("previewID");
+    let heigth = getImgHeigth("previewID");
+    const article = document.getElementById("article").value;
+    let mdx =
+      "---" +
+      "\n" +
+      'title: "' +
+      title +
+      '"' +
+      "\n" +
+      'description: "' +
+      description +
+      '"' +
+      "\n" +
+      'pubDate: "' +
+      pubDate +
+      '"' +
+      "\n" +
+      'src: "' +
+      src +
+      '"' +
+      "\n" +
+      'width: "' +
+      width +
+      '"' +
+      "\n" +
+      'height: "' +
+      heigth +
+      '"' +
+      '\n---\nimport BlogImage from "../../components/Neues/BlogImage.astro";\n\n' +
+      article;
+
+    //Download
+    const htmlName = title + ".mdx";
+    const blob = new Blob([mdx], { type: "text/mdx" });
+    const url = URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.setAttribute("href", url);
+    anchor.setAttribute("download", htmlName); // set the file name
+    anchor.style.display = "none";
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor);
+
+    //Anleitung
+    const fileName = document.getElementById("dateiName");
+    const fileImgPath = document.getElementById("dateiImgPath");
+    fileName.innerHTML = htmlName;
+    fileImgPath.innerHTML = "/images/" + year + "/" + title + "/";
+  }
+</script>

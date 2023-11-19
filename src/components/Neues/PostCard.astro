@@ -1,0 +1,141 @@
+---
+import FormattedDate from "../FormattedDate.astro";
+import BlogImage from './BlogImage.astro';
+const { img, titel, pubDate, description, href, width, height } = Astro.props;
+---
+
+<div class="grid">
+    <div>
+        {
+            width && (
+            <BlogImage src={img} alt={img} width={width} height={height} radius="none"/>
+            )
+        }
+    </div>
+    <div class="description">
+        <h2>{titel}</h2>
+        <small><FormattedDate date={pubDate} /></small>
+        <div class="p">
+            <p>{description}</p>
+        </div>
+        <div class="rightAlign">
+            <a href={href} data-swup-transition="left">
+                <button aria-label="Mehr">
+                    <span>mehr </span>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+<style>
+    .grid {
+        margin: 5%;
+        width: 90%;
+        max-width: 1400px;
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2),
+            0 3px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .description {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        color: var(--text);
+        padding: 2rem;
+        align-content: space-between;
+    }
+    h2 {
+        font-weight: 600;
+        line-height: 2.25rem;
+        height: 5rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .rightAlign {
+        display: grid;
+        justify-content: flex-end;
+        align-content: flex-end;
+    }
+    .rightAlign a {
+        height: fit-content;
+    }
+    button {
+        height: 56px;
+        border: none;
+        border-radius: var(--border-radius);
+        background-color: var(--primary);
+        display: inline-block;
+        color: white;
+        font-size: 24px;
+        width: 160px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+    }
+    button:hover {
+        background-color: var(--primary);
+        color: aliceblue;
+    }
+    span {
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        text-align: center;
+        padding-left: 25px;
+    }
+    span::after {
+        content: "➜";
+        opacity: 0;
+        transition: 0.3s;
+    }
+    button:hover span {
+        padding-right: 20px;
+    }
+
+    button:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+
+    button:active {
+        background-color: var(--accent-color);
+        box-shadow: 2px 2px 3px #e9ebec;
+    }
+    .p > p{
+        line-height: 1.8rem;
+        height: 5.4rem;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+    }
+    @media screen and (max-width: 720px) {
+        .grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: 300px auto auto;
+            gap: 2.5%;
+            margin: 1rem;
+            width: 100%;
+        }
+        .button {
+            margin-right: 10%;
+        }
+    }
+    @media (width > 740px) {
+            .grid > div:first-child {
+                height: 100%;
+            }
+        }
+    
+</style>

@@ -1,0 +1,22 @@
+---
+const { titel, content } = Astro.props;
+---
+
+<div>
+    <h4 class="bolt">{titel}:</h4>
+    <p>{content}</p>
+</div>
+
+<style>
+    div {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        margin-block: 4rem;
+        gap: 1em;
+    }
+    @media screen and (max-width: 500px) {
+        div {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>

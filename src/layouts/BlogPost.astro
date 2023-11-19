@@ -1,0 +1,100 @@
+---
+import type { CollectionEntry } from "astro:content";
+import FormattedDate from "../components/FormattedDate.astro";
+import BlogImage from "../components/Neues/BlogImage.astro";
+import MainLayout from "./MainLayout.astro";
+import { Icon } from "astro-icon";
+import Back from "../components/Back.astro";
+
+type Props = CollectionEntry<"neues">["data"];
+
+const {
+  title,
+  description,
+  pubDate,
+  updatedDate,
+  src,
+  width,
+  height,
+} = Astro.props;
+---
+
+<MainLayout titel={title} description={description}>
+  <main class="transition-main">
+    <article>
+      <div class="content">
+        <div>
+          <h1 class="title">{title}</h1>
+          <FormattedDate date={pubDate} />
+          {
+            updatedDate && (
+              <div class="last-updated-on">
+                Last updated on <FormattedDate date={updatedDate} />
+              </div>
+            )
+          }
+        </div>
+
+        {
+          src && (
+            <BlogImage
+              src={src}
+              alt={src}
+              width={width}
+              height={height}
+            />
+          )
+        }
+        <div class="slot">
+          <slot />
+        </div>
+      </div>
+      <Back url="/neues" txt="Übersicht" />
+    </article>
+  </main>
+</MainLayout>
+<style>
+  main {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+  }
+  .button {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .content {
+    color: var(--text);
+    max-width: 600px;
+    display: grid;
+    gap: 3rem;
+  }
+  .content div {
+    display: grid;
+    gap: 20px;
+  }
+  .slot {
+    text-align: justify;
+  }
+  article {
+    color: var(--text);
+    display: grid;
+    justify-content: center;
+    max-width: 800px;
+    width: 200vw;
+    height: fit-content;
+    gap: 30px;
+    padding: 4%;
+    border-radius: var(--border-radius);
+    border: var(--border-grey) 1px solid;
+  }
+  @media screen and (max-width: 1050px) {
+    article {
+      margin: 2%;
+      gap: 20px;
+    }
+    main {
+      padding-top: 0;
+    }
+  }
+</style>
