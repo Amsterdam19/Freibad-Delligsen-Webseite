@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" title="style" />
+    <link rel="stylesheet" type="text/css" href="css/zeiten.css" />
+    <link
+      href="/node_modules/material-icons/iconfont/material-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="Bilder/freibadicon.svg" />
+    <link href="/node_modules/material-symbols/index.css" rel="stylesheet" />
+
+    <title>&Ouml;ffnungszeiten</title>
+    <style>
+      body {
+        background-color: aliceblue;
+        background-image: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!--Navigationsleiste-->
+    <nav>
+      <a class="noLink" href="../index.html">
+        <div class="logo">
+          <img src="../Bilder/freibadLogo.webp" alt="logo" />
+          <h4>Freibad Delligsen</h4>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li>
+          <a href="index.html">
+            <div class="navImgDiv home"></div>
+            &nbsp;Startseite
+          </a>
+        </li>
+        <li>
+          <a class="active" href="#">
+            <div class="navImgDiv time"></div>
+            &nbsp;&Ouml;ffnungszeiten
+          </a>
+        </li>
+        <li>
+          <a href="preise.html">
+            <div class="navImgDiv pay"></div>
+            &nbsp;Eintrittspreise
+          </a>
+        </li>
+        <li>
+          <a href="veranstalungen.html">
+            <div class="navImgDiv date"></div>
+            &nbsp;Veranstaltungen
+          </a>
+        </li>
+        <li>
+          <a href="neues.html">
+            <div class="navImgDiv news"></div>
+            &nbsp;Neuigkeiten
+          </a>
+        </li>
+        <li>
+          <a href="galerie.html">
+            <div class="navImgDiv galerie"></div>
+            &nbsp;Galerie
+          </a>
+        </li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <div class="top_div"></div>
+    <!--
+    <div class="banner">
+        <i class="material-icons-round">warning</i>
+            Bei schlechtem Wetter kann die Badezeit fr&uuml;her enden !!!
+    </div>
+   -->
+    <div class="banner">
+      <h2>Geänderte Öffnungszeiten Freibad Delligsen</h2>
+      <br>
+      <p>
+        Der Vorstand des Freibades Delligsen gibt temporär geänderte
+        Öffnungszeiten bekannt. Ab Mittwoch, den 02.August bis voraussichtlich
+        Mittwoch, den 09. August gelten für das Freibad Delligsen folgende
+        Zeiten: Am Vormittag von <b>10 bis 12 Uhr</b> und am Abend von <b>18 bis 20 Uhr</b>.
+        Grund für die verkürzten Öffnungszeiten ist die schlechte Wetterprognose
+        und die daraus folgend ausbleibenden Badegäste. Aktuelle Öffnungszeiten
+        sind im Internet oder unter der Telefonnummer 05187/303857 zu erhalten.
+      </p>
+    </div>
+
+    <div class="centerDiv">
+      <div class="grid">
+        <h1 class="titelGrid">Öffnungszeiten</h1>
+        <div class="flexbox">
+          <div class="item">
+            <div class="title">In der Schulzeit</div>
+            <div class="content">
+              <div>
+                <p>Montag bis Freitag</p>
+                <p>Samstag und Sonntag sowie feiertags</p>
+              </div>
+              <div>
+                <p>15:00 - 20:00 Uhr</p>
+                <p>10:00 - 20:00 Uhr</p>
+              </div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="title">In den Sommerferien*</div>
+            <div class="content">
+              <div>
+                <p>Montag bis Sonntag sowie feiertags</p>
+              </div>
+              <div>
+                <p>10:00 - 20:00 Uhr</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p class="zeitenLink">
+      *
+      <a
+        target="_blank"
+        href="https://www.schulferien.org/deutschland/ferien/sommer/niedersachsen/"
+      >
+        &#128279; Sommerferien Niedersachsen
+      </a>
+    </p>
+
+    <!-- Countdown
+    <div class="banner" id="saison" style="margin-top: 80px;">
+        <h2>Saisonbeginn</h2><br>
+        Der Saisonbeginn ist am 27. Mai 2023.<br>Nur noch <strong id="countdownField"></strong></div>
+    -->
+
+    <!--Countdown
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("May 27, 2023 10:00:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("countdownField").innerHTML = days + " Tage " + hours + " Stunden "
+  + minutes + " Minuten und " + seconds + " Sekunden.";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+-->
+
+    <div class="footerDiv">
+      <div>
+        <a href="impressum.html">Impressum</a>
+        <a href="Dokumente/Datenschutzerklärung.pdf">Datenschutz</a>
+        <a href="ueber.html">&Uuml;ber uns</a>
+      </div>
+      <p>&copy; F&ouml;rderverein Freibad Delligsen</p>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+:root {
+  --navbar-height: 12vh;
+  --main-color: #2E577E;
+  --accent-color: #2E577E;
+  --light-blue: #D1E8F7;
+  --lighter-blue: #F1FAFF;
+  --border-grey: #cecece63;
+}
+
+
+h2 {
+  color: var(--accent-color);
+}
+
+.container {
+  margin: 5%;
+  margin-left: 7.5%;
+  margin-right: 7.5%;
+  width: 80%;
+  max-width: 1600px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4%;
+  padding: 2%;
+  background-color: white;
+  border-radius: 16px;
+  border-color: var(--border-grey);
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.container img {
+  width: 100%;
+  border-radius: 4%;
+}
+
+.container picture {
+  width: 100%;
+  border-radius: 4%;
+}
+
+.pictureDiv {
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.noButtonDescription p {
+  margin-bottom: 20px;
+}
+
+.noButtonDescription {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1.5fr;
+  gap: 4%;
+}
+
+.centerDiv {
+  height: calc(100% - 2 * var(--navbar-height));
+}
+
+
+.termine {
+  max-width: 1000px;
+  width: 100%;
+}
+
+.termineGrid {
+  transition: transform .2s;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.termineDatumGrid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  margin-left: 16px;
+}
+
+.termineDatumGrid div{
+  color: var(--accent-color);
+}
+
+.termineCard {
+  background-color: white;
+  border-radius: 16px;
+  border-color: var(--border-grey);
+  border-width: 2px;
+  border-style: solid;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 2%;
+  margin: 5%;
+  margin-left: 10%;
+  margin-right: 10%;
+  width: 80%;
+  max-width: 1400px;
+}
+
+.termineDatum {
+  font-weight: 300;
+    display: flex;
+  flex-direction: row;
+}
+
+.termineDatum h1 {
+  font-size: 30pt;
+  font-weight: 300;
+}
+
+.termineDatum p {
+  color: var(--accent-color);
+  font-weight: bold;
+  font-size: 30pt;
+  font-weight: 700;
+}
+
+.termineTitel {
+  width: 100%;
+}
+
+.titel {
+  margin: 5%;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 300;
+}
+
+.strich {
+  width: 96%;
+  margin: 2%;
+  height: 2px;
+  background-color: var(--accent-color);
+}
+
+@media screen and (max-width: 1050px) {
+  .container {
+    margin: 1.5%;
+    margin-top: 5%;
+    width: 97%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.7fr 1fr;
+    gap: 2.5%;
+    padding: 5%;
+    margin: 4%;
+    width: 92%;
+  }
+
+  .containerContent {
+    margin-bottom: 50px;
+  }
+
+  .termineGrid {
+    gap: 1%;
+  }
+
+  .termineCard {
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    gap: 2.5%;
+    padding: 5%;
+    margin: 4%;
+    width: 92%;
+  }
+
+  .noButtonDescription {
+    grid-template-rows: auto 1fr;
+    gap: 1%;
+  }
+
+  .termineGrid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr 2fr;
+  }
+
+  .termineDatum {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .termineTitel {
+    padding-top: 10px;
+    text-align: center;
+    font-size: larger;
+  }
+}

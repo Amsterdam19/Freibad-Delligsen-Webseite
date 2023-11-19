@@ -1,0 +1,811 @@
+:root {
+    --navbar-height: 12vh;
+    --navbar-height: 12svh;
+    --main-color: #2E577E;
+    --accent-color: #2E577E;
+    --light-blue: #D1E8F7;
+    --lighter-blue: #F1FAFF;
+    --border-grey: #cecece63;
+    --accent-color3: #F3E99F;
+    --accent-color4: #FF6D60;
+    --filter-blue: brightness(0) saturate(100%) invert(31%) sepia(35%) saturate(727%) hue-rotate(168deg) brightness(92%) contrast(97%);
+    --filter-white: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(45deg) brightness(109%) contrast(101%);
+    --filter-light-blue: brightness(0) saturate(100%) invert(90%) sepia(11%) saturate(420%) hue-rotate(166deg) brightness(100%) contrast(94%);
+    --nav-bg-color: #ffffffe7;
+    --nav-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.548);
+    --bg-color: white;
+    --accent-color2: brown;
+    --drop-filter: drop-shadow(0 0 1rem var(--main-color));
+    --box-shaddow: inset 0 -120px 120px -120px black, inset 0 -120px 120px -100px black;
+}
+
+@font-face {
+    font-family: "Monteserrat";
+    font-display: swap;
+    src: url(fonts/Monteserrat/Montserrat-VariableFont_wght.ttf);
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Monteserrat';
+}
+
+img,
+svg {
+    display: block;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-repeat: no-repeat;
+    background-image: url(Bilder/seitenansichtold.jpeg);
+    background-attachment: fixed;
+    background-size: cover;
+    -webkit-background-size: cover;
+    min-height: 100lvh;
+    min-width: 100lvw;
+}
+
+/*iosFix
+@supports (-webkit-touch-callout: none) {
+    body {
+        background-attachment: scroll;
+    }
+}
+*/
+
+nav {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--nav-bg-color);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    min-height: 12vh;
+    max-height: 10px;
+    transition: all 0.3s ease-in;
+    box-shadow: var(--nav-shadow);
+}
+
+.noLink {
+    text-decoration: none;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo img {
+    width: 50px;
+}
+
+.logo h4 {
+    color: var(--accent-color);
+    font-size: large;
+    margin-left: 16px;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-around;
+    width: 30%;
+    transition: all 0.3s ease;
+}
+
+.nav-links li {
+    list-style: none;
+}
+
+.nav-links a {
+
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    margin: 16px 5px;
+    padding: 12px 16px;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    list-style: none;
+    border-radius: 12px;
+    color: #fff;
+    background-color: var(--accent-color);
+    padding: 12px 20px;
+    box-shadow: var(--nav-shadow);
+}
+
+.burger {
+    display: none;
+    cursor: pointer;
+}
+
+.burger div {
+    width: 25px;
+    height: 5px;
+    background-color: var(--accent-color);
+    margin: 3px;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.top_div {
+    width: 100%;
+    height: var(--navbar-height);
+}
+
+@media screen and (max-width:1600px) {
+    .nav-links {
+        width: 60%;
+    }
+
+    .nav-links a {
+        color: #2e577e;
+        text-decoration: none;
+        letter-spacing: 0px;
+        font-size: medium;
+    }
+
+}
+
+@media screen and (max-width:1270px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    nav {
+        min-height: 10vh;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 88vh;
+        top: 11vh;
+        bottom: 1vh;
+        background-color: white;
+        border-top-left-radius: 40px;
+        border-end-start-radius: 40px;
+        box-shadow: var(--border-grey);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 300px;
+        box-shadow: var(--nav-shadow);
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav-links li {
+        list-style: none;
+        opacity: 0;
+    }
+
+    .nav-links a {
+        background-color: var(--light-blue);
+        margin-left: 24px;
+        padding: 16px, 16px;
+        border-radius: 16px;
+        align-items: center;
+        font-size: 22px;
+        color: var(--accent-color);
+    }
+
+    .burger {
+        display: block;
+    }
+}
+
+@media screen and (max-width:500px) {
+
+    body {
+        background-repeat: no-repeat;
+        background-image: url(Bilder/Marathonschwimmen_2022-08-13.webp);
+        background-size: auto 100vh;
+        -webkit-background-size: auto 100vh;
+        background-position-x: center;
+    }
+
+    nav {
+        min-height: 8vh;
+    }
+
+
+    .nav-links {
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: white;
+        border-radius: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        box-shadow: none;
+        transform: translateX(100%);
+        transition: transform 0.25s ease-in;
+        padding-bottom: 8vh;
+    }
+
+    .nav-links li {
+        list-style: none;
+        border-radius: 16px;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 16px 16px;
+        width: min-content;
+        height: 60px;
+        opacity: 0;
+    }
+
+    .nav-links a {
+        background-color: rgba(255, 255, 255, 0);
+        margin-left: 24px;
+        padding: 16px, 16px;
+        border-radius: 16px;
+        align-items: center;
+        font-size: x-large;
+        color: var(--accent-color);
+    }
+}
+
+@media screen and (max-width:400px) {
+
+    .logo img {
+        visibility: hidden;
+        width: 0px;
+    }
+
+    .logo h4 {
+        margin: 0px;
+    }
+
+    nav {
+        min-height: 8vh;
+    }
+
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        border-radius: 0px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    .nav-links li {
+        list-style: none;
+        background-color: rgba(255, 255, 255, 0);
+        padding: 16px 16px;
+        width: min-content;
+        height: 60px;
+        opacity: 0;
+    }
+
+    .nav-links a {
+        background-color: rgba(255, 255, 255, 0);
+        margin-left: 24px;
+        padding: 16px, 16px;
+        border-radius: 16px;
+        align-items: center;
+        font-size: x-large;
+        color: var(--accent-color);
+    }
+}
+
+@media screen and (max-width: 1050px) {
+    .contentDiv {
+        margin-top: 9vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .contentDiv {
+        margin-top: 8vh;
+    }
+}
+
+/* Footer */
+footer {
+    background-color: #282828;
+    margin-top: 2%;
+    position: relative;
+    height: 200px;
+    color: white;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footerdivMain {
+    max-height: 100px;
+}
+
+.footerdiv {
+    text-align: center;
+    max-width: 700px;
+    padding: 5%;
+    margin: auto;
+}
+
+footer a {
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.footerDiv img {
+    width: 48px;
+    height: 48px;
+    margin: 12px;
+    padding: 5px;
+    filter: var(--filter-white);
+}
+
+footer p {
+    text-align: center;
+    width: 100%;
+    background-color: aliceblue;
+    color: #477491;
+    font-size: larger;
+    padding: 1%;
+}
+
+
+/* Menu Animationen */
+
+.nav-active {
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Blog */
+
+.centerDiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 12vh;
+}
+
+.impressumGrid {
+    width: 96%;
+    max-width: 2000px;
+    height: fit-content;
+    margin: 4%;
+    margin-top: 0;
+    padding-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.7fr auto 1fr;
+    gap: 2%;
+    grid-template-areas: "titel titel" "left right" "info info";
+}
+
+.gridTitel {
+    grid-area: titel;
+    min-height: 100px;
+
+}
+
+.titellh1 {
+    margin-left: 4%;
+    font-family: "Monteserrat";
+    font-weight: 300;
+    font-size: xx-large;
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.bolt {
+    font-weight: bold;
+}
+
+.containerGrid_left {
+    grid-area: left;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 50px 50px 50px 50px 50px 50px;
+    gap: 20px;
+}
+
+.containerGrid_right {
+    grid-area: right;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 50px 50px 50px 50px;
+    gap: 20px;
+}
+
+.gridInfo {
+    margin-top: 20px;
+    grid-area: info;
+    width: 96%;
+}
+
+@media screen and (max-width: 900px) {
+    .impressumGrid {
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.7fr auto auto 400px;
+        grid-template-areas: "titel" "left" "right" "info";
+    }
+
+    .gridInfo {
+        height: 120%;
+    }
+
+}
+
+@media screen and (max-width: 500px) {
+    .containerGrid_left {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr 2.5fr 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
+        gap: 10px;
+    }
+
+    .containerGrid_right {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr 2fr 1fr 2fr 1fr 2fr;
+        gap: 20px;
+    }
+}
+
+.divContent {
+    grid-area: contentGrid;
+}
+
+.contentGrid {
+    width: 88%;
+    max-width: 1600px;
+    margin: 4%;
+    padding-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+.preiseGrid_card {
+    padding: 16px;
+    border-radius: 16px;
+    background-color: var(--light-blue);
+    display: grid;
+    height: fit-content;
+    width: 100%;
+    grid-template-columns: 4fr 65px;
+    grid-template-rows: 90px 90px 90px;
+    gap: 20px;
+}
+
+.Grid_titel {
+    font-family: "Monteserrat";
+    font-weight: 300;
+    text-align: center;
+    font-size: xx-large;
+    margin-top: 7.5px;
+}
+
+.preiseGrid_item {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 16px;
+    margin: 5%;
+    border-radius: 16px;
+    max-width: 500px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70px max-content;
+}
+
+.titelGrid {
+    grid-area: titelGrid;
+    margin-left: 6%;
+    font-family: "Monteserrat";
+    font-weight: 300;
+    font-size: xx-large;
+    height: 100%;
+    align-items: center;
+    display: flex;
+    max-height: 90vh;
+}
+
+.grid {
+    max-width: 100%;
+    width: 100%;
+    min-height: max-content;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "titelGrid contentGrid";
+}
+
+@media screen and (max-width: 1430px) {
+    .preiseGrid {
+        mask-type: 0px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: "tag abend" "jahr";
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+        grid-template-areas: "titelGrid" "contentGrid";
+    }
+
+    .titelGrid {
+        margin-left: 10%;
+        margin-top: 50px;
+    }
+
+    .preiseTitel {
+        display: block;
+        margin: 0;
+        margin-top: 60px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 1080px) {
+    .contentGrid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .preiseGrid {
+        width: 100%;
+        margin: 0px;
+        margin-bottom: 80px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-template-areas: "tag" "abend" "jahr";
+    }
+
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr max-content;
+    }
+
+    .preiseTitel {
+        width: 96%;
+        margin-bottom: 60px;
+    }
+
+    .contentGrid {
+        margin: 0;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .preiseGrid_item {
+        margin: 3%;
+        width: 94%;
+    }
+
+    .titelGrid {
+        text-align: center;
+        display: unset;
+        margin: 0;
+        margin-top: 50px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .preiseGrid_card {
+        grid-template-rows: 100px 120px 120px;
+    }
+}
+
+.footerDiv {
+    text-align: center;
+    margin: auto;
+    background-color: var(--accent-color);
+    width: 100%;
+    margin-top: 50px;
+}
+
+.footerDiv div {
+    margin-left: 16px;
+    margin-right: 16px;
+    padding: 5%;
+
+}
+
+.footerDiv a {
+    background-color: rgba(255, 255, 255, 0);
+    color: #ffffff;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.footerDiv p {
+    text-align: center;
+    width: 100%;
+    background-color: var(--lighter-blue);
+    color: var(--accent-color);
+    font-size: larger;
+    padding: 1%;
+}
+
+@media screen and (min-width:1000px) {
+    .footerDiv div {
+        padding: 50px;
+    }
+
+    .footerDiv p {
+        padding: 10px;
+    }
+
+}
+
+.banner {
+    font-size: larger;
+    color: var(--accent-color);
+    width: 100%;
+    background-color: var(--light-blue);
+    padding: 2.5% 10%;
+    border-color: var(--border-grey);
+    border-width: 1px;
+    margin: 0%;
+}
+
+@media only screen and (max-width: 1050px) {
+    .banner {
+        border-radius: 16px;
+        padding: 5%;
+        margin: 0% 5%;
+        width: 90%;
+    }
+}
+
+.solidWhite {
+    background-color: white;
+}
+
+/*fadeIn*/
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.centerDiv {
+    animation: fadeIn 0.5s;
+}
+
+/*fadeInNav*/
+@keyframes fadeInNav {
+    from {
+        opacity: 0;
+        padding: 12px 10px;
+    }
+
+    to {
+        opacity: 1;
+        padding: 12px 20px;
+    }
+}
+
+.active {
+    animation: fadeInNav 0.5s;
+}
+
+/*Icons*/
+.navImgDiv {
+    filter: invert(30%) sepia(8%) saturate(3401%) hue-rotate(168deg) brightness(95%) contrast(88%);
+    transition: all 0.2s ease;
+    display: none;
+}
+
+.navImg {
+    filter: invert(30%) sepia(8%) saturate(3401%) hue-rotate(168deg) brightness(95%) contrast(88%);
+    transition: all 0.2s ease;
+    display: none;
+}
+
+.active img {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(307deg) brightness(103%) contrast(101%);
+}
+
+.active div {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(307deg) brightness(103%) contrast(101%);
+}
+
+.nav-links a:hover .navImg {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(307deg) brightness(103%) contrast(101%);
+}
+
+.nav-links a:hover .navImgDiv {
+    filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(307deg) brightness(103%) contrast(101%);
+}
+
+@media screen and (max-width:1270px) {
+    .navImg {
+        display: block;
+    }
+
+    .navImgDiv {
+        display: block;
+        height: 24px;
+        width: 24px;
+    }
+
+    .home {
+        background-image: url(icons/home_FILL1_wght700_GRAD0_opsz24.svg);
+    }
+
+    .time {
+        background-image: url(icons/schedule_FILL1_wght600_GRAD-25_opsz24.svg);
+    }
+
+    .pay {
+        background-image: url(icons/payments_FILL1_wght600_GRAD-25_opsz24.svg);
+    }
+
+    .date {
+        background-image: url(icons/event_FILL1_wght600_GRAD-25_opsz24.svg);
+    }
+
+    .news {
+        background-image: url(icons/newspaper_FILL1_wght600_GRAD-25_opsz24.svg);
+    }
+
+    .galerie {
+        background-image: url(icons/gallery_thumbnail_FILL1_wght600_GRAD-25_opsz24.svg);
+    }
+}
+
+i {
+    vertical-align: bottom;
+    font-size: 24px !important;
+}

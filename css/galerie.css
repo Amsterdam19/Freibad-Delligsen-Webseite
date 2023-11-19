@@ -1,0 +1,82 @@
+:root {
+    --navbar-height: 12vh;
+    --main-color:#2E577E;
+    --accent-color:#2E577E;
+    --light-blue:#D1E8F7;
+    --lighter-blue:#F1FAFF;
+    --border-grey:#cecece63;
+  }
+
+.centerDiv{
+    margin-top: 2vh;
+}
+
+.titelGrid{
+    margin-top: 25px;
+}
+.divContent{
+    margin-top: 25px;
+}
+
+.gridGalerie{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.flexboxGalerie{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: start;
+}
+
+div.gallery {
+    background-color: white;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 16px;
+    transition: 0.3s;
+  }
+  
+  div.gallery:hover {
+    background-color: var(--accent-color);
+    box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.527), 0 9px 20px 0 rgba(0, 0, 0, 0.19);
+    color: var(--lighter-blue);
+    transform: scale(0.985);
+  }
+  
+  div.gallery img {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    height: auto;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 22.5px;
+    font-size: x-large;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive {
+    height: auto;
+    width: 95%;
+    margin: 2.5%;
+  }
+  
+  @media only screen and (max-width: 800px) {
+    .gridGalerie{
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }

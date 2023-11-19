@@ -1,0 +1,36 @@
+body{
+    background-repeat: no-repeat;
+    background-image: url(Bilder/3639.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+.all {
+    margin-top: 16px;
+    margin-left: 16px;
+    margin-right: 16px;
+    border-radius: 16px;
+}
+
+.leftp {
+    border-top-left-radius: 16px;
+    border-bottom-left-radius: 16px;
+  background-color: #2196F3;
+  padding: 16px;
+  float: left;
+  width: 35%; /* The width is 20%, by default */
+}
+
+.rightt {
+  background-color: #04AA6D;
+  padding: 20px;
+  float: left;
+  width: 20%; /* The width is 20%, by default */
+}
+
+/* Use a media query to add a break point at 800px: */
+@media screen and (max-width: 800px) {
+.left, .main, .right {
+width: 100%; /* The width is 100%, when the viewport is 800px or smaller */
+}
+}
