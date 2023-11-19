@@ -4,7 +4,7 @@
 
 body {
     background-repeat: no-repeat;
-    background-image: url(/images/seitenansichtold.jpeg);
+    background-image: url(../assets/images/seitenansichtold.jpeg);
     background-attachment: fixed;
     background-size: cover;
     -webkit-background-size: cover;
@@ -235,7 +235,7 @@ nav.notSticking {
 
     body {
         background-repeat: no-repeat;
-        background-image: url(/images/Marathonschwimmen_2022-08-13.webp);
+        background-image: url(../assets/images/Marathonschwimmen_2022-08-13.webp);
         background-size: auto 100vh;
         -webkit-background-size: auto 100vh;
         background-position-x: center;

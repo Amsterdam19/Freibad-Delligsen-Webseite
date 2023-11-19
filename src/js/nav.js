@@ -30,4 +30,3 @@ const navSlide = () => {
         const navA = document.querySelectorAll('.navA');
     })
 }
-navSlide();

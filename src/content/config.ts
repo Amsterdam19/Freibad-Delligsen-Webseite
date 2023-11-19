@@ -2,7 +2,7 @@ import { defineCollection, z } from 'astro:content';
 
 const neues = defineCollection({
 	// Type-check frontmatter using a schema
-	schema: z.object({
+	schema: ({ image }) => z.object({
 		title: z.string(),
 		description: z.string(),
 		// Transform string to Date object
@@ -14,7 +14,7 @@ const neues = defineCollection({
 			.string()
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
-		src: z.string().optional(),
+		src: image(),
 		width: z.string(),
 		height: z.string(),
 	}),

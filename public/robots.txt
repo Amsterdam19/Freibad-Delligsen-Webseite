@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 
 User-agent: *
-Disallow: /images/
 Disallow: /fonts/
 Disallow: /docs/
 Disallow: /documents/

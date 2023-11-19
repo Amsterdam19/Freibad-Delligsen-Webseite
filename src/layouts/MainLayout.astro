@@ -6,6 +6,8 @@ import "../styles/global.css";
 import NavigationBar from "../components/Nav/NavigationBar.astro";
 import Footer from "../components/Footer.astro";
 
+import { ViewTransitions } from 'astro:transitions';
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 export interface Props {
@@ -14,7 +16,7 @@ export interface Props {
 	image?: string;
 }
 
-const { titel, description, image = "/images/Sprungturm2.jpg" } = Astro.props;
+const { titel, description, image = "../assets/images/Sprungturm2.jpg" } = Astro.props;
 ---
 
 <html lang="de">
@@ -56,6 +58,8 @@ const { titel, description, image = "/images/Sprungturm2.jpg" } = Astro.props;
 
 		<!--Nav Script -->
 		<script src="../js/nav.js"></script>
+
+		<ViewTransitions />
 	</head>
 	<body>
 		<div class="top_div dontPrint"></div>

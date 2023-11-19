@@ -2,8 +2,12 @@
 import { Icon } from "astro-icon";
 ---
 
-<div class="bannerHome">
+<section class="diagonal">
   <div class="panelGrid">
+    <div class="panelContentFlexbox">
+      <h2>Anfahrt</h2>
+      <div><br />Delligsen<br />Am Freibad 1a<br />31073 Delligsen</div>
+    </div>
     <div class="panelContent" id="panelContent">
       <div class="mapPreview">
         <div class="dialog">
@@ -29,25 +33,36 @@ import { Icon } from "astro-icon";
             &copy;
             <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
             contributors. Tiles courtesy of
-            <a href="https://www.thunderforest.com//"
-              >Andy Allan</a
-            >
+            <a href="https://www.thunderforest.com//">Andy Allan</a>
           </p>
         </div>
       </div>
       <div id="map"></div>
     </div>
-    <div class="panelContentFlexbox">
-      <h2>Anfahrt</h2>
-      <div><br />Delligsen<br />Am Freibad 1a<br />31073 Delligsen</div>
-    </div>
   </div>
-</div>
+</section>
 
 <style>
-  .bannerHome {
-    padding-block: 10vh;
+  .diagonal {
     padding-inline: 5vw;
+    --skew-angle: 5deg;
+    position: relative;
+    isolation: isolate;
+    padding-block: 20rem;
+    margin-block: 10rem;
+  }
+  .diagonal::after {
+    content: "";
+    background: linear-gradient(
+      120deg,
+      var(--primary),
+      color-mix(in oklab, var(--primary) 20%, var(--accent)),
+      var(--accent) 100%
+    );
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    transform: skewY(var(--skew-angle));
   }
   div {
     font-weight: 400;
@@ -58,8 +73,8 @@ import { Icon } from "astro-icon";
     height: 70vh;
     bottom: 0px;
     display: grid;
-    grid-template-areas: "panelContent panelContentGrid";
-    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "panelContentGrid panelContent";
+    grid-template-columns: 1fr 3fr;
   }
   .panelContent {
     grid-area: panelContent;
@@ -82,7 +97,7 @@ import { Icon } from "astro-icon";
   .mapPreview {
     display: grid;
     grid-template-rows: 1fr auto;
-    background-image: url(/images/map/OSM.webp);
+    background-image: url(../../assets/images/map/OSM.webp);
     background-size: cover;
     -webkit-background-size: cover;
     background-repeat: no-repeat;
@@ -97,7 +112,6 @@ import { Icon } from "astro-icon";
     margin: auto;
     padding-inline: 0.2rem;
     padding-block: 0.2rem;
-    text-align: end;
     color: var(--accent-color2);
     font-size: xx-small;
     background: rgba(255, 255, 255, 0.8);
@@ -150,7 +164,7 @@ import { Icon } from "astro-icon";
   }
 
   .dialogCard button:hover {
-    opacity: .8;
+    opacity: 0.8;
   }
 
   .mapPreview > div p,
@@ -206,16 +220,12 @@ import { Icon } from "astro-icon";
     display: table-cell;
     font-size: x-large;
   }
-  @media only screen and (min-width: 700px) {
-    .panelContentFlexbox h2,
-    .panelContentFlexbox div {
-      text-align: end;
-    }
-  }
 
   @media only screen and (max-width: 700px) {
-    .bannerHome {
-      padding: 15px;
+    .diagonal {
+      padding-inline: 15px;
+      padding-block: 7rem;
+      margin-block: 7rem;
     }
 
     .panelGrid {
@@ -237,7 +247,7 @@ import { Icon } from "astro-icon";
     .osmap,
     .mapPreview {
       border-radius: var(--border-radius);
-      background-image: url("/images/map/OSM_Mobile.webp");
+      background-image: url("../../assets/images/map/OSM_Mobile.webp");
       height: 100%;
     }
 

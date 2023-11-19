@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-import { Picture } from "@astrojs/image/components";
+import { Picture } from 'astro:assets';
 const { src, icon, label, active, width } = Astro.props;
 ---
 
@@ -24,11 +24,10 @@ const { src, icon, label, active, width } = Astro.props;
     role="region"
   >
     <Picture
-    class="accordion-image"
-      loading="eager"
+      class="accordion-image"
       src={src}
+      formats={['avif', 'webp']}
       widths={[400, 600, 1000]}
-      aspectRatio={width + ":0"}
       sizes="(max-width: 1000px) 100vw, 800px"
       alt={label}
     />

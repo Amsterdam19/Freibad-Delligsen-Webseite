@@ -1,6 +1,9 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import BlogImage from "../components/Neues/BlogImage.astro";
+
+//Images
+import historischeAnsicht from "@assets/images/galerie/3701.jpg";
 ---
 
 <MainLayout titel="Über" description="(historische) Geschichte des Freibad Delligsens">
@@ -20,7 +23,7 @@ import BlogImage from "../components/Neues/BlogImage.astro";
         Geländepflege übernommen.
       </p>
       <BlogImage
-        src="/images/galerie/3701.jpg"
+        src={historischeAnsicht}
         alt="historische Ansicht"
         width="700"
         height="526"

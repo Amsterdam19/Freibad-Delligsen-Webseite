@@ -1,15 +1,3 @@
-import Swup from "swup";
-import SwupScrollPlugin from '@swup/scroll-plugin';
-import SwupA11yPlugin from '@swup/a11y-plugin';
-import SwupHeadPlugin from '@swup/head-plugin';
-import SwupPreloadPlugin from "@swup/preload-plugin";
-
-//Swup
-const swup = new Swup({
-    plugins: [new SwupA11yPlugin(), new SwupHeadPlugin({ persistTags: true }), new SwupScrollPlugin({animateScroll: !window.matchMedia('(prefers-reduced-motion: reduce)').matches}), new SwupPreloadPlugin()]
-});
-
-
 //OSM
 function initOSM() {
     const button = document.getElementById("load");
@@ -37,44 +25,6 @@ function loadOSM() {
     //inject iframe
     map.appendChild(iframe);
 }
-
-//current active
-const current = () => {
-    const navA = document.querySelectorAll('.navA');
-    navA.forEach((link) => {
-        link.classList.remove("active");
-        if (window.location.pathname.includes(link.getAttribute("href"))) {
-            link.classList.add("active");
-        }
-        if (window.location.pathname !== "/") {
-            navA[0].classList.remove("active");
-        }
-        //for blog entries
-        if (window.location.pathname.includes("/neues/")) {
-            navA[4].classList.add("active");
-        }
-    })
-}
-swup.hooks.on('link:click', () => {
-    const nav = document.querySelector('.nav-links');
-    if (nav.classList.contains("nav-active")) {
-        const navLinks = document.querySelectorAll('.nav-links li');
-
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFadeOut 0.4s ease forwards ${index / 12}s`;
-            }
-        })
-        nav.classList.toggle("nav-active");
-        const burger = document.querySelector('.burger');
-        burger.classList.toggle("toggle");
-        const navBar = document.querySelector('nav');
-        navBar.classList.toggle("solidWhite");
-    }
-    init();
-})
 
 //KurseCard
 function pfexpandCard() {
@@ -137,7 +87,8 @@ function initAccordion() {
 
 //Nav Scroll
 function navScrollInit() {
-    const primaryHeader = document.querySelector('nav');
+
+    const primaryHeader = document.getElementById('homeNav');
     const scrollWatcher = document.createElement('div');
 
     scrollWatcher.setAttribute('data-scroll-watcher', '');
@@ -150,25 +101,49 @@ function navScrollInit() {
     navObserver.observe(scrollWatcher);
 }
 
+//Nav toggle
+function navSlide() {
+    const burger = document.querySelector('.burger');
+    const nav = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-links li');
+    const navBar = document.getElementById("homeNav");
+
+
+    burger.addEventListener('click', () => {
+        
+        //Toggle Nav
+        nav.classList.toggle('nav-active');
+        //aria-expanded
+        const menuExpanded = burger.getAttribute("aria-expanded") === "true";
+        burger.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+        console.log("navslideAria")
+
+        //Animate Links
+        navLinks.forEach((link, index) => {
+            if (link.style.animation) {
+                link.style.animation = '';
+            } else {
+                link.style.animation = `navLinkFade 0.4s ease forwards ${index / 12}s`;
+            }
+        })
+
+        //Burger Animation
+        burger.classList.toggle('toggle');
+
+        //navBar solid
+        navBar.classList.toggle('solidWhite')
+        const navA = document.querySelectorAll('.navA');
+    })
+}
+
 function init() {
-    current();
     navScrollInit();
+    setTimeout(navSlide, 1000);
     if (window.location.pathname === "/") {
         setTimeout(initAccordion, 1000);
         setTimeout(initOSM, 1000);
         setTimeout(initKurse, 1000);
     }
-
-
 }
-addEventListener("DOMContentLoaded", (event) => { init() });
-swup.hooks.on('visit:start', () => {
-    const navA = document.querySelectorAll('.navA');
-    navA.forEach((link) => {
-        link.classList.remove("active");
-    })
-});
-
-swup.hooks.on('visit:end', () => {
-    init();
-});
+init();
+document.addEventListener('astro:after-swap', init);

@@ -2,6 +2,16 @@
 import Grid from "../components/Grid.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import GalerieItem from "../components/Galerie/GalerieItem.astro";
+
+//Images
+import Sprungturm from "@assets/images/galerie/Sprungturm.jpg";
+import Sprungturm2 from "@assets/images/galerie/Sprungturm2.jpg";
+import Sonnenuntergang from "@assets/images/galerie/Sonnenuntergang.jpg";
+import historischeAnsicht from "@assets/images/galerie/3701.jpg";
+import Marathonschwimmen from "@assets/images/galerie/Marathonschwimmen_2022-08-13.jpg";
+import Lichtkunst1 from "@assets/images/galerie/IMG-20220507-WA0005.jpg";
+import Lichtkunst2 from "@assets/images/galerie/IMG-20220507-WA0027.jpg";
+import Trabantentreffen from "@assets/images/galerie/Trabantentreffen_2022-08-13.jpg";
 ---
 
 <MainLayout titel="Galerie" description="Bildergalerie">
@@ -9,17 +19,17 @@ import GalerieItem from "../components/Galerie/GalerieItem.astro";
         <div class="gridGalerie">
             <!--Spalte1 -->
             <div class="column">
-                <GalerieItem img="Sprungturm" titel="Sprungturm" />
-                <GalerieItem img="Sprungturm2" titel="Das Becken" />
-                <GalerieItem img="Sonnenuntergang" titel="Abendstimmung" />
-                <GalerieItem img="3701" titel="Historische Ansicht Freibad Delligsen" />
+                <GalerieItem img={Sprungturm} titel="Sprungturm" />
+                <GalerieItem img={Sprungturm2} titel="Das Becken" />
+                <GalerieItem img={Sonnenuntergang} titel="Abendstimmung" />
+                <GalerieItem img={historischeAnsicht} titel="Historische Ansicht Freibad Delligsen" />
             </div>
             <!--Spalte2 -->
             <div class="column">
-                <GalerieItem img="Marathonschwimmen_2022-08-13" titel="Marathonschwimmen 2022" />
-                <GalerieItem img="IMG-20220507-WA0005" titel="Lichtkunst" />
-                <GalerieItem img="IMG-20220507-WA0027" titel="Lichtkunst" />
-                <GalerieItem img="Trabantentreffen_2022-08-13" titel="Trabantentreffen 2022" />
+                <GalerieItem img={Marathonschwimmen} titel="Marathonschwimmen 2022" />
+                <GalerieItem img={Lichtkunst1} titel="Lichtkunst" />
+                <GalerieItem img={Lichtkunst2} titel="Lichtkunst" />
+                <GalerieItem img={Trabantentreffen} titel="Trabantentreffen 2022" />
             </div>
         </div>
     </Grid>

@@ -318,7 +318,7 @@ import Banner from "../../components/Banner.astro";
 
     const output = document.getElementById("output");
     output.innerHTML =
-      '&lt;BlogImage src="/images/' +
+      '&lt;BlogImage src="../assets/images/' +
       year +
       "/" +
       title +
@@ -342,7 +342,7 @@ import Banner from "../../components/Banner.astro";
     const pubDate = document.getElementById("pubDate").value;
     let year = new Date().getFullYear().toString();
     const src =
-      "/images/" +
+      "../assets/images/" +
       year +
       "/" +
       title +
@@ -396,6 +396,6 @@ import Banner from "../../components/Banner.astro";
     const fileName = document.getElementById("dateiName");
     const fileImgPath = document.getElementById("dateiImgPath");
     fileName.innerHTML = htmlName;
-    fileImgPath.innerHTML = "/images/" + year + "/" + title + "/";
+    fileImgPath.innerHTML = "../assets/images/" + year + "/" + title + "/";
   }
 </script>

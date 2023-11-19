@@ -1,22 +1,13 @@
 ---
 const { img, titel } = Astro.props;
+import { Picture } from 'astro:assets';
 ---
 
 <div class="responsive">
     <div class="gallery">
-        <a target="_blank" href={"/images/galerie/" + img + ".jpg"}>
+        <a target="_blank" href={img.src}>
             <div class="picture">
-                <picture>
-                    <source
-                        srcset={"/images/galerie/" + img + ".avif"}
-                        type="image/avif"
-                    />
-                    <source
-                        srcset={"/images/galerie/" + img + ".webp"}
-                        type="image/webp"
-                    />
-                    <img src={"/images/galerie/" + img + ".jpg"} alt={titel} />
-                </picture>
+                <Picture src={img} formats={['avif', 'webp']} alt={titel} />
             </div>
             <div class="titel">
                 <p>{titel}</p>

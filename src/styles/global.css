@@ -84,6 +84,17 @@ html {
 img,
 svg {
   max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+
+article img {
+  border-radius: var(--border-radius);
+  margin-block: .5rem;
 }
 
 body {
@@ -102,7 +113,7 @@ h1,h2,h3,h4 {
 
 nav.sticking {
   transition: all 0.3s ease-in-out;
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 nav.notSticking {

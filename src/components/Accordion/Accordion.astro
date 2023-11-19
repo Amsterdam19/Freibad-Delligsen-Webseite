@@ -1,39 +1,46 @@
 ---
 import AccordionItem from "./AccordionItem.astro";
+
+//Images
+import pool from "@assets/images/accordion/50m.jpg";
+import Sprungturm from "@assets/images/accordion/Sprungturm.jpg";
+import Spielplatz from "@assets/images/accordion/Spielplatz.jpg";
+import Fußball from "@assets/images/accordion/Fußball.jpg";
+import Volleyball from "@assets/images/accordion/Volleyball.jpg";
 ---
 
 <div class="wrapper">
   <div class="accordion" id="accordion">
     <AccordionItem 
-      src="/images/accordion/50m.jpg"
+      src={pool}
       icon="IcRoundPool"
       label="50 Meter Bahn"
       active="imgActive"
       width="3840"
     />
     <AccordionItem
-      src="/images/accordion/Sprungturm.jpg"
+      src={Sprungturm}
       icon="IcRoundScubaDiving"
       label="Sprungturm"
       active="no"
       width="1024"
     />
     <AccordionItem
-      src="/images/accordion/Spielplatz.jpg"
+      src={Spielplatz}
       icon="IcRoundSportsKabaddi"
       label="Spielplatz"
       active="no"
       width="1920"
     />
     <AccordionItem
-      src="/images/accordion/Fußball.jpg"
+      src={Fußball}
       icon="IcRoundSportsSoccer"
       label="Fußball"
       active="no"
       width="1920"
     />
     <AccordionItem
-      src="/images/accordion/Volleyball.jpg"
+      src={Volleyball}
       icon="IcRoundSportsVolleyball"
       label="Volleyball"
       active="no"

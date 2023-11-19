@@ -31,27 +31,13 @@ import Countdown from "../components/Countdown.astro";
      -->
 
   <Accordion />
-  <section>
-    <SvgWindow location="bottom" direction="lr" background="Sprungturm2" />
-    <OSM />
-    <SvgWindow location="top" direction="rl" background="Sprungturm" />
-  </section>
+  <OSM />
   <Kurse />
 </MainLayout>
 
 <style>
   :root {
     --indexBRadius: var(--border-radius);
-  }
-
-  section {
-    margin-block: 100px;
-    background: linear-gradient(
-      120deg,
-      var(--primary),
-      color-mix(in oklab, var(--primary) 20%, var(--accent)),
-      var(--accent) 100%
-    );
   }
   nav,
   nav.sticking {
