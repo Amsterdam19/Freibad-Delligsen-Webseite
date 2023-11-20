@@ -36,18 +36,12 @@ const { title, icon, bg_color = "error" } = Astro.props as Props;
   div {
     font-size: larger;
     color: var(--text);
-    width: 90%;
+    width: fit-content;
     padding: 3% 5%;
-    margin: 1.5% 5%;
+    margin: 1rem;
     text-wrap: balance;
     border-radius: var(--border-radius);
     display: grid;
     gap: 2rem;
-  }
-  @media only screen and (max-width: 1050px) {
-    div {
-      margin: 5%;
-      padding: 5%;
-    }
   }
 </style>

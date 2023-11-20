@@ -4,7 +4,7 @@ const { titel, svg, id } = Astro.props;
 ---
 
 <div class="card">
-  <h2 class="titel">{titel}</h2>
+  <h2 class="title">{titel}</h2>
 
 
 
@@ -49,16 +49,18 @@ const { titel, svg, id } = Astro.props;
   .card {
     border-radius: var(--border-radius);
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 20px 0 rgba(0, 0, 0, 0.19);
-    padding: 2%;
     max-width: 1300px;
     display: grid;
     grid-template-columns: 2fr 3fr;
     grid-template-rows: auto 1fr;
+    width: fit-content;
     grid-template-areas: "titel titel" "img content";
-    margin: 2rem;
+    margin: 1rem;
+    display: grid;
+    grid-template-rows: auto 1fr;
   }
 
-  .titel {
+  .title {
     grid-area: titel;
     text-align: center;
     color: var(--text);
@@ -84,16 +86,13 @@ const { titel, svg, id } = Astro.props;
     display: none;
   }
   .kurseCont {
+    padding: 1rem;
     display: flex;
     align-items: center;
     grid-area: content;
   }
 
   @media only screen and (max-width: 530px) {
-    .card {
-      width: 96%;
-    }
-
     .titel {
       margin-top: 5%;
     }

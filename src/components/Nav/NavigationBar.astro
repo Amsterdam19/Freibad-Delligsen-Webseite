@@ -144,8 +144,8 @@ const currentPath = pathname.split("/");
             align-items: center;
             width: 100%;
             box-shadow: none;
-            transform: translateX(100%);
-            transition: transform 0.25s ease-in;
+            transform: translateX(100%) rotateY(135deg);
+            transition: all 0.25s ease-in-out;
             padding-bottom: 8vh;
         }
     }
@@ -181,7 +181,7 @@ const currentPath = pathname.split("/");
     /* Menu Animationen */
 
     .nav-active {
-        transform: translateX(0%);
+        transform: translateX(0%) rotateY(0deg);;
     }
 
     @keyframes navLinkFade {

@@ -14,13 +14,13 @@ const navSlide = () => {
         burger.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
 
         //Animate Links
-        navLinks.forEach((link, index) => {
-            if (link.style.animation) {
-                link.style.animation = '';
-            } else {
-                link.style.animation = `navLinkFade 0.4s ease forwards ${index / 12}s`;
-            }
-        })
+        //navLinks.forEach((link, index) => {
+        //    if (link.style.animation) {
+        //        link.style.animation = '';
+        //    } else {
+        //        link.style.animation = `navLinkFade 0.4s ease forwards ${index / 12}s`;
+        //    }
+        //})
 
         //Burger Animation
         burger.classList.toggle('toggle');
