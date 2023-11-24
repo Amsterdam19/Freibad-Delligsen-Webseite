@@ -29,9 +29,10 @@ const { img, titel, pubDate, description, href, width, height } = Astro.props;
 </div>
 <style>
     .grid {
-        margin: 5%;
-        width: 90%;
-        max-width: 1400px;
+        margin-inline: auto;
+        margin-block: 2rem;
+        width: 100%;
+        max-width: var(--site-width);
         display: grid;
         grid-template-columns: 1fr 1.2fr;
         border-radius: var(--border-radius);

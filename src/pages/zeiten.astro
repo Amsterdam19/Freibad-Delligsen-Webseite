@@ -12,15 +12,19 @@ import MainLayout from "../layouts/MainLayout.astro";
   description="Aktuelle Öffnungszeiten des Freibads Delligsen"
 >
   <Grid titel="Öffnungszeiten">
-    <Banner title="Freibad geschlossen" icon="IcRoundWarning" bg_color="neutral">
-      Das Freibad ist bis zum Saisonstart geschlossen.
-    </Banner>
-    <!--Bei schlechtem Wetter kann die Badezeit früher enden !!! -->
     <Banner
-      title="Bei schlechtem Wetter kann die Badezeit früher enden !!!"
-      icon="IcRoundRainy"
-      bg_color="error"
-    />
+    title="Freibad geschlossen"
+    icon="IcRoundWarning"
+    bg_color="neutral"
+  >
+    Das Freibad ist bis zum Saisonstart geschlossen.
+  </Banner>
+  <!--Bei schlechtem Wetter kann die Badezeit früher enden !!! -->
+  <Banner
+    title="Bei schlechtem Wetter kann die Badezeit früher enden !!!"
+    icon="IcRoundRainy"
+    bg_color="error"
+  />
     <Card titel="In der Schulzeit">
       <CardItem titel="Montag bis Freitag" content="15:00 - 20:00 Uhr" />
       <CardItem
@@ -51,9 +55,12 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <style>
   div {
-    margin: 1rem;
     display: flex;
     justify-content: flex-end;
+    margin-inline: auto;
+    padding: 1rem;
+    max-width: var(--site-width);
+    width: 100%;
   }
   a {
     text-decoration: none;

@@ -22,6 +22,7 @@
   --border-grey: #cecece63;
   --border-grey: color-mix(in oklab, var(--secondary) 90%, grey);
   --nav-bg-color: color-mix(in oklab, var(--background) 90%, white 0%);
+  --site-width: 80rem;
 
 
   --old: #2e577e;
