@@ -1,16 +1,9 @@
 ---
 const { titel } = Astro.props;
 ---
-
-<div class="centerDiv">
-  <div class="grid">
-    <div class="titel">
-      <h1 class="transition-fade-title">{titel}</h1>
-    </div>
-    <div class="contentGrid transition-fade-content">
-      <slot />
-    </div>
-  </div>
+<h1 class="transition-fade-title">{titel}</h1>
+<div class="contentGrid transition-fade-content">
+  <slot />
 </div>
 
 <style>
@@ -38,14 +31,6 @@ const { titel } = Astro.props;
     }
   }
 
-  .centerDiv {
-    display: flex;
-    justify-content: center;
-    animation: fadeIn 0.5s;
-    min-height: 70vh;
-    min-height: 70svh;
-    margin-top: 2rem;
-  }
   /*fadeIn*/
   @keyframes fadeIn {
     from {
@@ -59,34 +44,19 @@ const { titel } = Astro.props;
     }
   }
 
-  .grid {
-    width: 100%;
-    max-width: var(--site-width);
-    min-height: max-content;
-    display: grid;
-    grid-template-areas: "titel" "content";
-  }
-  .titel {
-    color: var(--text);
-    grid-area: titel;
-    padding: 1rem;
-    padding-bottom: 3rem;
-    width: 100%;
-    display: grid;
-    max-height: 80vh;
-    max-height: 80svh;
-  }
   h1 {
     width: fit-content;
     height: fit-content;
     font-size: 2.5em;
     font-weight: 400;
+    margin-block: 3rem;
   }
   .contentGrid {
     grid-area: content;
     width: 100%;
     height: 100%;
     display: flex;
+    gap: 1rem 1.5rem;
     flex-wrap: wrap;
   }
   @media screen and (max-width: 1430px) {

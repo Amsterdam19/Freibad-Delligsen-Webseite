@@ -1,8 +1,9 @@
 ---
 import { Icon } from "astro-icon";
+const {className} = Astro.props;
 ---
 
-<section class="diagonal">
+<section class={`diagonal ${className}`}>
   <div class="panelGrid">
     <div class="panelContentFlexbox">
       <h2>Anfahrt</h2>
@@ -70,14 +71,15 @@ import { Icon } from "astro-icon";
   .panelGrid {
     border-radius: var(--border-radius);
     width: 100%;
+    padding: 1rem;
     max-width: var(--site-width);
     margin-inline: auto;
-    padding: 1rem;
+    background-color: rgba(35, 95, 164, 0.1);
     height: 70vh;
     bottom: 0px;
     display: grid;
-    grid-template-areas: "panelContentGrid panelContent";
-    grid-template-columns: 1fr 3fr;
+    grid-template-areas: "panelContent panelContentGrid";
+    grid-template-columns: 3fr 1fr;
   }
   .panelContent {
     grid-area: panelContent;

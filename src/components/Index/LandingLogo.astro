@@ -1,4 +1,7 @@
-<div class="div1">
+---
+const {className} = Astro.props;
+---
+<div class={`div1 ${className}`}>
   <div class="div2">
     <h1 style="position: absolute; color: transparent;">Willkommen im Freibad Delligsen</h1>
     <svg
@@ -131,8 +134,9 @@
     width: 100%;
     display: flex;
     align-items: center;
-    height: 90vh;
-    height: 90svh;
+    height: minmax(55rem, 90vh);
+    height: minmax(55rem, 90svh);
+    margin-bottom: 5rem;
   }
   .div2 {
     width: 100%;
@@ -200,8 +204,8 @@
     width: 100%;
     transform: translateY(90px);
     margin-inline: auto;
-    max-height: 60vh;
-    max-height: 60svh;
+    height: minmax(30rem, 60vh);
+    height: minmax(30rem, 60svh);
     max-width: 800px;
     animation: swipeUp var(--anim-time) var(--anim-type)
       calc(var(--anim-delay) + var(--anim-path-delay) * 16) forwards;

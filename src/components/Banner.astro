@@ -8,11 +8,11 @@ interface Props {
 const { title, icon, bg_color = "error" } = Astro.props as Props;
 ---
 
-<div style={"background-color: var(--" + bg_color + ")"}>
-  <section>
+<div class="banner" style={"background-color: var(--" + bg_color + ")"}>
+  <div class="banner-wrapper">
     <Icon name={icon} />
     <h3>{title}</h3>
-  </section>
+  </div>
     <slot />
 </div>
 
@@ -23,7 +23,7 @@ const { title, icon, bg_color = "error" } = Astro.props as Props;
     vertical-align: bottom;
     font-size: var(--_icon_size) !important;
   }
-  section {
+  .banner-wrapper {
     --_icon_size: 3rem;
     display: grid;
     grid-template-columns: var(--_icon_size) auto;
@@ -33,15 +33,25 @@ const { title, icon, bg_color = "error" } = Astro.props as Props;
   h3 {
     text-wrap: balance;
   }
-  div {
+  .banner {
     font-size: larger;
     color: var(--text);
     width: 100%;
     padding: 3% 5%;
-    margin: 1rem;
     text-wrap: balance;
     border-radius: var(--border-radius);
     display: grid;
     gap: 2rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   }
+  .banner::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        height: 100%;
+        width: 7.5px;
+        background-color: rgba(0, 0, 0, 0.1);
+    }
 </style>

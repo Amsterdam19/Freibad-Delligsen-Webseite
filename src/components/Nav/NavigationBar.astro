@@ -4,9 +4,10 @@ import NavItem from './NavItem.astro';
 
 const pathname = new URL(Astro.request.url).pathname;
 const currentPath = pathname.split("/");
+const {className} = Astro.props;
 
 ---
-<nav id="homeNav">
+<nav id="homeNav" class={`${className}`}>
     <a class="noLink" href="/">
         <div class="logo">
             <Icon name="freibadLogo"/>
