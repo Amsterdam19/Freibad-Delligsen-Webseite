@@ -88,7 +88,7 @@ function initAccordion() {
 //Nav Scroll
 function navScrollInit() {
 
-    const primaryHeader = document.getElementById('homeNav');
+    const primaryHeader = document.querySelector('header');
     const scrollWatcher = document.createElement('div');
 
     scrollWatcher.setAttribute('data-scroll-watcher', '');

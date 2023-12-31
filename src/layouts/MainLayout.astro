@@ -68,7 +68,9 @@ const {
 	<body>
 		<div class="top_div dontPrint"></div>
 		<header class="dontPrint">
-			<NavigationBar/>
+			<div class="content-grid">
+				<NavigationBar />
+			</div>
 		</header>
 		<main id="swup">
 			<div class="slot transition-fade content-grid">
@@ -79,30 +81,37 @@ const {
 			<Footer />
 		</div>
 		<script src="../js/app.js"></script>
-	</body>
-	<style>
-		.slot {
-			width: 100%;
-			min-height: 80vh;
-		}
-		body {
-			background-color: var(--background);
-		}
-		/* Define a transition duration during page visits */
-		html.is-changing .transition-fade {
-			transition: opacity 0.25s;
-			opacity: 1;
-		}
-
-		/* Define the styles for the unloaded pages */
-		html.is-animating .transition-fade {
-			opacity: 0;
-		}
-
-		@media print {
-			.dontPrint {
-				display: none;
+		<style>
+			header {
+				position: fixed;
+				top: 0;
+				z-index: 999;
+				background-color: white;
+				width: 100%;
 			}
-		}
-	</style>
+			.slot {
+				width: 100%;
+				min-height: 80vh;
+			}
+			body {
+				background-color: var(--background);
+			}
+			/* Define a transition duration during page visits */
+			html.is-changing .transition-fade {
+				transition: opacity 0.25s;
+				opacity: 1;
+			}
+
+			/* Define the styles for the unloaded pages */
+			html.is-animating .transition-fade {
+				opacity: 0;
+			}
+
+			@media print {
+				.dontPrint {
+					display: none;
+				}
+			}
+		</style>
+	</body>
 </html>

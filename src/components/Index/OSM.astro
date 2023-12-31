@@ -7,7 +7,7 @@ const {className} = Astro.props;
   <div class="panelGrid">
     <div class="panelContentFlexbox">
       <h2>Anfahrt</h2>
-      <div><br />Delligsen<br />Am Freibad 1a<br />31073 Delligsen</div>
+      <p><br />Delligsen<br />Am Freibad 1a<br />31073 Delligsen</p>
     </div>
     <div class="panelContent" id="panelContent">
       <div class="mapPreview">
@@ -45,7 +45,6 @@ const {className} = Astro.props;
 
 <style>
   .diagonal {
-    padding-inline: 1rem;
     --skew-angle: 5deg;
     position: relative;
     isolation: isolate;
@@ -91,8 +90,8 @@ const {className} = Astro.props;
     grid-area: panelContentGrid;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    color: aliceblue;
   }
 
   .panelContent div a {
@@ -214,16 +213,11 @@ const {className} = Astro.props;
   }
 
   .panelContentFlexbox h2 {
-    width: 80%;
-    font-size: xx-large;
-    color: white;
+    font-size: clamp(1.5rem, 0.6939rem + 1.6327vw, 2rem);
   }
 
-  .panelContentFlexbox div {
-    width: 80%;
-    color: white;
-    display: table-cell;
-    font-size: x-large;
+  .panelContentFlexbox p {
+    font-size: clamp(0.9rem, 0.6939rem + 1.6327vw, 1.3rem);
   }
 
   @media only screen and (max-width: 700px) {
@@ -265,12 +259,6 @@ const {className} = Astro.props;
       margin-inline: 0;
       margin-block: 10vw;
       padding: 0;
-    }
-
-    .panelContentFlexbox h2,
-    .panelContentFlexbox div {
-      width: fit-content;
-      text-align: center;
     }
   }
   [astro-icon="IcRoundOpenInNew"] {
