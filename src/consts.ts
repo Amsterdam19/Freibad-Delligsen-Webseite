@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = 'Förderverein Freibad Delligsen.';
 export const SITE_DESCRIPTION = 'Willkommen auf der Webseite des Fördervereins Freibad Delligsen e.V.!';
-export const SITE_URL = 'freibad-delligsen.de';
+export const SITE_URL = 'http://freibad-delligsen.de';

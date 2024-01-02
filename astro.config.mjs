@@ -1,12 +1,11 @@
 import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 //http://freibad-delligsen.de
 export default defineConfig({
   site: 'http://freibad-delligsen.de',
-  integrations: [mdx(), sitemap({
+  integrations: [sitemap({
     lastmod: new Date(),
     serialize(item) {
       if (/docs/.test(item.url)) {

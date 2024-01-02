@@ -1,6 +1,6 @@
 ---
 import { Icon } from "astro-icon";
-const {className} = Astro.props;
+const { className } = Astro.props;
 ---
 
 <section class={`diagonal ${className}`}>
@@ -33,7 +33,7 @@ const {className} = Astro.props;
           <p>
             &copy;
             <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
-            contributors. Tiles courtesy of
+             contributors. Tiles courtesy of
             <a href="https://www.thunderforest.com//">Andy Allan</a>
           </p>
         </div>
@@ -73,7 +73,13 @@ const {className} = Astro.props;
     padding: 1rem;
     max-width: var(--site-width);
     margin-inline: auto;
-    background-color: rgba(35, 95, 164, 0.1);
+    background: linear-gradient(
+      120deg,
+      var(--accent),
+      color-mix(in oklab, var(--primary) 20%, var(--accent)),
+      var(--primary) 100%
+    );
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     height: 70vh;
     bottom: 0px;
     display: grid;

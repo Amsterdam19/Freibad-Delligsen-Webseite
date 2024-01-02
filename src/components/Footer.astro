@@ -108,6 +108,7 @@ import { Icon } from "astro-icon";
     text-align: center;
     background-color: var(--secondary);
     margin-top: 3rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
   }
 
   .social,
@@ -127,6 +128,12 @@ import { Icon } from "astro-icon";
     display: inline;
     padding: 1rem;
     font-size: 15pt;
+    transition: color 1s ease;
+    transform-origin: left;
+  }
+
+  .link a:hover {
+    color: var(--primary);
   }
 
   p {
