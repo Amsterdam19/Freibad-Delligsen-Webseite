@@ -16,7 +16,7 @@
   --error: color-mix(in oklab, var(--secondary) 80%, #d41d54);
   --neutral: color-mix(in oklab, var(--secondary) 80%, grey);
   --positive: color-mix(in oklab, var(--secondary) 80%, green);
-  --article: color-mix(in oklab, var(--secondary) 40%, var(--background));
+  --article: color-mix(in oklab, var(--secondary) 10%, var(--background));
   --accent: #d41d54;
   --border-radius: .7rem;
   --border-grey: #cecece63;
@@ -110,7 +110,13 @@ h4 {
 
 .top_div {
   width: 100%;
-  height: calc(var(--navbar-height) + 2rem);
+  height: var(--navbar-height);
+}
+
+@media screen and (max-width: 500px) {
+  .top_div {
+    height: 8vh !important;
+  }
 }
 
 header.sticking {

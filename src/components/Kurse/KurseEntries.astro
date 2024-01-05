@@ -8,10 +8,9 @@ const { h3, p } = Astro.props;
 </div>
 <style>
     div {
-        margin: 24px 0 24px 0;
         display: grid;
         grid-template-columns: 2fr 3fr;
-        gap: 2%;
+        gap: 0.5rem 0.2rem;
     }
 
     h3,
@@ -23,13 +22,6 @@ const { h3, p } = Astro.props;
     @media only screen and (max-width: 800px) {
         div {
             grid-template-columns: 1fr;
-            gap: 15%;
-        }
-    }
-
-    @media only screen and (max-width: 530px) {
-        .kurseItems {
-            margin-left: 10%;
         }
     }
 </style>

@@ -63,12 +63,17 @@ const { title, description, pubDate, updatedDate, src, width, height } =
     gap: 30px;
     padding: 4%;
     border-radius: var(--border-radius);
+    background-color: var(--article);
     border: var(--border-grey) 1px solid;
     margin-inline: auto;
   }
+  h1 {
+    font-weight: 500;
+    margin-block: 1rem;
+    font-size: clamp(1.7rem, 1.4551rem + 1.3061vw, 2.5rem);
+  }
   @media screen and (max-width: 1050px) {
     article {
-      margin: 2%;
       gap: 20px;
     }
     main {

@@ -8,7 +8,10 @@ import MainLayout from "../layouts/MainLayout.astro";
 import Countdown from "../components/Countdown.astro";
 ---
 
-<MainLayout titel="Startseite Freibad Delligsen" description="Freibad Delligsen - Schwimmen in der Hilsmulde">
+<MainLayout
+  titel="Startseite Freibad Delligsen"
+  description="Freibad Delligsen - Schwimmen in der Hilsmulde"
+>
   <LandingLogo>
     <div class="quickLink">
       <Verlinkung
@@ -30,7 +33,7 @@ import Countdown from "../components/Countdown.astro";
      -->
 
   <Accordion />
-  <OSM className="full-width"/>
+  <OSM className="full-width" />
   <Kurse />
 </MainLayout>
 
@@ -49,7 +52,9 @@ import Countdown from "../components/Countdown.astro";
 
   nav.notSticking {
     background-color: var(--nav-bg-color);
-    box-shadow: var(--nav-shadow), 0 -9px white;
+    box-shadow:
+      var(--nav-shadow),
+      0 -9px white;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
   }
@@ -112,10 +117,6 @@ import Countdown from "../components/Countdown.astro";
       animation: slideIn 0.3s ease-in-out;
     }
 
-    .top_div {
-      height: calc(100vh - var(--navbar-height)) !important;
-    }
-
     .wave3 {
       display: block;
       width: 100%;
@@ -149,7 +150,9 @@ import Countdown from "../components/Countdown.astro";
 
     nav.notSticking {
       background-color: var(--nav-bg-color);
-      box-shadow: var(--nav-shadow), 0 -9px white;
+      box-shadow:
+        var(--nav-shadow),
+        0 -9px white;
       -webkit-backdrop-filter: none;
       backdrop-filter: none;
     }

@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon";
 ---
 
-<footer class="footerDiv">
+<footer>
   <div class="social">
     <a class="a" href="/rss/" aria-label="Folgt uns via RSS"
       ><div><Icon name="IcRoundRssFeed" /><span class="footerLink">RSS</span></div></a
@@ -104,29 +104,30 @@ import { Icon } from "astro-icon";
     transition: all 0.2s ease-in;
   }
 
-  .footerDiv {
+  footer {
     text-align: center;
     background-color: var(--secondary);
     margin-top: 3rem;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    display: grid;
+    gap: 2rem;
+    padding-block: 2rem;
   }
 
-  .social,
-  .link {
-    margin-left: 16px;
-    margin-right: 16px;
-    padding: 5%;
-  }
-
+  .link,
   .social {
     display: flex;
     justify-content: center;
   }
 
+  .link {
+    flex-wrap: wrap;
+  }
+
   .link a {
     color: var(--text);
     display: inline;
-    padding: 1rem;
+    padding: 0.2rem 1rem;
     font-size: 15pt;
     transition: color 1s ease;
     transform-origin: left;
@@ -145,14 +146,6 @@ import { Icon } from "astro-icon";
   }
 
   @media screen and (min-width: 1000px) {
-    .social,
-    .link {
-      padding: 50px;
-    }
-    .social {
-      padding-bottom: 0.5rem;
-    }
-
     p {
       padding: 10px;
     }

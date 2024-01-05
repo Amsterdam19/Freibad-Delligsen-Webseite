@@ -1,9 +1,8 @@
 ---
-const { titel } = Astro.props;
+
 ---
 
 <div class="grid">
-    <h1>{titel}</h1>
     <div class="left">
         <slot name="left" />
     </div>
@@ -14,37 +13,19 @@ const { titel } = Astro.props;
 
 <style>
     .grid {
+        width: 100%;
         color: var(--text);
         display: grid;
-        max-width: 1500px;
-        margin-inline: auto;
         gap: 30px;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr auto;
-        grid-template-areas: "h1 h1" "left right";
         background-color: var(--article);
         padding: 4%;
         border-radius: 16px;
         border: var(--border-grey) 1px solid;
     }
-    h1 {
-        grid-area: h1;
-        margin: 1em;
-    }
-    .left {
-        grid-area: left;
-    }
-    .right {
-        grid-area: right;
-    }
     @media screen and (max-width: 900px) {
         .grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr auto auto;
-            grid-template-areas:
-                "h1"
-                "left "
-                "right";
+            display: block;
         }
     }
 </style>
