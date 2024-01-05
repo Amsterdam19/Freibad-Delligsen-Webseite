@@ -15,7 +15,7 @@ import { Icon } from "astro-icon";
             <br />Die Feed-URL ist: <br />
             <code>http://freibad-delligsen.de/rss.xml</code>
         </p>
-        <div class="card">
+        <div class="card on-hover">
             <div class="title">
                 <Icon name="IcRoundAndroid" />
                 <span></span>
@@ -37,7 +37,7 @@ import { Icon } from "astro-icon";
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card on-hover">
             <div class="title">
                 <Icon name="IcRoundApple" />
                 <span></span>
@@ -52,7 +52,7 @@ import { Icon } from "astro-icon";
                 </a>
             </div>
         </div>
-        <div class="card">
+        <div class="card on-hover">
             <div class="title">
                 <Icon name="linux" />
                 <span></span>
@@ -67,7 +67,7 @@ import { Icon } from "astro-icon";
                 </a>
             </div>
         </div>
-        <div class="card">
+        <div class="card on-hover">
             <div class="title">
                 <Icon name="windows" />
                 <span></span>
@@ -110,20 +110,6 @@ import { Icon } from "astro-icon";
         border-radius: 16px;
         display: grid;
         gap: 30px;
-        position: relative;
-    }
-    .card::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        border: 2px var(--text) solid;
-        border-radius: var(--border-radius);
-        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-        transition: all 0.2s ease-in-out;
-    }
-    .card:hover::after {
-        opacity: 1;
     }
     [astro-icon] {
         color: var(--primary);

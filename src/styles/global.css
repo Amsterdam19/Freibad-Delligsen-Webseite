@@ -215,6 +215,7 @@ img.full-width {
   border: 2px var(--text) solid;
   border-radius: var(--border-radius);
   transition: opacity 0.2s ease-in-out;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 .on-hover:hover::after {
   opacity: 1;
