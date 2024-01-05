@@ -7,106 +7,77 @@ import { Icon } from "astro-icon";
     titel="RSS-Feed"
     description="Fügen sie den RSS-Feed zu ihrem Feeder hinzu."
 >
-    <div class="padding">
-        <div class="grid">
-            <h1>RSS-Feed</h1>
-            <p>
-                Rich Site Summary (RSS) sind Dateiformate für Web-Feeds. Hiermit
-                können sie direkt die Neuigkeiten zum Freibad Delligsen
-                bekommen.
-                <br />Die Feed-URL ist: <br />
-                <code>http://freibad-delligsen.de/rss.xml</code><br /><br />
-                Im Folgenden werden einige Feed-Reader vorgestellt, in der Sie diese
-                URL unter neuen Feed hinzufügen abbonieren können. Hierbei ist zu
-                beachten, dass den gesamte Artikel abgerufen in den Einstellungen
-                aktiviert ist.
-            </p>
-            <div class="card">
-                <div class="title">
-                    <Icon name="IcRoundAndroid" />
-                    <span></span>
-                    <h2>Android</h2>
-                </div>
-                <div class="download">
-                    <h3>Feeder</h3>
-                    <div style="width: 200px; display: grid; gap:1rem;">
-                        <a
-                            href="https://play.google.com/store/apps/details?id=com.nononsenseapps.feeder.play"
-                        >
-                            <Icon name="playStore" />
-                        </a>
-                        <a
-                            href="https://f-droid.org/de/packages/com.nononsenseapps.feeder/"
-                        >
-                            <Icon name="fdroid" />
-                        </a>
-                    </div>
-                </div>
+    <div class="grid">
+        <h1>RSS-Feed</h1>
+        <p>
+            Rich Site Summary (RSS) sind Dateiformate für Web-Feeds. Hiermit
+            können sie direkt die Neuigkeiten zum Freibad Delligsen bekommen.
+            <br />Die Feed-URL ist: <br />
+            <code>http://freibad-delligsen.de/rss.xml</code>
+        </p>
+        <div class="card">
+            <div class="title">
+                <Icon name="IcRoundAndroid" />
+                <span></span>
+                <h2>Android</h2>
             </div>
-            <div class="card">
-                <div class="title">
-                    <Icon name="IcRoundApple" />
-                    <span></span>
-                    <h2>IOS / MacOS</h2>
-                </div>
-                <div class="download">
-                    <h3>NetNewsWire</h3>
+            <div class="download">
+                <h3>Feeder</h3>
+                <div style="width: 200px; display: grid; gap:1rem;">
                     <a
-                        href="https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210"
+                        href="https://play.google.com/store/apps/details?id=com.nononsenseapps.feeder.play"
                     >
-                        <Icon name="appStore" />
+                        <Icon name="playStore" />
+                    </a>
+                    <a
+                        href="https://f-droid.org/de/packages/com.nononsenseapps.feeder/"
+                    >
+                        <Icon name="fdroid" />
                     </a>
                 </div>
             </div>
-            <!--Broken 
-            <div class="card">
-                <div class="title">
-                    <Icon name="IcRoundComputer" />
-                    <span></span>
-                    <h2>Firefox / Chrome</h2>
-                </div>
-                <div class="download">
-                    <h3>Feedbro</h3>
-                    <div style="width: 200px; display: grid; gap:1rem;">
-                        <a href="https://addons.mozilla.org/firefox/addon/feedbroreader/">
-                            <Icon name="firefox" />
-                        </a>
-                        <a href="https://chrome.google.com/webstore/detail/feedbro/mefgmmbdailogpfhfblcnnjfmnpnmdfa">
-                            <Icon name="chrome" />
-                        </a>
-                    </div>
-                </div>
+        </div>
+        <div class="card">
+            <div class="title">
+                <Icon name="IcRoundApple" />
+                <span></span>
+                <h2>IOS / MacOS</h2>
             </div>
-            -->
-            <div class="card">
-                <div class="title">
-                    <Icon name="linux" />
-                    <span></span>
-                    <h2>Linux</h2>
-                </div>
-                <div class="download">
-                    <h3>NewsFlash</h3>
-                    <a
-                        href="https://flathub.org/de/apps/io.gitlab.news_flash.NewsFlash"
-                    >
-                        <Icon name="flathub" />
-                    </a>
-                </div>
+            <div class="download">
+                <h3>NetNewsWire</h3>
+                <a
+                    href="https://apps.apple.com/us/app/netnewswire-rss-reader/id1480640210"
+                >
+                    <Icon name="appStore" />
+                </a>
             </div>
-            <div class="card">
-                <div class="title">
-                    <Icon name="windows" />
-                    <span></span>
-                    <h2>Windows</h2>
-                </div>
-                <div class="download">
-                    <h3>Fluent Reader</h3>
-                    <a
-                        href="https://github.com/yang991178/fluent-reader/releases"
-                    >
-                        <Icon name="getGithub" />
-                    </a>
-                </div>
+        </div>
+        <div class="card">
+            <div class="title">
+                <Icon name="linux" />
+                <span></span>
+                <h2>Linux</h2>
+            </div>
+            <div class="download">
+                <h3>NewsFlash</h3>
+                <a
+                    href="https://flathub.org/de/apps/io.gitlab.news_flash.NewsFlash"
+                >
+                    <Icon name="flathub" />
+                </a>
+            </div>
+        </div>
+        <div class="card">
+            <div class="title">
+                <Icon name="windows" />
+                <span></span>
+                <h2>Windows</h2>
+            </div>
+            <div class="download">
+                <h3>Fluent Reader</h3>
+                <a href="https://github.com/yang991178/fluent-reader/releases">
+                    <Icon name="getGithub" />
+                </a>
             </div>
         </div>
     </div>
@@ -139,9 +110,20 @@ import { Icon } from "astro-icon";
         border-radius: 16px;
         display: grid;
         gap: 30px;
+        position: relative;
     }
-    .padding {
-        padding: 2vw;
+    .card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        opacity: 0;
+        border: 2px var(--text) solid;
+        border-radius: var(--border-radius);
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        transition: all 0.2s ease-in-out;
+    }
+    .card:hover::after {
+        opacity: 1;
     }
     [astro-icon] {
         color: var(--primary);

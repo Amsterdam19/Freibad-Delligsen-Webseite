@@ -1,19 +1,17 @@
 ---
 const { img, titel } = Astro.props;
-import { Picture } from 'astro:assets';
+import { Picture } from "astro:assets";
 ---
 
-<div class="responsive">
-    <div class="gallery">
-        <a target="_blank" href={img.src}>
-            <div class="picture">
-                <Picture src={img} formats={['avif', 'webp']} alt={titel} />
-            </div>
-            <div class="titel">
-                <p>{titel}</p>
-            </div>
-        </a>
-    </div>
+<div class="gallery on-hover">
+    <a target="_blank" href={img.src}>
+        <div class="picture">
+            <Picture src={img} formats={["avif", "webp"]} alt={titel} />
+        </div>
+        <div class="titel">
+            <p>{titel}</p>
+        </div>
+    </a>
 </div>
 
 <style>
@@ -35,26 +33,17 @@ import { Picture } from 'astro:assets';
         justify-content: flex-end;
         grid-area: 2 / 1 / 3 / 2;
     }
-    .responsive {
-        height: auto;
-        width: fit-content;
-        border-radius: var(--border-radius);
-        overflow: hidden;
-    }
     .gallery {
         background-color: white;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+        box-shadow:
+            0 4px 8px 0 rgba(0, 0, 0, 0.2),
             0 6px 20px 0 rgba(0, 0, 0, 0.19);
         transition: 0.3s;
         margin-bottom: -10px;
+        overflow: hidden;
+        border-radius: var(--border-radius);
     }
-    .gallery:hover {
-        background-color: var(--accent-color);
-        box-shadow: 0 6px 12px 0 rgba(0, 0, 0, 0.527),
-            0 9px 20px 0 rgba(0, 0, 0, 0.19);
-        color: var(--lighter-blue);
-    }
-    .gallery:hover img{
+    .gallery:hover img {
         transform: scale(1.1);
     }
     img {
@@ -66,7 +55,7 @@ import { Picture } from 'astro:assets';
     }
     p {
         font-weight: 300;
-        font-size: 14pt;
+        font-size: 1.3rem;
         color: var(--text);
         padding: 16px;
         margin: 16px;

@@ -2,7 +2,7 @@
 const { titel } = Astro.props;
 ---
 
-<div class="card">
+<div class="card on-hover">
     <div class="title">{titel}</div>
     <div class="content">
         <slot />
@@ -10,11 +10,12 @@ const { titel } = Astro.props;
 </div>
 
 <style>
+    /*25.66rem;*/
     .card {
         box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
         padding: 16px;
         border-radius: var(--border-radius);
-        max-width: 25.66rem;
+        flex: 1 0 17rem;
         height: 500px;
         display: grid;
         grid-template-rows: auto 1fr;
