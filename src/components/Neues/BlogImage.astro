@@ -5,11 +5,10 @@ import { Image } from 'astro:assets';
 <div style={"border-radius:"+radius+";"}>
     <Image
     loading="eager"
-    quality="low"
+    quality="mid"
     src={src}
     format="webp"
-    widths={[500, 900]}
-    sizes="(max-width: 500px) 500px, (max-width: 900px) 900px"
+    width={1000}
     alt={alt}
 />
 </div>

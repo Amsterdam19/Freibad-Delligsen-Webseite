@@ -21,7 +21,7 @@
   --border-radius: .7rem;
   --border-grey: #cecece63;
   --border-grey: color-mix(in oklab, var(--secondary) 90%, grey);
-  --nav-bg-color: color-mix(in oklab, var(--background) 90%, white 0%);
+  --nav-bg-color: rgba(255,255,255,0.8);
   --site-width: 80rem;
 
 
@@ -38,7 +38,7 @@
   --filter-blue: brightness(0) saturate(100%) invert(31%) sepia(35%) saturate(727%) hue-rotate(168deg) brightness(92%) contrast(97%);
   --filter-white: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(45deg) brightness(109%) contrast(101%);
   --filter-light-blue: brightness(0) saturate(100%) invert(90%) sepia(11%) saturate(420%) hue-rotate(166deg) brightness(100%) contrast(94%);
-  --nav-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.548);
+  --nav-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.3);
   --bg-color: var(--background);
   --accent-color2: brown;
   --drop-filter: drop-shadow(0 0 1rem var(--main-color));
@@ -72,8 +72,11 @@
   hyphens: auto;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
 }
 
 [astro-icon="freibadLogo"] ellipse {
@@ -120,14 +123,36 @@ h4 {
   }
 }
 
-header.sticking {
-  transition: all 0.3s ease-in-out;
-  box-shadow: none !important;
+header {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  width: 100%;
+}
+header::before {
+  content: '';
+  inset: 0;
+  position: absolute;
+  width: 100%;
+  background-color: var(--nav-bg-color);
+  backdrop-filter: blur(10px);
+}
+header::after {
+  content: '';
+  inset: 0;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  box-shadow: var(--nav-shadow), 0 -9px white;
 }
 
-header.notSticking {
-  background-color: var(--nav-bg-color);
-  box-shadow: var(--nav-shadow), 0 -9px white;
+header.sticking::after {
+  opacity: 0;
+}
+
+header.notSticking::after {
+  opacity: 1;
 }
 
 .solidWhite {
@@ -207,17 +232,20 @@ img.full-width {
 .on-hover {
   position: relative;
 }
+
 .on-hover::after {
   content: '';
   position: absolute;
   inset: 0;
   opacity: 0;
+  z-index: 2;
   border: 2px var(--text) solid;
   border-radius: var(--border-radius);
   transition: opacity 0.2s ease-in-out;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   pointer-events: none;
 }
+
 .on-hover:hover::after {
   opacity: 1;
 }

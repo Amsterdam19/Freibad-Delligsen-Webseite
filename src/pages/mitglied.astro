@@ -3,37 +3,41 @@ import MainLayout from "../layouts/MainLayout.astro";
 import { Icon } from "astro-icon";
 ---
 
-<MainLayout titel="Mitgliedschaft" description="Mitglied im Förderverein Freibad Delligsen beantragen">
-  <div class="padding">
-    <div class="grid">
-      <h1>Mitgliedschaft</h1>
-      <p>
-        Werden Sie Mitglied im F&ouml;rderverein Freibad Delligsen e.V. und
-        unterstützen Sie uns beim Erhalt des Delligser Freibades.
-        <br /><br />
-        Wir freuen uns über jedes Mitglied. Ob jung oder alt, jeder ist herzlich
-        willkommen. Mit einer Mitgliedschaft, ob aktiv oder passiv, helfen Sie uns
-        das Freibad Delligsen noch viele Jahre zu erhalten.
-        <br /><br />
-        Die Beitrittserklärung einschl. Jahresbeiträge und die Satzung erhalten Sie
-        hier als Download:
-      </p>
-      <div class="download">
-        <Icon name="IcRoundDownload" />
-        <ul>
-          <li>
-            <a
-              href="/documents/Beitrittserklaerung_Foerderverein_Freibad_Delligsen.pdf"
-              >Beitrittserklaerung Foerderverein Freibad Delligsen e.V.</a
-            >
-          </li>
-          <li>
-            <a href="/documents/Satzung_Foerderverein_Freibad_Delligsen.pdf"
-              >Satzung Foerderverein Freibad Delligsen e.V.</a
-            >
-          </li>
-        </ul>
-      </div>
+<MainLayout
+  titel="Mitgliedschaft"
+  description="Mitglied im Förderverein Freibad Delligsen beantragen"
+>
+  <div class="grid">
+    <h1>Mitgliedschaft</h1>
+    <p>
+      Werden Sie Mitglied im F&ouml;rderverein Freibad Delligsen e.V. und
+      unterstützen Sie uns beim Erhalt des Delligser Freibades.
+      <br /><br />
+      Wir freuen uns über jedes Mitglied. Ob jung oder alt, jeder ist herzlich willkommen.
+      Mit einer Mitgliedschaft, ob aktiv oder passiv, helfen Sie uns das Freibad
+      Delligsen noch viele Jahre zu erhalten.
+      <br /><br />
+      Die Beitrittserklärung einschl. Jahresbeiträge und die Satzung erhalten Sie
+      hier als Download:
+    </p>
+    <div class="download">
+      <Icon name="IcRoundDownload" />
+      <ul>
+        <li>
+          <a
+            href="/documents/Beitrittserklaerung_Foerderverein_Freibad_Delligsen.pdf"
+            target="_blank">
+            Beitrittserklaerung Foerderverein Freibad Delligsen e.V.
+          </a>
+        </li>
+        <li>
+          <a
+            href="/documents/Satzung_Foerderverein_Freibad_Delligsen.pdf"
+            target="_blank">
+            Satzung Foerderverein Freibad Delligsen e.V.
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
 </MainLayout>
@@ -49,9 +53,6 @@ import { Icon } from "astro-icon";
     border-radius: 16px;
     border: var(--border-grey) 1px solid;
   }
-  .padding {
-    padding: 2vw;
-  }
   .download {
     display: grid;
     gap: 3rem;
@@ -60,12 +61,15 @@ import { Icon } from "astro-icon";
   [astro-icon] {
     color: var(--primary);
   }
-  .download a {
-    text-decoration: none;
+  a {
     color: var(--text);
     font-weight: 700;
+    transition: color 0.2s ease-in;
   }
-  .download ul {
+  a:hover {
+    color: var(--primary);
+  }
+  ul {
     vertical-align: middle;
     display: flex;
     flex-direction: column;

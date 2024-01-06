@@ -33,7 +33,7 @@ const { className } = Astro.props;
           <p>
             &copy;
             <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
-             contributors. Tiles courtesy of
+            contributors. Tiles courtesy of
             <a href="https://www.thunderforest.com//">Andy Allan</a>
           </p>
         </div>
@@ -48,7 +48,7 @@ const { className } = Astro.props;
     --skew-angle: 5deg;
     position: relative;
     isolation: isolate;
-    padding-block: 20rem;
+    padding-block: 17rem;
     margin-block: 10rem;
   }
   .diagonal::after {
@@ -60,7 +60,7 @@ const { className } = Astro.props;
       var(--accent) 100%
     );
     position: absolute;
-    z-index: -1;
+    z-index: -2;
     inset: 0;
     transform: skewY(var(--skew-angle));
   }
@@ -71,21 +71,32 @@ const { className } = Astro.props;
     border-radius: var(--border-radius);
     width: 100%;
     padding: 1rem;
-    max-width: var(--site-width);
-    margin-inline: auto;
+    height: 70vh;
+    height: 70svh;
+    display: grid;
+    grid-template-areas: "panelContent panelContentGrid";
+    grid-template-columns: 3fr 1fr;
+    position: relative;
+    transform: none;
+  }
+  .panelGrid::before {
+    content: "";
+    inset: 0;
+    position: absolute;
+    border-radius: var(--border-radius);
+    box-shadow: rgba(0, 0, 0, 0.5) 1px 5px 20px;
     background: linear-gradient(
       120deg,
       var(--accent),
       color-mix(in oklab, var(--primary) 20%, var(--accent)),
       var(--primary) 100%
     );
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    height: 70vh;
-    height: 70svh;
-    bottom: 0px;
-    display: grid;
-    grid-template-areas: "panelContent panelContentGrid";
-    grid-template-columns: 3fr 1fr;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.5s ease-in;
+  }
+  .panelGrid:hover::before {
+    opacity: 1;
   }
   .panelContent {
     grid-area: panelContent;
