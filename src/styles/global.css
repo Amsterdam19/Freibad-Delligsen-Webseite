@@ -64,12 +64,6 @@
   box-sizing: border-box;
   font-family: "Monteserrat";
   line-height: 1.75rem;
-  /* hyphens */
-  -moz-hyphens: auto;
-  -o-hyphens: auto;
-  -webkit-hyphens: auto;
-  -ms-hyphens: auto;
-  hyphens: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {

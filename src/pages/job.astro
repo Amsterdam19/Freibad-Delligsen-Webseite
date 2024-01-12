@@ -1,0 +1,98 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout titel="Ferienjob" description="Ferienjob im Freibad Delligsen">
+    <div class="articleDiv">
+        <h1>Bock auf einen Ferienjob im Freibad?</h1>
+        <p>
+            Das Freibad Delligsen sucht für die kommende Saison Badeaufsichten!
+        </p>
+        <div>
+        <h2>Voraussetzungen:</h2>
+            <ul>
+                <li>> 18 Jahre</li>
+                <li>
+                    DLRG Silber <br />
+                    (kann auch mit unserer Unterstützung erworben werden)
+                </li>
+            </ul>            
+        </div>
+
+        <p>Bitte meldet euch per E-Mail:<br> <a href="mailto:foerderverein@freibad-delligsen.de">foerderverein@freibad-delligsen.de</a></p>
+
+        <a class="buttonA" href="/documents/ferienjob.jpeg"><span>Fleyer</span></a>
+    </div>
+</MainLayout>
+<style>
+    .articleDiv {
+        display: grid;
+        gap: 2.5rem;
+        color: var(--text);
+        max-width: 800px;
+        padding: 4%;
+        background-color: var(--article);
+        border-radius: 16px;
+        border: var(--border-grey) 1px solid;
+        margin-inline: auto;
+    }
+
+    h1 {
+        font-weight: 500;
+        margin-block: 1rem;
+        font-size: clamp(1.7rem, 1.4551rem + 1.3061vw, 2.5rem);
+    }
+    h2 {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+    }
+
+    p {
+        text-align: justify;
+    }
+    a {
+        color: var(--primary);
+    }
+    ul {
+        margin-left: 1.2rem;
+    }
+
+    .buttonA {
+        border: none;
+  border-radius: var(--border-radius);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  height: 56px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  transition: all .5s;
+  width: 160px;
+  background-color: var(--primary);
+  text-decoration: none;
+    }
+    span {
+        font-weight: 700;
+        cursor: pointer;
+        transition: 0.3s;
+        text-align: center;
+        padding-left: 25px;
+    }
+    span::after {
+        content: "➜";
+        opacity: 0;
+        transition: 0.3s;
+        margin-left: 0.5rem;
+    }
+    .buttonA:hover span {
+        padding-right: 20px;
+    }
+
+    .buttonA:hover span:after {
+        opacity: 1;
+        right: 0;
+    }
+</style>
