@@ -30,7 +30,7 @@ const { className } = Astro.props;
           </div>
         </div>
         <div>
-          <p>
+          <p id="osm_copy">
             &copy;
             <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>
             contributors. Tiles courtesy of
@@ -45,7 +45,7 @@ const { className } = Astro.props;
 
 <style>
   .diagonal {
-    --skew-angle: 5deg;
+    --skew-angle: 4deg;
     position: relative;
     isolation: isolate;
     padding-block: 17rem;
@@ -53,12 +53,7 @@ const { className } = Astro.props;
   }
   .diagonal::after {
     content: "";
-    background: linear-gradient(
-      120deg,
-      var(--primary),
-      color-mix(in oklab, var(--primary) 20%, var(--accent)),
-      var(--accent) 100%
-    );
+    background: var(--positive);
     position: absolute;
     z-index: -2;
     inset: 0;
@@ -70,12 +65,11 @@ const { className } = Astro.props;
   .panelGrid {
     border-radius: var(--border-radius);
     width: 100%;
-    padding: 1rem;
     height: 70vh;
     height: 70svh;
     display: grid;
-    grid-template-areas: "panelContent panelContentGrid";
-    grid-template-columns: 3fr 1fr;
+    grid-template-areas: "panelContentGrid panelContent";
+    grid-template-columns: 1fr 3fr;
     position: relative;
     transform: none;
   }
@@ -83,19 +77,15 @@ const { className } = Astro.props;
     content: "";
     inset: 0;
     position: absolute;
-    border-radius: var(--border-radius);
+    border-radius: calc(var(--border-radius) + 0.2rem);
     box-shadow: rgba(0, 0, 0, 0.5) 1px 5px 20px;
-    background: linear-gradient(
-      120deg,
-      var(--accent),
-      color-mix(in oklab, var(--primary) 20%, var(--accent)),
-      var(--primary) 100%
-    );
+    background: var(--background);
     opacity: 0;
     z-index: -1;
     transition: opacity 0.5s ease-in;
   }
-  .panelGrid:hover::before {
+  .panelGrid:hover::before,
+  .panelGrid:focus::before {
     opacity: 1;
   }
   .panelContent {
@@ -109,11 +99,7 @@ const { className } = Astro.props;
     display: flex;
     flex-direction: column;
     text-align: center;
-    color: aliceblue;
-  }
-
-  .panelContent div a {
-    font-size: xx-small;
+    color: var(--primary-dark);
   }
 
   .mapPreview {
@@ -126,7 +112,8 @@ const { className } = Astro.props;
     background-position: center;
     width: 100%;
     height: 100%;
-    border-radius: var(--border-radius);
+    border: 2px solid var(--primary-dark);
+    border-radius: 1rem;
     position: relative;
   }
 
@@ -227,15 +214,26 @@ const { className } = Astro.props;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+  }
+
+  @media screen and (min-width: 700px) {
+  .panelContentFlexbox > * {
+    transition: width .8s ease;
+    width: 0;
+    white-space: nowrap;
+  }
+
+  .panelGrid:hover .panelContentFlexbox > * {
+    width: 100%;
+  }    
   }
 
   .panelContentFlexbox h2 {
-    font-size: clamp(1.5rem, 0.6939rem + 1.6327vw, 2rem);
+    font-size: clamp(1.75rem, 1.0612rem + 3.6735vw, 4rem);
   }
 
   .panelContentFlexbox p {
-    font-size: clamp(0.9rem, 0.6939rem + 1.6327vw, 1.3rem);
+    font-size: clamp(1rem, 0.8469rem + 0.8163vw, 1.5rem);
   }
 
   @media only screen and (max-width: 700px) {
@@ -262,7 +260,6 @@ const { className } = Astro.props;
     }
     .osmap,
     .mapPreview {
-      border-radius: var(--border-radius);
       background-image: url("../../assets/images/map/OSM_Mobile.webp");
       height: 100%;
     }
@@ -288,5 +285,10 @@ const { className } = Astro.props;
   }
   #datenschutz {
     font-size: unset;
+  }
+
+  #osm_copy {
+    line-height: 0.7rem;
+    font-size: 0.7rem;
   }
 </style>

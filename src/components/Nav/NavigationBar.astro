@@ -71,7 +71,6 @@ const { className } = Astro.props;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        min-height: 7rem;
     }
 
     /*Logo*/
@@ -121,10 +120,6 @@ const { className } = Astro.props;
     }
 
     @media screen and (max-width: 1270px) {
-        nav {
-            min-height: 6rem;
-        }
-
         .nav-links {
             position: absolute;
             right: 0px;
@@ -149,14 +144,10 @@ const { className } = Astro.props;
     }
 
     @media screen and (max-width: 500px) {
-        nav {
-            min-height: 8vh;
-        }
-
         .nav-links {
             right: 0px;
-            height: 92vh;
-            top: 8vh;
+            height: calc(100vh - 2 * 1.5rem - 1.75rem);
+            top: calc(2 * 1.5rem + 1.75rem);
             background-color: white;
             border-radius: 0px;
             display: flex;

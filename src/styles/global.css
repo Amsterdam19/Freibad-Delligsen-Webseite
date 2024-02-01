@@ -21,7 +21,7 @@
   --border-radius: .7rem;
   --border-grey: #cecece63;
   --border-grey: color-mix(in oklab, var(--secondary) 90%, grey);
-  --nav-bg-color: rgba(255,255,255,0.8);
+  --nav-bg-color: rgba(255, 255, 255, 0.8);
   --site-width: 80rem;
 
 
@@ -123,14 +123,15 @@ header {
   z-index: 999;
   width: 100%;
 }
+
 header::before {
   content: '';
   inset: 0;
   position: absolute;
   width: 100%;
-  background-color: var(--nav-bg-color);
-  backdrop-filter: blur(10px);
+  background-color: var(--background);
 }
+
 header::after {
   content: '';
   inset: 0;
@@ -147,6 +148,35 @@ header.sticking::after {
 
 header.notSticking::after {
   opacity: 1;
+}
+
+header>* {
+  padding-block: 1.2rem;
+}
+
+@media screen and (max-width: 1271px) {
+  header>* {
+    padding-block: 1.5rem;
+  }
+}
+
+@media (any-hover: hover) and (min-width: 1271px) {
+  header>* {
+    transition: all 0.4s cubic-bezier(.4, 0, .2, 1);
+  }
+
+  header.sticking>* {
+    padding-block: 1.2rem;
+  }
+
+  header.notSticking>* {
+    padding-block: 0.25rem;
+  }
+
+  header::before {
+    background-color: var(--nav-bg-color);
+    backdrop-filter: blur(10px);
+  }
 }
 
 .solidWhite {
@@ -191,7 +221,7 @@ header.notSticking::after {
 .content-grid {
   --padding-inline: 1rem;
   --content-max-width: 80rem;
-  --breakout-max-width: 85rem;
+  --breakout-max-width: 82rem;
 
   --breakout-size: calc((var(--breakout-max-width) - var(--content-max-width)) / 2);
 
