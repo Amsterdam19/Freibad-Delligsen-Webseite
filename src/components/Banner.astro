@@ -3,12 +3,13 @@ import { Icon } from "astro-icon";
 interface Props {
   title: string;
   icon: string;
-  bg_color: string;
+  bg_color?: string;
+  id: string;
 }
-const { title, icon, bg_color = "error" } = Astro.props as Props;
+const { title, icon, bg_color = "error", id } = Astro.props as Props;
 ---
 
-<div class="banner" style={"background-color: var(--" + bg_color + ")"}>
+<div class="banner" style={"background-color: var(--" + bg_color + ")"} id={id}>
   <div class="banner-wrapper">
     <Icon name={icon} />
     <h3>{title}</h3>
