@@ -6,7 +6,7 @@ function initOSM() {
 function loadOSM() {
     const iframe = document.createElement("iframe");
     iframe.src =
-        "https://www.openstreetmap.org/export/embed.html?bbox=9.777574539184572%2C51.943762246255886%2C9.813408851623535%2C51.9556651936878&layer=cyclemap&marker=51.94971411488452%2C9.795491695404053";
+        "https://www.openstreetmap.org/export/embed.html?bbox=9.777574539184572%2C51.943762246255886%2C9.813408851623535%2C51.9556651936878&layer=mapnik&marker=51.94971411488452%2C9.795491695404053";
     iframe.classList.add("osmap");
     iframe.setAttribute("frameborder", "0");
     iframe.setAttribute("scrollinng", "no");
