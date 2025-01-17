@@ -1,0 +1,30 @@
+---
+export interface Props {
+	date: Date;
+}
+
+const { date } = Astro.props;
+---
+
+<time datetime={date.toISOString()}>
+	<div>
+		{
+			date.toLocaleDateString("de-de", {
+				year: "numeric",
+				month: "short",
+			})
+		}
+	</div>
+</time>
+<style>
+	div {
+		display: flex;
+		align-items: center;
+		gap: 2%;
+	}
+	[astro-icon] {
+		height: 1rem;
+		vertical-align: middle;
+		color: var(--accent);
+	}
+</style>

@@ -6,7 +6,7 @@ import "../styles/global.css";
 import NavigationBar from "../components/Nav/NavigationBar.astro";
 import Footer from "../components/Footer.astro";
 
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -63,7 +63,7 @@ const {
 		<!--Nav Script -->
 		<script src="../js/nav.js"></script>
 
-		<ViewTransitions />
+		<ClientRouter />
 	</head>
 	<body>
 		<header class="dontPrint">
