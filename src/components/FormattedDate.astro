@@ -7,27 +7,28 @@ export interface Props {
 const { date } = Astro.props;
 ---
 
-<time datetime={date.toISOString()}>
-	<div>
-		<Icon name="IcRoundAccessTime" />
-		{
-			date.toLocaleDateString("de-de", {
-				year: "numeric",
-				month: "short",
-				day: "numeric",
-			})
-		}
-	</div>
-</time>
+<span class="badge badge-neutral">
+	<time datetime={date.toISOString()}>
+		<div>
+			<Icon name="IcRoundAccessTime" />
+			{
+				date.toLocaleDateString("de-de", {
+					year: "numeric",
+					month: "short",
+					day: "numeric",
+				})
+			}
+		</div>
+	</time>
+</span>
 <style>
 	div {
 		display: flex;
 		align-items: center;
-		gap: 2%;
+		gap: 0.5rem;
 	}
 	[astro-icon] {
 		height: 1rem;
 		vertical-align: middle;
-		color: var(--accent);
 	}
 </style>

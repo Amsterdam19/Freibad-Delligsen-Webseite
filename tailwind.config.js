@@ -17,6 +17,7 @@ export default {
           "success": "#a3e635",
           "warning": "#f59e0b",
           "error": "#e11d48",
+          "--rounded-btn": "0.75rem",
         },
       },
     ],

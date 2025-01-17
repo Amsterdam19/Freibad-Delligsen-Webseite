@@ -1,0 +1,226 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<footer class="content-grid">
+  <div>
+    <div class="logo">
+      <Icon name="freibadLogo" />
+      <h4>Freibad Delligsen</h4>
+    </div>
+    <div class="link">
+      <a href="/mitglied/">Vereinsmitglied werden</a>
+      <a href="/job/">Ferienjob</a>
+    </div>
+
+    <div class="link">
+      <a href="/ueber/">&Uuml;ber unsere Geschichte</a>
+      <a href="/impressum/">Impressum</a>
+      <a href="/documents/Datenschutzerklärung.pdf" target="_blank"
+        >Datenschutz</a
+      >
+    </div>
+  </div>
+  <hr />
+  <div class="full-width">
+    <div class="social">
+      <a class="a" href="/rss/" aria-label="Folgt uns via RSS"
+        ><div>
+          <Icon name="IcRoundRssFeed" /><span class="footerLink">RSS</span>
+        </div>
+      </a>
+      <a
+        class="a"
+        target="_blank"
+        href="https://www.instagram.com/freibad_delligsen/"
+        aria-label="Folgt uns auf Instagram"
+        ><div>
+          <Icon name="instagram" /><span class="footerLink">Instagram</span>
+        </div>
+      </a>
+      <a
+        class="a"
+        target="_blank"
+        href="https://www.facebook.com/Freibad.Delligsen/"
+        aria-label="Folgt uns auf Facebook"
+        ><div>
+          <Icon name="facebook" /><span class="footerLink">Facebook</span>
+        </div>
+      </a>
+    </div>
+    <p>
+      &copy; <span id="copyright"></span> F&ouml;rderverein Freibad Delligsen
+    </p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("copyright").textContent = new Date()
+    .getFullYear()
+    .toString();
+</script>
+
+<style>
+  * {
+    /* hyphens */
+    -moz-hyphens: none;
+    -o-hyphens: none;
+    -webkit-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+  }
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+  .footerLink {
+    font-size: 14pt;
+    color: color-mix(in oklab, var(--primary) 5%, white);
+    font-weight: 600;
+    overflow: hidden;
+    transition: all 0.2s ease-in;
+    width: min-content;
+    margin-left: 16px;
+  }
+  @media screen and (min-width: 600px) {
+    @media (any-pointer: fine) {
+      a .footerLink {
+        width: 0;
+        margin: 0;
+      }
+      a:hover .footerLink {
+        width: 100px;
+        margin-left: 16px;
+      }
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .social {
+      flex-direction: column;
+    }
+    .a {
+      width: 200px;
+    }
+  }
+
+  a div {
+    height: 56px;
+    margin: 8px 16px 8px 0;
+    padding: 16px;
+    background-color: var(--primary);
+    border-radius: var(--border-radius);
+    display: grid;
+    grid-template-columns: 24px auto;
+    align-items: center;
+  }
+
+  [astro-icon] {
+    width: 24px;
+    height: 24px;
+    color: color-mix(in oklab, var(--primary) 5%, white);
+    fill: color-mix(in oklab, var(--primary) 5%, white);
+    transition: all 0.2s ease-in;
+  }
+
+  footer {
+    background-color: var(--secondary);
+    margin-top: 3rem;
+    box-shadow:
+      rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+      rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+    display: grid;
+    gap: 4rem 0;
+    padding-block: 4rem;
+  }
+
+  footer > div:first-of-type {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+  @media (width < 830px) {
+    footer > div:first-of-type {
+      display: grid;
+    }
+  }
+
+  .link,
+  .social {
+    display: flex;
+  }
+
+  .social {
+    justify-content: center;
+  }
+
+  .link {
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+
+  .link a {
+    display: inline-block;
+    width: fit-content;
+    color: var(--text);
+    font-size: 1.3rem;
+    transition: color 0.3s ease;
+    transform-origin: left;
+  }
+
+  .link span {
+    font-weight: 600;
+    font-size: 1.4rem;
+  }
+
+  p {
+    color: color-mix(in oklab, var(--accent), black);
+    font-size: larger;
+    margin-top: 1rem;
+    text-align: center;
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .logo [astro-icon="freibadLogo"] {
+    display: block !important;
+    fill: var(--primary-dark);
+    width: min(5rem, 100px) !important;
+    height: min(3.5rem, 80px) !important;
+  }
+
+  .logo h4 {
+    color: var(--primary-dark);
+    font-size: 18pt;
+    font-weight: 700;
+    letter-spacing: -1px;
+  }
+
+  .link a {
+    text-decoration: none;
+    background-image: linear-gradient(
+      120deg,
+      var(--primary),
+      color-mix(in oklab, var(--primary) 20%, var(--accent)),
+      var(--accent) 100%
+    );
+    background-size: 0% 3px;
+    background-position: left 1.4em;
+    background-repeat: no-repeat;
+    padding-block-end: 0.25em;
+    transition:
+      color 500ms,
+      background-size 500ms;
+  }
+
+  .link a:hover,
+  .link a:focus {
+    color: var(--primary);
+    background-size: 100% 3px;
+  }
+</style>
