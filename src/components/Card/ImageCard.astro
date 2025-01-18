@@ -1,0 +1,75 @@
+---
+import { Icon } from "astro-icon";
+
+const { img, title, id, classes } = Astro.props;
+---
+
+<div
+    class:list={["card", classes]}
+    style={`background-image: url(${img.src});`}
+    onclick={`${id}.showModal()`}
+>
+    <dialog id={id} class="modal">
+        <div class="modal-box w-auto">
+            <img class="rounded-xl" src={img.src} />
+            <div class="modal-action justify-between gap-3 flex-wrap">
+                <h2>{title}</h2>
+                <div class="flex gap-3">
+                    <a role="button" class="btn btn-primary" href={img.src} target="_blank">
+                        <Icon name="IcRoundOpenInNew" height="24" width="24"/> Datei öffnen
+                    </a>
+                    <form method="dialog">
+                        <!-- if there is a button, it will close the modal -->
+                        <button class="btn">Schließen</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+</div>
+<style>
+    .modal-box {
+        max-width: min(80rem, 100%);
+        max-height: calc(100vh - 1em);
+    }
+    h2 {
+        color: var(--text);
+        font-size: 1.9rem;
+        font-weight: 400;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #353535;
+        font-size: 3rem;
+        color: #fff;
+        box-shadow:
+            rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
+            rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+        height: 100%;
+        width: 100%;
+        border-radius: 4px;
+        transition: all 500ms;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 0;
+        margin: 0;
+    }
+
+    @media screen and (min-width: 600px) {
+        .card-tall {
+            grid-row: span 2 / auto;
+        }
+
+        .card-wide {
+            grid-column: span 2 / auto;
+        }
+    }
+</style>

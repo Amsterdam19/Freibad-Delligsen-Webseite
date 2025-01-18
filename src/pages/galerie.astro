@@ -12,48 +12,34 @@ import Marathonschwimmen from "@assets/images/galerie/Marathonschwimmen_2022-08-
 import Lichtkunst1 from "@assets/images/galerie/IMG-20220507-WA0005.jpg";
 import Lichtkunst2 from "@assets/images/galerie/IMG-20220507-WA0027.jpg";
 import Trabantentreffen from "@assets/images/galerie/Trabantentreffen_2022-08-13.jpg";
+import Image from "astro/components/Image.astro";
+import ImageCard from "components/Card/ImageCard.astro";
 ---
 
 <MainLayout titel="Galerie" description="Bildergalerie">
     <Grid titel="Galerie">
-        <div class="gridGalerie">
-            <!--Spalte1 -->
-            <div class="column">
-                <GalerieItem img={Sprungturm} titel="Sprungturm" />
-                <GalerieItem img={Sprungturm2} titel="Das Becken" />
-                <GalerieItem img={Sonnenuntergang} titel="Abendstimmung" />
-                <GalerieItem img={historischeAnsicht} titel="Historische Ansicht Freibad Delligsen" />
-            </div>
-            <!--Spalte2 -->
-            <div class="column">
-                <GalerieItem img={Marathonschwimmen} titel="Marathonschwimmen 2022" />
-                <GalerieItem img={Lichtkunst1} titel="Lichtkunst" />
-                <GalerieItem img={Lichtkunst2} titel="Lichtkunst" />
-                <GalerieItem img={Trabantentreffen} titel="Trabantentreffen 2022" />
-            </div>
+
+
+        
+
+        <div class="image-mosaic">
+            <ImageCard img={Sprungturm} title="Sprungturm" id="strungturm" classes="card-tall card-wide"/>
+            <ImageCard img={Marathonschwimmen} title="Marathonschwimmen" id="marathonschwimmen" classes="card-tall"/>
+            <ImageCard img={historischeAnsicht} title="historischeAnsicht" id="historischeAnsicht" classes="card-wide"/>
+            <ImageCard img={Sprungturm2} title="Strungturm2" id="strungturm2" classes="card-tall"/>
+            <ImageCard img={Sonnenuntergang} title="Sonnenuntergang" id="sonnenuntergang" classes="card-tall"/>
+            <ImageCard img={Lichtkunst1} title="Lichtkunst1" id="lichtkunst1"/>
+            <ImageCard img={Lichtkunst2} title="Lichtkunst2" id="lichtkunst2"/>
+            <ImageCard img={Trabantentreffen} title="Trabantentreffen" id="trabantentreffen"/>
         </div>
     </Grid>
 </MainLayout>
 <style>
-    .gridGalerie {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        margin-inline: auto;
-        max-width: var(--site-width);
+    .image-mosaic {
         width: 100%;
-        gap: 1.5rem;
-    }
-    .column {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 1.5rem;
-    }
-    @media only screen and (max-width: 800px) {
-        .gridGalerie {
-            display: grid;
-            grid-template-columns: 1fr;
-        }
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-auto-rows: 240px;
     }
 </style>

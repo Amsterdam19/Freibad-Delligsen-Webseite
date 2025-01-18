@@ -128,7 +128,7 @@ function navSlide() {
         //})
 
         //Burger Animation
-        burger.classList.toggle('toggle');
+        burger.classList.toggle('burgerToggle');
 
         //navBar solid
         navBar.classList.toggle('solidWhite')

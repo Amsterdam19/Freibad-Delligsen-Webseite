@@ -2,53 +2,62 @@
 import { Icon } from "astro-icon";
 ---
 
-<footer class="footer bg-base-200 text-base-content p-10">
-    <aside>
-        <Icon name="freibadLogo" width="50" height="50"/>
-      <p>
-        Freibad Delligsen
-        <br />
-        © Förderverein Freibad Delligsen
-      </p>
-    </aside>
-    <nav>
-      <h6 class="footer-title">Informationen</h6>
-      <a class="link link-hover" href="/ueber/">&Uuml;ber unsere Geschichte</a>
-      <a class="link link-hover" href="/impressum/">Impressum</a>
-      <a class="link link-hover" href="/documents/Datenschutzerklärung.pdf" target="_blank"
-      >Datenschutz</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Unterstützen</h6>
-      <a class="link link-hover" href="/mitglied/">Vereinsmitglied werden</a>
-      <a class="link link-hover" href="/job/">Ferienjob</a>
-    </nav>
-    <nav>
-      <h6 class="footer-title">Soziale Medien</h6>
-      <div class="grid grid-flow-col gap-4">
+<footer class="footer bg-base-200 text-base-content p-10 mt-8">
+  <aside>
+    <Icon name="freibadLogo" width="70" height="70" />
+    <p>
+      <span
+        style="color: var(--primary-dark);
+        font-size: 18pt;
+        font-weight: 700;
+        letter-spacing: -1px;"
+        >Freibad Delligsen</span
+      >
+      <br />
+      © Förderverein Freibad Delligsen
+    </p>
+  </aside>
+  <nav>
+    <h6 class="footer-title">Informationen</h6>
+    <a class="link link-hover" href="/ueber/">&Uuml;ber unsere Geschichte</a>
+    <a class="link link-hover" href="/impressum/">Impressum</a>
+    <a
+      class="link link-hover"
+      href="/documents/Datenschutzerklärung.pdf"
+      target="_blank">Datenschutz</a
+    >
+  </nav>
+  <nav>
+    <h6 class="footer-title">Unterstützen</h6>
+    <a class="link link-hover" href="/mitglied/">Vereinsmitglied werden</a>
+    <a class="link link-hover" href="/job/">Ferienjob</a>
+  </nav>
+  <nav>
+    <h6 class="footer-title">Soziale Medien</h6>
+    <div class="grid grid-flow-col gap-4">
       <a class="a" href="/rss/" aria-label="Folgt uns via RSS"
         ><div class="tooltip tooltip-bottom" data-tip="RSS">
-          <Icon name="IcRoundRssFeed" width="24" height="24"/>
+          <Icon name="IcRoundRssFeed" width="24" height="24" />
         </div>
       </a>
       <a
-      class="a"
-      target="_blank"
-      href="https://www.instagram.com/freibad_delligsen/"
-      aria-label="Folgt uns auf Instagram"
-      ><div class="tooltip tooltip-bottom" data-tip="Instagram">
-        <Icon name="instagram" width="24" height="24" />
-      </div>
-    </a>
-    <a
-      class="a"
-      target="_blank"
-      href="https://www.facebook.com/Freibad.Delligsen/"
-      aria-label="Folgt uns auf Facebook"
-      ><div class="tooltip tooltip-bottom" data-tip="Facebook">
-        <Icon name="facebook" width="24" height="24" />
-      </div>
-    </a>
-</div>
-    </nav>
-  </footer>
+        class="a"
+        target="_blank"
+        href="https://www.instagram.com/freibad_delligsen/"
+        aria-label="Folgt uns auf Instagram"
+        ><div class="tooltip tooltip-bottom" data-tip="Instagram">
+          <Icon name="instagram" width="24" height="24" />
+        </div>
+      </a>
+      <a
+        class="a"
+        target="_blank"
+        href="https://www.facebook.com/Freibad.Delligsen/"
+        aria-label="Folgt uns auf Facebook"
+        ><div class="tooltip tooltip-bottom" data-tip="Facebook">
+          <Icon name="facebook" width="24" height="24" />
+        </div>
+      </a>
+    </div>
+  </nav>
+</footer>
