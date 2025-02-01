@@ -66,22 +66,32 @@ const {
 		<ClientRouter />
 	</head>
 	<body>
-		<header class="dontPrint">
-			<div class="content-grid">
-				<NavigationBar />
+		<div id="page-container">
+			<div>
+				<header class="dontPrint">
+					<div class="content-grid">
+						<NavigationBar />
+					</div>
+				</header>
+				<div class="top_div dontPrint"></div>
+				<main id="swup">
+					<div class="slot transition-fade content-grid">
+						<slot />
+					</div>
+				</main>
 			</div>
-		</header>
-		<div class="top_div dontPrint"></div>
-		<main id="swup">
-			<div class="slot transition-fade content-grid">
-				<slot />
+			<div class="dontPrint">
+				<Footer />
 			</div>
-		</main>
-		<div class="dontPrint">
-			<Footer />
 		</div>
 		<script src="../js/app.js"></script>
 		<style>
+			#page-container {
+				min-height: 100vh;
+				min-height: 100svh;
+				display: grid;
+				align-content: space-between;
+			}
 			.slot {
 				width: 100%;
 			}

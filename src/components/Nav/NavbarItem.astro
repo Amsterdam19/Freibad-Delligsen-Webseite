@@ -1,0 +1,26 @@
+---
+const { title, url, icon, current } = Astro.props;
+import { Icon } from "astro-icon";
+---
+
+<li>
+  {
+    current === url ? (
+      <a class="bg-primary hover:bg-primary text-white" href={"/" + url}>
+        {icon ? <Icon name={icon} /> : ""}
+        &nbsp;{title}
+      </a>
+    ) : (
+      <a class="font-semibold text-lg" href={"/" + url}>
+        {icon ? <Icon name={icon} /> : ""}
+        &nbsp;{title}
+      </a>
+    )
+  }
+</li>
+
+<style>
+    a{
+        @apply font-semibold text-lg lg:px-2;
+    }
+</style>

@@ -86,7 +86,7 @@ function initAccordion() {
 }
 
 //Nav Scroll
-function navScrollInit() {
+/* function navScrollInit() {
 
     const primaryHeader = document.querySelector('header');
     const scrollWatcher = document.createElement('div');
@@ -146,4 +146,4 @@ function init() {
     }
 }
 init();
-document.addEventListener('astro:after-swap', init);
+document.addEventListener('astro:after-swap', init); */

@@ -1,74 +1,35 @@
 ---
-const { date, day, month, titel } = Astro.props;
+interface Props {
+    date: string;
+    titel: string;
+    description?: string;
+    end?: boolean;
+}
+
+const { date, titel, description = "", classes, end = false } = Astro.props;
 ---
 
-<div class="grid">
-    <div class="date">
-        <p>{date}</p>
-        <div class="dateGrid">
-            <div>{day}</div>
-            <div>{month}</div>
-        </div>
+<li>
+    <div class="timeline-middle">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            fill="currentColor"
+            class="h-5 w-5 text-primary"
+            ><path
+                d="M480-280q83 0 141.5-58.5T680-480q0-83-58.5-141.5T480-680q-83 0-141.5 58.5T280-480q0 83 58.5 141.5T480-280Zm0 200q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"
+            ></path></svg
+        >
     </div>
-    <h2>{titel}</h2>
-</div>
-<style>
-    .grid {
-        transition: transform 0.2s;
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        gap: 10%;
-        margin-left: 5%;
-        margin-right: 5%;
-    }
-    .date {
-        font-weight: 300;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    p {
-        color: var(--primary-dark);
-        font-weight: bold;
-        font-size: 30pt;
-        font-weight: 700;
-        min-width: 4rem;
-        text-align: end;
-    }
-    div {
-        color: var(--text);
-    }
-    .dateGrid {
-        display: grid;
-        grid-template-rows: 1fr 1fr;
-        margin-left: 16px;
-    }
-    .dateGrid div {
-        color: var(--primary-dark);
-    }
-    h2 {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        align-items: center;
-    }
-    @media screen and (max-width: 800px) {
-        .grid {
-            gap: 1%;
-        }
-    }
-    @media screen and (max-width: 500px) {
-        .grid {
-            grid-template-columns: 1fr;
-            grid-template-rows: 2fr 2fr;
-        }
-        .date {
-            justify-content: center;
-        }
-        h2 {
-            padding-top: 10px;
-            text-align: center;
-            font-size: larger;
-        }
-    }
-</style>
+    <div
+        class={end
+            ? "timeline-end mb-10"
+            : "timeline-start mb-10 md:text-end"}
+    >
+        <time class="font-mono italic">{date}</time>
+        <div class="text-lg font-black">{titel}</div>
+        {description}
+    </div>
+    <hr />
+</li>

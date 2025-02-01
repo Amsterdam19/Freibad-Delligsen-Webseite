@@ -10,70 +10,12 @@ import TermineItem from "../components/Veranstaltungen/TermineItem.astro";
     description="Aktuelle Veranstaltungen der aktuellen Saison"
 >
     <Grid titel="Veranstaltungen">
-        <TermineGrid>
-            <TermineItem
-                date="9."
-                day="Sa"
-                month="März"
-                titel="1. Arbeitseinsatz 2024"
-            />
-            <div></div>
-            <TermineItem
-                date="17."
-                day="So"
-                month="März"
-                titel="Jahreshauptversammlung"
-            />
-            <div></div>
-            <TermineItem
-                date="6."
-                day="Sa"
-                month="April"
-                titel="Chlorgasschulung"
-            />
-            <div></div>
-            <TermineItem
-                date="24."
-                day="Mi"
-                month="April"
-                titel="Becken putzen Feuerwehr"
-            />
-            <div></div>
-            <TermineItem
-                date="27."
-                day="Sa"
-                month="April"
-                titel="Beckenanstrich"
-            />
-            <div></div>
-            <TermineItem
-                date="4."
-                day="Sa"
-                month="Mai"
-                titel="Beckenanstrich Ersatztermin"
-            />
-            <div></div>
-            <TermineItem
-                date="10."
-                day="Sa"
-                month="August"
-                titel="12 Stunden Schwimmen"
-            />
-            <div></div>
-            <TermineItem
-                date="31."
-                day="Sa"
-                month="August"
-                titel="POOL`S OUT PARTY"
-            />
-        </TermineGrid>
+        <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full">
+            <TermineItem date="16. März" titel="Braunkohlwanderung & JHV"/>
+            <TermineItem date="30. Mai" titel="Saisonstart" description="Um 18 Uhr mit Grill und Musik" end={true}/>
+            <TermineItem date="05. Juli" titel="Poolparty" description="Die Poolparty beginnt um 18 Uhr"/>
+        </ul>
     </Grid>
 </MainLayout>
 <style>
-    div {
-        width: 96%;
-        margin: 2%;
-        height: 2px;
-        background-color: var(--text);
-    }
 </style>
