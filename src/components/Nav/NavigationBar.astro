@@ -11,73 +11,86 @@ const { className } = Astro.props;
     <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col">
         <!-- Navbar -->
-        <div class="navbar w-full">
-            <div class="mx-2 flex-1 px-2 logo">
-                <Icon name="freibadLogo" />c
-                <h4>Freibad Delligsen</h4>
-            </div>
-            <div class="hidden flex-none lg:block">
+        <div class="navbar w-full justify-between">
+            <a class="no-underline" href="/">
+                <div class="logo">
+                    <Icon name="freibadLogo" />
+                    <h4>Freibad Delligsen</h4>
+                </div>
+            </a>
+            <div class="hidden flex-none xl:block">
                 <ul class="menu menu-horizontal gap-2">
                     <!-- Navbar menu content here -->
                     <NavItem
-            title="Startseite"
-            url=""
-            current={currentPath[1]}
-            
-        />
-        <NavItem
-            title="Öffnungszeiten"
-            url="zeiten"
-            current={currentPath[1]}
-            
-        />
-        <NavItem
-            title="Eintrittspreise"
-            url="preise"
-            current={currentPath[1]}
-            
-        />
-        <NavItem
-            title="Veranstaltungen"
-            url="veranstaltungen"
-            current={currentPath[1]}
-            
-        />
-        <NavItem
-            title="Neuigkeiten"
-            url="neues"
-            current={currentPath[1]}
-            
-        />
-        <NavItem
-            title="Galerie"
-            url="galerie"
-            current={currentPath[1]}
-            
-        />
+                        title="Startseite"
+                        url=""
+                        current={currentPath[1]}
+                    />
+                    <NavItem
+                        title="Öffnungszeiten"
+                        url="zeiten"
+                        current={currentPath[1]}
+                    />
+                    <NavItem
+                        title="Eintrittspreise"
+                        url="preise"
+                        current={currentPath[1]}
+                    />
+                    <NavItem
+                        title="Veranstaltungen"
+                        url="veranstaltungen"
+                        current={currentPath[1]}
+                    />
+                    <NavItem
+                        title="Neuigkeiten"
+                        url="neues"
+                        current={currentPath[1]}
+                    />
+                    <NavItem
+                        title="Galerie"
+                        url="galerie"
+                        current={currentPath[1]}
+                    />
                 </ul>
             </div>
-            <div class="flex-none lg:hidden z-20">
-                    <label
+            <div class="flex-none xl:hidden z-20">
+                <label
                     for="my-drawer-3"
                     aria-label="toggle sidebar"
                     class="group transition flex items-center justify-center btn btn-square has-aria-pressed:btn-outline"
                     onclick="this.setAttribute('aria-pressed', !(this.getAttribute('aria-pressed') === 'true'))"
                 >
-                    <svg class="w-6 h-6 fill-current pointer-events-none" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-                        <rect class="origin-center -translate-y-[5px] translate-x-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-x-0 group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:rotate-[315deg]" y="7" width="9" height="2" rx="1"></rect>
-                        <rect class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-[[aria-pressed=true]]:rotate-45" y="7" width="16" height="2" rx="1"></rect>
-                        <rect class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:-rotate-[225deg]" y="7" width="9" height="2" rx="1"></rect>
+                    <svg
+                        class="w-6 h-6 fill-current pointer-events-none"
+                        viewBox="0 0 16 16"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <rect
+                            class="origin-center -translate-y-[5px] translate-x-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-x-0 group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:rotate-[315deg]"
+                            y="7"
+                            width="9"
+                            height="2"
+                            rx="1"></rect>
+                        <rect
+                            class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-[[aria-pressed=true]]:rotate-45"
+                            y="7"
+                            width="16"
+                            height="2"
+                            rx="1"></rect>
+                        <rect
+                            class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:-rotate-[225deg]"
+                            y="7"
+                            width="9"
+                            height="2"
+                            rx="1"></rect>
                     </svg>
-                    </label>
-                
+                </label>
             </div>
         </div>
         <!-- Page content here -->
         Content
     </div>
     <div class="drawer-side z-10">
-
         <label
             for="my-drawer-3"
             aria-label="close sidebar"
@@ -85,41 +98,41 @@ const { className } = Astro.props;
         <ul class="menu bg-base-100 min-h-full max-w-80 w-full p-4 pt-20 gap-3">
             <!-- Sidebar content here -->
             <NavItem
-            title="Startseite"
-            url=""
-            current={currentPath[1]}
-            icon="home"
-        />
-        <NavItem
-            title="Öffnungszeiten"
-            url="zeiten"
-            current={currentPath[1]}
-            icon="time"
-        />
-        <NavItem
-            title="Eintrittspreise"
-            url="preise"
-            current={currentPath[1]}
-            icon="pay"
-        />
-        <NavItem
-            title="Veranstaltungen"
-            url="veranstaltungen"
-            current={currentPath[1]}
-            icon="date"
-        />
-        <NavItem
-            title="Neuigkeiten"
-            url="neues"
-            current={currentPath[1]}
-            icon="news"
-        />
-        <NavItem
-            title="Galerie"
-            url="galerie"
-            current={currentPath[1]}
-            icon="gallery"
-        />
+                title="Startseite"
+                url=""
+                current={currentPath[1]}
+                icon="home"
+            />
+            <NavItem
+                title="Öffnungszeiten"
+                url="zeiten"
+                current={currentPath[1]}
+                icon="time"
+            />
+            <NavItem
+                title="Eintrittspreise"
+                url="preise"
+                current={currentPath[1]}
+                icon="pay"
+            />
+            <NavItem
+                title="Veranstaltungen"
+                url="veranstaltungen"
+                current={currentPath[1]}
+                icon="date"
+            />
+            <NavItem
+                title="Neuigkeiten"
+                url="neues"
+                current={currentPath[1]}
+                icon="news"
+            />
+            <NavItem
+                title="Galerie"
+                url="galerie"
+                current={currentPath[1]}
+                icon="gallery"
+            />
         </ul>
     </div>
 </div>
@@ -138,7 +151,7 @@ const { className } = Astro.props;
 
     .logo h4 {
         color: var(--primary-dark);
-        font-size: 18pt;
+        font-size: clamp(1.1rem, 0.9776rem + 0.6531vw, 1.5rem);
         font-weight: 700;
         letter-spacing: -1px;
         margin-left: 1rem;

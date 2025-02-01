@@ -34,6 +34,8 @@ const { img, title, id, classes } = Astro.props;
     .modal-box {
         max-width: min(80rem, 100%);
         max-height: calc(100vh - 1em);
+        display: grid;
+        justify-items: center;
     }
     h2 {
         color: var(--text);
@@ -61,6 +63,11 @@ const { img, title, id, classes } = Astro.props;
         background-repeat: no-repeat;
         padding: 0;
         margin: 0;
+    }
+
+    img{
+        max-height: 80vh;
+        max-height: 80svhı;
     }
 
     @media screen and (min-width: 600px) {

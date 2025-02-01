@@ -85,8 +85,8 @@ function initAccordion() {
     }
 }
 
-//Nav Scroll
-/* function navScrollInit() {
+/* //Nav Scroll
+function navScrollInit() {
 
     const primaryHeader = document.querySelector('header');
     const scrollWatcher = document.createElement('div');
@@ -134,11 +134,11 @@ function navSlide() {
         navBar.classList.toggle('solidWhite')
         const navA = document.querySelectorAll('.navA');
     })
-}
+} */
 
-function init() {
+function init() {/* 
     navScrollInit();
-    setTimeout(navSlide, 1000);
+    setTimeout(navSlide, 1000); */
     if (window.location.pathname === "/") {
         setTimeout(initAccordion, 1000);
         setTimeout(initOSM, 1000);
@@ -146,4 +146,3 @@ function init() {
     }
 }
 init();
-document.addEventListener('astro:after-swap', init); */

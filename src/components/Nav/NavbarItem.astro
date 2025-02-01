@@ -4,23 +4,37 @@ import { Icon } from "astro-icon";
 ---
 
 <li>
-  {
-    current === url ? (
-      <a class="bg-primary hover:bg-primary text-white" href={"/" + url}>
-        {icon ? <Icon name={icon} /> : ""}
-        &nbsp;{title}
-      </a>
-    ) : (
-      <a class="font-semibold text-lg" href={"/" + url}>
-        {icon ? <Icon name={icon} /> : ""}
-        &nbsp;{title}
-      </a>
-    )
-  }
+    {
+        current === url ? (
+            <a
+                class="active !bg-primary !hover:bg-primary !text-white"
+                href={"/" + url}
+            >
+                {icon ? <Icon name={icon} /> : ""}
+                &nbsp;{title}
+            </a>
+        ) : (
+            <a href={"/" + url}>
+                {icon ? <Icon name={icon} /> : ""}
+                &nbsp;{title}
+            </a>
+        )
+    }
 </li>
 
 <style>
-    a{
+    a {
         @apply font-semibold text-lg lg:px-2;
+    }
+    [astro-icon] {
+        display: none;
+        fill: var(--text);
+        transition: all 0.2s ease-in-out;
+        width: 24px;
+        height: 24px;
+    }
+    .active [astro-icon],
+    .active:hover [astro-icon] {
+        fill: white !important;
     }
 </style>
