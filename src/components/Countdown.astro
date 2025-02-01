@@ -13,133 +13,74 @@ const {
     date,
 } = Astro.props as Props;
 ---
-
-<div
-    class="countdown"
-    id="saison"
-    style={"background-color: var(--" + bg_color + ")"}
->
-    <section>
-        <Icon name={icon} />
-        <div>
-            <h2>{title}</h2>
-            <slot />
-        </div>
-    </section>
-    <strong id="countdownField"></strong>
-    <span id="date" aria-hidden="true" style="display: none;">{date}</span>
+<span id="date" aria-hidden="true" style="display: none;">{date}</span>
+<div class="flex w-full justify-center items-center gap-3 flex-wrap">
+ <h2 class="text-6xl font-extrabold">Noch</h2>
+<div class="grid auto-cols-max grid-flow-col gap-5 text-center">
+    <div class="flex flex-col">
+      <span class="countdown font-mono text-5xl">
+        <span id="days" class="leading-none" style="--value:00;"></span>
+      </span>
+      Tage
+    </div>
+    <div class="flex flex-col">
+      <span class="countdown font-mono text-5xl">
+        <span id="hours" class="leading-none" style="--value:00;"></span>
+      </span>
+      Stunden
+    </div>
+    <div class="flex flex-col">
+      <span class="countdown font-mono text-5xl">
+        <span id="min" class="leading-none" style="--value:00;"></span>
+      </span>
+      Minuten
+    </div>
+    <div class="flex flex-col">
+      <span class="countdown font-mono text-5xl">
+        <span id="sec" class="leading-none" style="--value:00;"></span>
+      </span>
+      Sekunden
+    </div>
+  </div>   
 </div>
 
-<style>
-    .countdown {
-        display: grid;
-        justify-items: center;
-        padding-block: 7rem;
-        padding-inline: 1rem;
-        gap: 2rem;
-        margin-block: 2rem;
-        color: var(--text);
-    }
-    h2 {
-        letter-spacing: -2px;
-        font-weight: 700;
-        font-size: 2rem;
-        margin-bottom: 0.5rem;
-    }
-    [astro-icon] {
-        color: var(--accent);
-        height: var(--_icon_size);
-        vertical-align: bottom;
-        font-size: var(--_icon_size) !important;
-    }
-    strong {
-        font-size: 1.5rem;
-        max-width: 700px;
-        text-align: center;
-        text-wrap: balance;
-    }
-    section {
-        --_icon_size: 3rem;
-        display: grid;
-        grid-template-columns: var(--_icon_size) auto;
-        gap: 2rem;
-        margin-bottom: 2rem;
-        align-items: center;
-    }
-</style>
 
-<script>
-    function setCountdown() {
-        // Set the date we're counting down to
-        //Bsp: Sep 13, 2023 20:00:00
-        var countDownDate = new Date(
+  <script>
+    // Set the date we're counting down to
+var countDownDate = new Date(
             document.getElementById("date").innerHTML,
         ).getTime();
 
-        // Get today's date and time
-        var now = new Date().getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
 
-        // Find the distance between now and the count down date
-        var distance = countDownDate - now;
+  // Get today's date and time
+  var now = new Date().getTime();
 
-        // Time calculations for days, hours, minutes and seconds
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor(
-            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-        );
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        //        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
 
-        // Display the result in the element with id="demo"
-        //with secounds        document.getElementById("countdownField").innerHTML = days + " Tage " + hours + " Stunden " + minutes + " Minuten und " + seconds + " Sekunden";
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        document.getElementById("countdownField").innerHTML =
-            days + " Tage " + hours + " Stunden und " + minutes + " Minuten";
+  console.log(days);
 
-        // If the count down is finished, write some text
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("countdownField").innerHTML =
-                "Freibad eröffnet";
-        }
+  // Display the result in the element with id="demo"
+  document.getElementById("days")?.style.setProperty("--value",days.toString());
+        document.getElementById("hours")?.style.setProperty("--value",hours.toString());
+        document.getElementById("min")?.style.setProperty("--value",minutes.toString());
+        document.getElementById("sec")?.style.setProperty("--value",seconds.toString());
 
-        // Update the count down every 1 second
-        var x = setInterval(function () {
-            // Get today's date and time
-            var now = new Date().getTime();
-
-            // Find the distance between now and the count down date
-            var distance = countDownDate - now;
-
-            // Time calculations for days, hours, minutes and seconds
-            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            var hours = Math.floor(
-                (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
-            );
-            var minutes = Math.floor(
-                (distance % (1000 * 60 * 60)) / (1000 * 60),
-            );
-            //        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            // Display the result in the element with id="demo"
-            //with secounds        document.getElementById("countdownField").innerHTML = days + " Tage " + hours + " Stunden " + minutes + " Minuten und " + seconds + " Sekunden";
-
-            document.getElementById("countdownField").innerHTML =
-                days +
-                " Tage " +
-                hours +
-                " Stunden und " +
-                minutes +
-                " Minuten";
-
-            // If the count down is finished, write some text
-            if (distance < 0) {
-                clearInterval(x);
-                document.getElementById("countdownField").innerHTML =
-                    "Freibad eröffnet";
-            }
-        }, 10000);
-    }
-    setCountdown();
-    document.addEventListener("astro:after-swap", setCountdown);
-</script>
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("days")?.style.setProperty("--value","0");
+        document.getElementById("hours")?.style.setProperty("--value","0");
+        document.getElementById("min")?.style.setProperty("--value","0");
+        document.getElementById("sec")?.style.setProperty("--value","0");
+  }
+}, 1000);
+  </script>

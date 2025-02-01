@@ -8,10 +8,10 @@ const { className } = Astro.props;
 ---
 
 <div class="drawer drawer-end">
-    <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+    <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col">
         <!-- Navbar -->
-        <div class="navbar w-full justify-between">
+        <div class="navbar pb-10 pt-4 px-0 w-full justify-between">
             <a class="no-underline" href="/">
                 <div class="logo">
                     <Icon name="freibadLogo" />
@@ -55,7 +55,7 @@ const { className } = Astro.props;
             </div>
             <div class="flex-none xl:hidden z-20">
                 <label
-                    for="my-drawer-3"
+                    for="nav-drawer"
                     aria-label="toggle sidebar"
                     class="group transition flex items-center justify-center btn btn-square has-aria-pressed:btn-outline"
                     onclick="this.setAttribute('aria-pressed', !(this.getAttribute('aria-pressed') === 'true'))"
@@ -88,11 +88,10 @@ const { className } = Astro.props;
             </div>
         </div>
         <!-- Page content here -->
-        Content
     </div>
     <div class="drawer-side z-10">
         <label
-            for="my-drawer-3"
+            for="nav-drawer"
             aria-label="close sidebar"
             class="drawer-overlay"></label>
         <ul class="menu bg-base-100 min-h-full max-w-80 w-full p-4 pt-20 gap-3">

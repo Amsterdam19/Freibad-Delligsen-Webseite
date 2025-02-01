@@ -5,7 +5,6 @@ import Verlinkung from "../components/Index/Verlinkung.astro";
 import Kurse from "../components/Kurse/Kurse.astro";
 import LandingLogo from "../components/Index/LandingLogo.astro";
 import MainLayout from "../layouts/MainLayout.astro";
-import HilsHeika from "../components/HilsHeika.astro";
 import Countdown from "components/Countdown.astro";
 ---
 
@@ -27,16 +26,14 @@ import Countdown from "components/Countdown.astro";
       />
     </div>
   </LandingLogo>
-  <!--
-  <Countdown title="Saisonstart" date="Jun 01, 2024 10:00:00" bg_color="secondary">
-    Die Saison startet am 01. Jun 2024.
-  </Countdown>
-   -->
+  <!--Erst 99 Tage vor Saisonstart
+   <Countdown title="Saisonstart" date="2025-05-30T10:00:00" bg_color="secondary"> 
+    Die Saison startet am 30. Mai 2025.
+  </Countdown>-->
 
   <Accordion />
   <OSM className="full-width" />
   <Kurse />
-  <HilsHeika />
 </MainLayout>
 
 <style>

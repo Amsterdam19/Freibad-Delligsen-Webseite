@@ -1,0 +1,38 @@
+---
+import Icon from "astro-icon";
+interface Props {
+  title: string;
+  icon: string;
+  badge_bottom?: string;
+  badge_top?: string;
+  color?: string;
+}
+const { title, icon, badge_bottom, badge_top, color="white" } = Astro.props as Props;
+---
+
+<div class="card bg-base-100 w-96 shadow-xl items-center" style={`background-color: color-mix(in oklab,${color}, white 70%);`}>
+    <Icon name={icon} style={`color: color-mix(in oklab,${color}, black 50%);`}/>
+    <div class="card-body w-full bg-white rounded-b-2xl">
+      <h2 class="card-title text-2xl">
+        {title}
+        {badge_top? <div class="badge badge-secondary h-auto">{badge_top}</div> : ""}
+      </h2>
+      <p><slot></p>
+      
+        {badge_bottom? <div class="card-actions justify-end"><div class="badge badge-outline h-auto">{badge_bottom}</div></div> : ""}
+        <slot name="badge_bottom"/>
+      
+    </div>
+  </div>
+
+  <style>
+    .card {
+        flex: 1 0 20rem;
+        max-width: min(100%, 27rem); 
+        @apply w-full;
+    }
+    [astro-icon] {
+        max-width: 15rem;
+        @apply py-1;
+    }
+  </style>

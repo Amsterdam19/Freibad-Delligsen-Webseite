@@ -5,6 +5,7 @@ import Card from "../components/Card/Card.astro";
 import CardItem from "../components/Card/CardItem.astro";
 import Grid from "../components/Grid.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import PreiseCard from "components/Card/PreiseCard.astro";
 ---
 
 <MainLayout
@@ -26,52 +27,73 @@ import MainLayout from "../layouts/MainLayout.astro";
     icon="IcRoundRainy"
     bg_color="error"
   /> -->
-  <Banner
+<!--   <Banner
   title="Saisonverlängerung"
   icon="IcRoundTimelapse"
   bg_color="positive">
   Die Saison wurde bis zum 6. September 2024 von 17 bis 20 Uhr verlängert.
-</Banner>
-    <Card titel="In der Schulzeit">
-      <CardItem titel="Montag bis Freitag" content="15:00 - 20:00 Uhr" />
-      <CardItem
-        titel="Samstag und Sonntag sowie feiertags"
-        content="10:00 - 20:00 Uhr"
-      />
-    </Card>
-    <Card titel="In den Sommerferien">
-      <CardItem
-        titel="Montag bis Sonntag sowie feiertags"
-        content="10:00 - 20:00 Uhr"
-      />
-    </Card>
-  </Grid>
-  <div>
-    <p>
-      <a
+</Banner> -->
+<PreiseCard title="In der Schulzeit" icon="school" color="purple">
+    <table class="w-full">
+        <tbody
+            class="space-y-6 text-center divide-y dark:divide-gray-300"
+        >
+            <tr>
+                <th scope="row" class="text-left">
+                    <h3 class="py-3">Montag bis Freitag:</h3>
+                </th>
+                <td>
+                    <span class="block text-sm w-max">15:00 - 20:00 Uhr</span>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" class="text-left">
+                    <h3 class="py-3">
+                        Samstag und Sonntag sowie feiertags:
+                    </h3>
+                </th>
+                <td>
+                    <span class="block text-sm w-max">10:00 - 20:00 Uhr</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</PreiseCard>
+<PreiseCard title="In den Sommerferien" icon="IcRoundBeachAccess" color="green">
+    <table class="w-full">
+        <tbody
+            class="space-y-6 text-center divide-y dark:divide-gray-300"
+        >
+            <tr>
+                <th scope="row" class="text-left">
+                    <h3 class="py-3">
+                        Montag bis Sonntag sowie feiertags:
+                    </h3>
+                </th>
+                <td>
+                    <span class="block text-sm w-max">10:00 - 20:00 Uhr</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="card-actions justify-end"><div class="badge badge-outline h-auto">
+    <a slot="badge_bottom"
         target="_blank"
         href="https://www.schulferien.org/deutschland/ferien/sommer/niedersachsen/"
       >
-        *
-        <Icon name="IcRoundLink" />
+        <Icon name="IcRoundLink"/>
         Sommerferien Niedersachsen
-      </a>
-    </p>
-  </div>
+      </a></div></div>
+</PreiseCard>
+
+  </Grid>
 </MainLayout>
 
 <style>
-  div {
-    display: flex;
-    justify-content: flex-end;
-    margin-inline: auto;
-    padding: 1rem;
-    max-width: var(--site-width);
-    width: 100%;
-  }
   a {
     text-decoration: none;
     color: var(--text);
+    display: flex;
   }
   [astro-icon] {
     height: 24px;

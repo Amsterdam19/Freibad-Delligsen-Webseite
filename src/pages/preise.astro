@@ -1,46 +1,131 @@
 ---
-import Card from "../components/Card/Card.astro";
-import CardItem from "../components/Card/CardItem.astro";
+import PreiseCard from "components/Card/PreiseCard.astro";
 import Grid from "../components/Grid.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout titel="Eintrittspreise" description="Eintrittspreise für Einzelkarten, Abendtarif und Jahreskarten">
-    <Grid titel="Eintrittspreise" >
-        <!--Einzelkarten -->
-        <Card titel="Einzelkarten">
-            <CardItem titel="Erwachsene:" content="3,50 €"/>
-            <CardItem titel="Kinder und Jugendliche: (ab 4 - 18 Jahre)" content="2,00 €"/>
-            <CardItem titel="Kinder unter 4 Jahren in Begleitung Erwachsener:" content="frei"/>
-        </Card>
-        <!--Abendtarif -->
-        <Card titel="Abendtarif*">
-            <CardItem titel="Erwachsene:" content="2,00 €"/>
-            <CardItem titel="Kinder und Jugendliche: (ab 4 - 18 Jahre)" content="1,00 €"/>
-            <CardItem titel="Kinder unter 4 Jahren in Begleitung Erwachsener:" content="frei"/>
-        </Card>
-        <!--Jahreskarten -->
-        <Card titel="Jahreskarten**">
-            <CardItem titel="Erwachsene:" content="50,00 €"/>
-            <CardItem titel="Jugendliche:" content="30,00 €"/>
-            <CardItem titel="Familie mit Kindern: (inklusive aller Kinder unter 18 Jahren)" content="100,00 €"/>
-        </Card>
+<MainLayout
+    titel="Eintrittspreise"
+    description="Eintrittspreise für Einzelkarten, Abendtarif und Jahreskarten"
+>
+    <Grid titel="Eintrittspreise">
+        <PreiseCard title="Tageskarten" icon="sun" color="Yellow">
+            <table class="w-full">
+                <tbody
+                    class="space-y-6 text-center divide-y dark:divide-gray-300"
+                >
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">Erwachsene:</h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">3,50 €</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">
+                                Kinder und Jugendliche: (ab 4 - 18 Jahre)
+                            </h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">2,00 €</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">
+                                Kinder unter 4 Jahren in Begleitung Erwachsener:
+                            </h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">frei</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </PreiseCard>
+        <PreiseCard
+            title="Abendtarif"
+            icon="sunset"
+            badge_top="Ab 19 Uhr"
+            color="red"
+        >
+            <table class="w-full">
+                <tbody
+                    class="space-y-6 text-center divide-y dark:divide-gray-300"
+                >
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">Erwachsene:</h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">2,00 €</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">
+                                Kinder und Jugendliche: (ab 4 - 18 Jahre)
+                            </h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">1,00 €</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">
+                                Kinder unter 4 Jahren in Begleitung Erwachsener:
+                            </h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">frei</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </PreiseCard>
+        <PreiseCard
+            title="Jahreskarten*"
+            icon="calendar"
+            badge_bottom="*zzgl. 5€ Pfand / Transponder"
+            color="DeepSkyBlue"
+        >
+            <table class="w-full">
+                <tbody
+                    class="space-y-6 text-center divide-y dark:divide-gray-300"
+                >
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">Erwachsene:</h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">50,00 €</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">Jugendliche:</h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">30,00 €</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">
+                                Familie mit Kindern: (inklusive aller Kinder
+                                unter 18)
+                            </h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">100,00 €</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </PreiseCard>
     </Grid>
-    <div>
-        <p>
-            * ab 19 Uhr<br>
-            ** zuzüglich 5€ Pfand pro Transponder
-        </p>
-    </div>
+    <div class="h-12"></div>
 </MainLayout>
-
-<style>
-    div {
-        display: flex;
-        justify-content: flex-end;
-        margin-inline: auto;
-        padding: 1rem;
-        max-width: var(--site-width);
-        width: 100%;
-    }
-</style>
