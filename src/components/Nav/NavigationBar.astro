@@ -55,6 +55,7 @@ const { className } = Astro.props;
             </div>
             <div class="flex-none xl:hidden z-20">
                 <label
+                    id="hamburger"
                     for="nav-drawer"
                     aria-label="toggle sidebar"
                     class="group transition flex items-center justify-center btn btn-square has-aria-pressed:btn-outline"
@@ -93,7 +94,9 @@ const { className } = Astro.props;
         <label
             for="nav-drawer"
             aria-label="close sidebar"
-            class="drawer-overlay"></label>
+            class="drawer-overlay"
+            onclick="document.getElementById('hamburger').setAttribute('aria-pressed', !(document.getElementById('hamburger').getAttribute('aria-pressed') === 'true'))">
+        </label>
         <ul class="menu bg-base-100 min-h-full max-w-80 w-full p-4 pt-20 gap-3">
             <!-- Sidebar content here -->
             <NavItem
