@@ -1,18 +1,16 @@
 ---
 import FormattedDateSmall from "../FormattedDateSmall.astro";
 import BlogImage from "./BlogImage.astro";
-const { img, titel, pubDate, description, href, width, height } = Astro.props;
+const { img, titel, pubDate, description, href } = Astro.props;
 ---
 
 <div class="card bg-base-100 shadow-xl grid">
     <figure>
         {
-            width && (
+            img && (
                 <BlogImage
                     src={img}
                     alt={img}
-                    width={width}
-                    height={height}
                     radius="none"
                     classes="w-full"
                 />
