@@ -15,8 +15,6 @@ const neues = defineCollection({
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
 		src: image(),
-		width: z.string(),
-		height: z.string(),
 	}),
 });
 

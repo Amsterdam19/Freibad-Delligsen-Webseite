@@ -39,12 +39,6 @@
         "src": {
           "type": "string"
         },
-        "width": {
-          "type": "string"
-        },
-        "height": {
-          "type": "string"
-        },
         "$schema": {
           "type": "string"
         }
@@ -53,9 +47,7 @@
         "title",
         "description",
         "pubDate",
-        "src",
-        "width",
-        "height"
+        "src"
       ],
       "additionalProperties": false
     }
