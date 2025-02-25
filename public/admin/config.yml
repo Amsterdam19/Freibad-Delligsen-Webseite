@@ -34,7 +34,7 @@ collections:
       - { label: "Badge unten Link (optional)", name: "badge_bottom_link", widget: "string" }
       - { label: "Farbe", name: "color", widget: "string", required: true}
       - { label: "Icon", name: "icon", widget: "string", required: true}
-      - { label: "Index für Anordnung", name: "Index", widget: "string", required: true}
+      - { label: "Index für Anordnung", name: "Index", widget: "number", value_type: "int", required: true}
   - name: "preise"
     label: "Preise"
     folder: "src/content/preise" # The path to the folder where the documents are stored
@@ -50,12 +50,12 @@ collections:
       - { label: "Badge unten (optional)", name: "badge_bottom", widget: "string" }
       - { label: "Farbe", name: "color", widget: "string", required: true}
       - { label: "Icon", name: "icon", widget: "string", required: true}
-      - { label: "Index für Anordnung", name: "Index", widget: "string", required: true}
+      - { label: "Index für Anordnung", name: "Index", widget: "number", value_type: "int", required: true}
   - name: "veranstaltungen"
     label: "Veranstaltungen"
     folder: "src/content/veranstaltungen" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in frontmatter
       - { label: "Titel", name: "title", widget: "string" }
-      - { label: "Datum", name: "date", widget: "datetime", time_format: false, date_format: "DD.MM.YYYY" }
+      - { label: "Datum", name: "date", widget: "datetime"}
       - { label: "Beschreibung (optional)", name: "description", widget: "string" }
