@@ -2,6 +2,12 @@
 import PreiseCard from "components/Card/PreiseCard.astro";
 import Grid from "../components/Grid.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+
+import { getCollection } from 'astro:content';
+const preise = (await getCollection("preise")).sort(
+	(a, b) => a.data.index - b.data.index);
+console.log(preise[0].data.color);
+
 ---
 
 <MainLayout
@@ -9,123 +15,20 @@ import MainLayout from "../layouts/MainLayout.astro";
     description="Eintrittspreise für Einzelkarten, Abendtarif und Jahreskarten"
 >
     <Grid titel="Eintrittspreise">
-        <PreiseCard title="Tageskarten" icon="sun" color="Yellow">
-            <table class="w-full">
-                <tbody
-                    class="space-y-6 text-center divide-y dark:divide-gray-300"
-                >
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">Erwachsene:</h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">3,50 €</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">
-                                Kinder und Jugendliche: (ab 4 - 18 Jahre)
-                            </h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">2,00 €</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">
-                                Kinder unter 4 Jahren in Begleitung Erwachsener:
-                            </h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">frei</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </PreiseCard>
-        <PreiseCard
-            title="Abendtarif"
-            icon="sunset"
-            badge_top="Ab 19 Uhr"
-            color="red"
-        >
-            <table class="w-full">
-                <tbody
-                    class="space-y-6 text-center divide-y dark:divide-gray-300"
-                >
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">Erwachsene:</h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">2,00 €</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">
-                                Kinder und Jugendliche: (ab 4 - 18 Jahre)
-                            </h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">1,00 €</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">
-                                Kinder unter 4 Jahren in Begleitung Erwachsener:
-                            </h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">frei</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </PreiseCard>
-        <PreiseCard
-            title="Jahreskarten*"
-            icon="calendar"
-            badge_bottom="*zzgl. 5€ Pfand / Transponder"
-            color="DeepSkyBlue"
-        >
-            <table class="w-full">
-                <tbody
-                    class="space-y-6 text-center divide-y dark:divide-gray-300"
-                >
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">Erwachsene:</h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">50,00 €</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">Jugendliche:</h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">30,00 €</span>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" class="text-left">
-                            <h3 class="py-3">
-                                Familie mit Kindern: (inklusive aller Kinder
-                                unter 18)
-                            </h3>
-                        </th>
-                        <td>
-                            <span class="block text-sm w-max">100,00 €</span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </PreiseCard>
+        {preise.map((preis) => (
+            <PreiseCard 
+                title={preis.data.title} 
+                icon={preis.data.icon} 
+                color={preis.data.color} 
+                badge_top={preis.data.badge_top} 
+                badge_bottom={preis.data.badge_bottom}
+                pos1={preis.data.pos1}
+                pos1_num={preis.data.pos1_num}
+                pos2={preis.data.pos2}
+                pos2_num={preis.data.pos2_num}
+                pos3={preis.data.pos3}
+                pos3_num={preis.data.pos3_num}/>
+          ))}
     </Grid>
     <div class="h-12"></div>
 </MainLayout>

@@ -3,10 +3,10 @@ interface Props {
     date: string;
     titel: string;
     description?: string;
-    end?: boolean;
+    index: number;
 }
 
-const { date, titel, description = "", end = false } = Astro.props;
+const { date, titel, description = "", index} = Astro.props;
 ---
 
 <li>
@@ -23,7 +23,7 @@ const { date, titel, description = "", end = false } = Astro.props;
         >
     </div>
     <div
-        class={end
+        class={index % 2
             ? "timeline-end mb-10"
             : "timeline-start mb-10 md:text-end"}
     >

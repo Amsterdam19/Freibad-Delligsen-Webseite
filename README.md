@@ -1,5 +1,7 @@
 # Freibad-Delligsen-Webseite
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/00abc3ea-9e73-451c-ba9b-8c74f16ac8f7/deploy-status)](https://app.netlify.com/sites/freibad-delligsen/deploys)
+
 ## Credits
 
 - [Astro Framework](https://github.com/withastro/astro) | [MIT Licence](https://github.com/withastro/astro/blob/main/LICENSE)

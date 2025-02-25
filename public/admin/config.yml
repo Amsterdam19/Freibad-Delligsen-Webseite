@@ -9,12 +9,37 @@ public_folder: "../../assets/images" # The src attribute for uploaded media
 
 collections:
   - name: "Neuigkeiten" # Used in routes, e.g., /admin/collections/blog
-    label: "Blog" # Used in the UI
+    label: "Neuigkeiten" # Used in the UI
     folder: "src/content/neues" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
     fields: # The fields for each document, usually in frontmatter
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Beschreibung", name: "description", widget: "string" }
+      - { label: "Titel", name: "title", widget: "string", required: true}
+      - { label: "Beschreibung", name: "description", widget: "string", required: true}
+      - { label: "Datum", name: "pubDate", widget: "datetime", required: true}
+      - { label: "Artikelbild", name: "src", widget: "image", required: true}
+      - { label: "Body", name: "body", widget: "markdown", required: true}
+  - name: "oeffnungszeiten"
+    label: "Öffnungszeiten"
+    folder: "src/content/zeiten" # The path to the folder where the documents are stored
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "Titel", name: "title", widget: "string", required: true}
+      - { label: "Zeile 1 Beschreibung", name: "pos1", widget: "string", required: true}
+      - { label: "Zeile 1 Wert", name: "pos1_num", widget: "string", required: true}
+      - { label: "Zeile 2 Beschreibung (optional)", name: "pos2", widget: "string" }
+      - { label: "Zeile 2 Wert (optional)", name: "pos2_num", widget: "string" }
+      - { label: "Zeile 3 Beschreibung (optional)", name: "pos3", widget: "string" }
+      - { label: "Zeile 3 Wert (optional)", name: "pos3_num", widget: "string" }
+      - { label: "Badge oben (optional)", name: "badge_top", widget: "string" }
+      - { label: "Badge unten (optional)", name: "badge_bottom", widget: "string" }
+      - { label: "Badge unten Link (optional)", name: "badge_bottom_link", widget: "string" }
+      - { label: "Farbe", name: "color", widget: "string", required: true}
+      - { label: "Icon", name: "icon", widget: "string", required: true}
+      - { label: "Index für Anordnung", name: "Index", widget: "string", required: true}
+  - name: "veranstaltungen"
+    label: "Veranstaltungen"
+    folder: "src/content/veranstaltungen" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "Titel", name: "title", widget: "string" }
       - { label: "Datum", name: "pubDate", widget: "datetime" }
-      - { label: "Artikelbild", name: "src", widget: "image" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Beschreibung (optional)", name: "description", widget: "string" }

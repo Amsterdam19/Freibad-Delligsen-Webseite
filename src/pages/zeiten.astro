@@ -6,6 +6,11 @@ import CardItem from "../components/Card/CardItem.astro";
 import Grid from "../components/Grid.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import PreiseCard from "components/Card/PreiseCard.astro";
+
+import { getCollection } from "astro:content";
+const zeiten = (await getCollection("zeiten")).sort(
+  (a, b) => a.data.index - b.data.index,
+);
 ---
 
 <MainLayout
@@ -20,72 +25,37 @@ import PreiseCard from "components/Card/PreiseCard.astro";
   >
   <p>Samstag (08.06) und Sonntag (09.06) nur von <b> 10 - 12 Uhr</b>. Freitag (07.06) und Montag (10.06) normal von <b>15 -20 Uhr</b>.</p>
   </Banner>-->
-  <!--Bei schlechtem Wetter kann die Badezeit früher enden !!! -->
-  <!--
+    <!--Bei schlechtem Wetter kann die Badezeit früher enden !!! -->
+    <!--
   <Banner
     title="Bei schlechtem Wetter kann die Badezeit früher enden !!!"
     icon="IcRoundRainy"
     bg_color="error"
   /> -->
-<!--   <Banner
+    <!--   <Banner
   title="Saisonverlängerung"
   icon="IcRoundTimelapse"
   bg_color="positive">
   Die Saison wurde bis zum 6. September 2024 von 17 bis 20 Uhr verlängert.
 </Banner> -->
-<PreiseCard title="In der Schulzeit" icon="school" color="purple">
-    <table class="w-full">
-        <tbody
-            class="space-y-6 text-center divide-y dark:divide-gray-300"
-        >
-            <tr>
-                <th scope="row" class="text-left">
-                    <h3 class="py-3">Montag bis Freitag:</h3>
-                </th>
-                <td>
-                    <span class="block text-sm w-max">15:00 - 20:00 Uhr</span>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row" class="text-left">
-                    <h3 class="py-3">
-                        Samstag und Sonntag sowie feiertags:
-                    </h3>
-                </th>
-                <td>
-                    <span class="block text-sm w-max">10:00 - 20:00 Uhr</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</PreiseCard>
-<PreiseCard title="In den Sommerferien" icon="IcRoundBeachAccess" color="green">
-    <table class="w-full">
-        <tbody
-            class="space-y-6 text-center divide-y dark:divide-gray-300"
-        >
-            <tr>
-                <th scope="row" class="text-left">
-                    <h3 class="py-3">
-                        Montag bis Sonntag sowie feiertags:
-                    </h3>
-                </th>
-                <td>
-                    <span class="block text-sm w-max">10:00 - 20:00 Uhr</span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-    <div class="card-actions justify-end"><div class="badge badge-outline h-auto">
-    <a slot="badge_bottom"
-        target="_blank"
-        href="https://www.schulferien.org/deutschland/ferien/sommer/niedersachsen/"
-      >
-        <Icon name="IcRoundLink"/>
-        Sommerferien Niedersachsen
-      </a></div></div>
-</PreiseCard>
-
+    {
+      zeiten.map((zeit) => (
+        <PreiseCard
+          title={zeit.data.title}
+          icon={zeit.data.icon}
+          color={zeit.data.color}
+          badge_top={zeit.data.badge_top}
+          badge_bottom={zeit.data.badge_bottom}
+          badge_bottom_link={zeit.data.badge_bottom_link}
+          pos1={zeit.data.pos1}
+          pos1_num={zeit.data.pos1_num}
+          pos2={zeit.data.pos2}
+          pos2_num={zeit.data.pos2_num}
+          pos3={zeit.data.pos3}
+          pos3_num={zeit.data.pos3_num}
+        />
+      ))
+    }
   </Grid>
 </MainLayout>
 
