@@ -15,14 +15,14 @@
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
     "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/tailwind": "^5.1.4",
+    "@tailwindcss/vite": "^4.1.1",
     "astro": "^5.1.7",
-    "astro-icon/components": "^1.1.5",
+    "astro-icon": "^1.1.5",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.1",
     "markdown-it": "^14.0.0",
     "sanitize-html": "^2.11.0",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^4.1.1"
   },
   "devDependencies": {
     "daisyui": "^4.12.23"
