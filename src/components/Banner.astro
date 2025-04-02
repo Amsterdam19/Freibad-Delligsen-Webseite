@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 interface Props {
   title: string;
   icon: string;
@@ -18,7 +18,7 @@ const { title, icon, bg_color = "error", id } = Astro.props as Props;
 </div>
 
 <style>
-  [astro-icon] {
+  [data-icon] {
     color: var(--text);
     height: var(--_icon_size);
     vertical-align: bottom;

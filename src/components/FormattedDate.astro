@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 export interface Props {
 	date: Date;
 }
@@ -27,7 +27,7 @@ const { date } = Astro.props;
 		align-items: center;
 		gap: 0.5rem;
 	}
-	[astro-icon] {
+	[data-icon] {
 		height: 1rem;
 		vertical-align: middle;
 	}

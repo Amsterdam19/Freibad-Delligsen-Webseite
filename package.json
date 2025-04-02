@@ -17,7 +17,7 @@
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.4",
     "astro": "^5.1.7",
-    "astro-icon": "^0.8.1",
+    "astro-icon/components": "^1.1.5",
     "autoprefixer": "^10.4.14",
     "cssnano": "^6.0.1",
     "markdown-it": "^14.0.0",

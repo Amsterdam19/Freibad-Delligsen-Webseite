@@ -8,20 +8,32 @@ import MainLayout from "../layouts/MainLayout.astro";
         <p>
             Das Freibad Delligsen sucht für die kommende Saison Badeaufsichten!
         </p>
-        <div>
-        <h2>Voraussetzungen:</h2>
-            <ul>
+        <div class="card bg-base-100 shadow-xl p-4">
+            <h2 class="text-2xl">Voraussetzungen:</h2>
+            <ul class="list-disc">
+                <li>körperliche Fitness</li>
                 <li>18 Jahre</li>
                 <li>
+                    aktueller Erste Hilfe Kurs <br />(nicht älter als zwei
+                    Jahre) <br />
+                    <b>ODER</b>
+                    <br />
                     DLRG Silber <br />
                     (kann auch mit unserer Unterstützung erworben werden)
                 </li>
-            </ul>            
+            </ul>
         </div>
 
-        <p>Bitte meldet euch per E-Mail:<br> <a href="mailto:foerderverein@freibad-delligsen.de">foerderverein@freibad-delligsen.de</a></p>
+        <p>
+            Bitte meldet euch per E-Mail:<br />
+            <a href="mailto:foerderverein@freibad-delligsen.de"
+                >foerderverein@freibad-delligsen.de</a
+            >
+        </p>
 
-        <a class="buttonA" href="/documents/ferienjob.jpeg"><span>Flyer</span></a>
+        <a class="buttonA" href="/documents/ferienjob.jpeg"
+            ><span>Flyer</span></a
+        >
     </div>
 </MainLayout>
 <style>
@@ -30,10 +42,6 @@ import MainLayout from "../layouts/MainLayout.astro";
         gap: 2.5rem;
         color: var(--text);
         max-width: 800px;
-        padding: 4%;
-        background-color: var(--article);
-        border-radius: 16px;
-        border: var(--border-grey) 1px solid;
         margin-inline: auto;
     }
 
@@ -59,20 +67,20 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     .buttonA {
         border: none;
-  border-radius: var(--border-radius);
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 24px;
-  height: 56px;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  transition: all .5s;
-  width: 160px;
-  background-color: var(--primary);
-  text-decoration: none;
+        border-radius: var(--border-radius);
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+        height: 56px;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        transition: all 0.5s;
+        width: 160px;
+        background-color: var(--primary);
+        text-decoration: none;
     }
     span {
         font-weight: 700;

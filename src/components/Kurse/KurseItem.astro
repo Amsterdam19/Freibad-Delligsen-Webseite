@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 const { titel, svg, id } = Astro.props;
 ---
 
@@ -131,7 +131,7 @@ const { titel, svg, id } = Astro.props;
     }
   }
 
-  [astro-icon="IcRoundExpandMore"] {
+  [data-icon="IcRoundExpandMore"] {
     position: absolute;
     top: 0;
     left: 0;

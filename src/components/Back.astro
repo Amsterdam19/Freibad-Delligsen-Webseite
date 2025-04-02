@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 const { url, txt } = Astro.props;
 ---
 
@@ -33,11 +33,11 @@ const { url, txt } = Astro.props;
 	a:hover {
 		opacity: 0.9;
 	}
-	a:hover [astro-icon] {
+	a:hover [data-icon] {
 		transform: rotate(90deg);
 		color: var(--accent);
 	}
-	[astro-icon="IcRoundArrowBackIosNew"] {
+	[data-icon="IcRoundArrowBackIosNew"] {
 		display: block;
 		width: 24px;
 		height: 24px;

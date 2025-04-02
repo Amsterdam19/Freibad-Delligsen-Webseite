@@ -73,7 +73,7 @@
   }
 }
 
-[astro-icon="freibadLogo"] ellipse {
+[data-icon="freibadLogo"] ellipse {
   fill: var(--primary) !important;
 }
 

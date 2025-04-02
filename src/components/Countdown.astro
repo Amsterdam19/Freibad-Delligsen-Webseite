@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 interface Props {
     title: string;
     icon: string;
@@ -13,74 +13,86 @@ const {
     date,
 } = Astro.props as Props;
 ---
+
 <span id="date" aria-hidden="true" style="display: none;">{date}</span>
 <div class="flex w-full justify-center items-center gap-3 flex-wrap">
- <h2 class="text-6xl font-extrabold">Noch</h2>
-<div class="grid auto-cols-max grid-flow-col gap-5 text-center">
-    <div class="flex flex-col">
-      <span class="countdown font-mono text-5xl">
-        <span id="days" class="leading-none" style="--value:00;"></span>
-      </span>
-      Tage
+    <h2 class="text-6xl font-extrabold">Noch</h2>
+    <div
+        class="grid auto-cols-max grid-flow-col gap-5 text-center text-xs sm:text-lg"
+    >
+        <div class="flex flex-col items-center">
+            <span class="countdown font-mono text-3xl sm:text-5xl w-fit">
+                <span id="days" class="leading-none" style="--value:00;"></span>
+            </span>
+            Tage
+        </div>
+        <div class="flex flex-col items-center">
+            <span class="countdown font-mono text-3xl sm:text-5xl w-fit">
+                <span id="hours" class="leading-none" style="--value:00;"
+                ></span>
+            </span>
+            Stunden
+        </div>
+        <div class="flex flex-col items-center">
+            <span class="countdown font-mono text-3xl sm:text-5xl w-fit">
+                <span id="min" class="leading-none" style="--value:00;"></span>
+            </span>
+            Minuten
+        </div>
+        <div class="flex flex-col items-center">
+            <span class="countdown font-mono text-3xl sm:text-5xl w-fit">
+                <span id="sec" class="leading-none" style="--value:00;"></span>
+            </span>
+            Sekunden
+        </div>
     </div>
-    <div class="flex flex-col">
-      <span class="countdown font-mono text-5xl">
-        <span id="hours" class="leading-none" style="--value:00;"></span>
-      </span>
-      Stunden
-    </div>
-    <div class="flex flex-col">
-      <span class="countdown font-mono text-5xl">
-        <span id="min" class="leading-none" style="--value:00;"></span>
-      </span>
-      Minuten
-    </div>
-    <div class="flex flex-col">
-      <span class="countdown font-mono text-5xl">
-        <span id="sec" class="leading-none" style="--value:00;"></span>
-      </span>
-      Sekunden
-    </div>
-  </div>   
 </div>
 
-
-  <script>
+<script>
     // Set the date we're counting down to
-var countDownDate = new Date(
-            document.getElementById("date").innerHTML,
-        ).getTime();
+    var countDownDate = new Date(
+        document.getElementById("date").innerHTML,
+    ).getTime();
 
-// Update the count down every 1 second
-var x = setInterval(function() {
+    // Update the count down every 1 second
+    var x = setInterval(function () {
+        // Get today's date and time
+        var now = new Date().getTime();
 
-  // Get today's date and time
-  var now = new Date().getTime();
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
 
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        console.log(days);
 
-  console.log(days);
+        // Display the result in the element with id="demo"
+        document
+            .getElementById("days")
+            ?.style.setProperty("--value", days.toString());
+        document
+            .getElementById("hours")
+            ?.style.setProperty("--value", hours.toString());
+        document
+            .getElementById("min")
+            ?.style.setProperty("--value", minutes.toString());
+        document
+            .getElementById("sec")
+            ?.style.setProperty("--value", seconds.toString());
 
-  // Display the result in the element with id="demo"
-  document.getElementById("days")?.style.setProperty("--value",days.toString());
-        document.getElementById("hours")?.style.setProperty("--value",hours.toString());
-        document.getElementById("min")?.style.setProperty("--value",minutes.toString());
-        document.getElementById("sec")?.style.setProperty("--value",seconds.toString());
-
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("days")?.style.setProperty("--value","0");
-        document.getElementById("hours")?.style.setProperty("--value","0");
-        document.getElementById("min")?.style.setProperty("--value","0");
-        document.getElementById("sec")?.style.setProperty("--value","0");
-  }
-}, 1000);
-  </script>
+        // If the count down is finished, write some text
+        if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("days")?.style.setProperty("--value", "0");
+            document.getElementById("hours")?.style.setProperty("--value", "0");
+            document.getElementById("min")?.style.setProperty("--value", "0");
+            document.getElementById("sec")?.style.setProperty("--value", "0");
+        }
+    }, 1000);
+</script>

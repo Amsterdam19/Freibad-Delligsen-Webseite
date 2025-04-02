@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 const { img, title, id, classes } = Astro.props;
 ---
@@ -12,11 +12,17 @@ const { img, title, id, classes } = Astro.props;
     <dialog id={id} class="modal">
         <div class="modal-box w-auto">
             <img class="rounded-xl" src={img.src} />
-            <div class="modal-action justify-between gap-3 flex-wrap">
+            <div class="modal-action justify-between gap-3 flex-wrap w-full">
                 <h2>{title}</h2>
                 <div class="flex gap-3">
-                    <a role="button" class="btn btn-primary" href={img.src} target="_blank">
-                        <Icon name="IcRoundOpenInNew" height="24" width="24"/> Datei öffnen
+                    <a
+                        role="button"
+                        class="btn btn-primary"
+                        href={img.src}
+                        target="_blank"
+                    >
+                        <Icon name="IcRoundOpenInNew" height="24" width="24" /> Datei
+                        öffnen
                     </a>
                     <form method="dialog">
                         <!-- if there is a button, it will close the modal -->
@@ -65,7 +71,7 @@ const { img, title, id, classes } = Astro.props;
         margin: 0;
     }
 
-    img{
+    img {
         max-height: 80vh;
         max-height: 80svhı;
     }

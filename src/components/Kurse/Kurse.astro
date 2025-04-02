@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import KurseEntries from "./KurseEntries.astro";
 import KurseItem from "./KurseItem.astro";
 ---
@@ -89,7 +89,7 @@ import KurseItem from "./KurseItem.astro";
     color: var(--text);
   }
 
-  [astro-icon] {
+  [data-icon] {
     display: inline-block;
     height: 24px;
     vertical-align: bottom;

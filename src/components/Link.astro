@@ -1,6 +1,6 @@
 ---
 // library imports
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 
 interface Props {
   text: string;
@@ -70,7 +70,7 @@ const {
         text-decoration: none;
         hyphens: none;
     }
-    a:hover [astro-icon] {
+    a:hover [data-icon] {
         color: var(--accent);
     }
 </style>

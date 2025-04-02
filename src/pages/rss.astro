@@ -1,6 +1,6 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <MainLayout
@@ -83,6 +83,11 @@ import { Icon } from "astro-icon";
     </div>
 </MainLayout>
 <style>
+    h1 {
+        font-weight: 500;
+        margin-block: 1rem;
+        font-size: clamp(1.7rem, 1.4551rem + 1.3061vw, 2.5rem);
+    }
     p {
         line-height: 1.5rem;
     }
@@ -97,10 +102,6 @@ import { Icon } from "astro-icon";
         max-width: 800px;
         margin-inline: auto;
         gap: 2em;
-        background-color: var(--article);
-        padding: 4%;
-        border-radius: 16px;
-        border: var(--border-grey) 1px solid;
     }
     .card {
         background-color: var(--background);
@@ -111,11 +112,17 @@ import { Icon } from "astro-icon";
         display: grid;
         gap: 30px;
     }
-    [astro-icon] {
+    [data-icon] {
         color: var(--primary);
+        width: 100%;
     }
-    [astro-icon="linux"] {
+    [data-icon="linux"] {
         fill: var(--primary);
+    }
+    [data-icon="fdroid"],
+    [data-icon="appStore"],
+    [data-icon="getGithub"] {
+        color: black;
     }
     .download {
         display: grid;
@@ -129,7 +136,7 @@ import { Icon } from "astro-icon";
         font-weight: 600;
         text-align: center;
     }
-    .download [astro-icon] {
+    .download [data-icon] {
         max-width: 200px;
     }
     .download a {
@@ -153,7 +160,7 @@ import { Icon } from "astro-icon";
         font-weight: 500;
         text-align: center;
     }
-    .title [astro-icon] {
+    .title [data-icon] {
         height: 100px;
     }
     @media screen and (max-width: 500px) {

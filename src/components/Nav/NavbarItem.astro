@@ -1,6 +1,6 @@
 ---
 const { title, url, icon, current } = Astro.props;
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <li>
@@ -26,15 +26,15 @@ import { Icon } from "astro-icon";
     a {
         @apply font-semibold text-lg lg:px-2;
     }
-    [astro-icon] {
+    [data-icon] {
         display: none;
         fill: var(--text);
         transition: all 0.2s ease-in-out;
         width: 24px;
         height: 24px;
     }
-    .active [astro-icon],
-    .active:hover [astro-icon] {
+    .active [data-icon],
+    .active:hover [data-icon] {
         fill: white !important;
     }
 </style>

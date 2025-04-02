@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import Banner from "../components/Banner.astro";
 import Card from "../components/Card/Card.astro";
 import CardItem from "../components/Card/CardItem.astro";
@@ -9,65 +9,65 @@ import PreiseCard from "components/Card/PreiseCard.astro";
 
 import { getCollection } from "astro:content";
 const zeiten = (await getCollection("zeiten")).sort(
-  (a, b) => a.data.index - b.data.index,
+    (a, b) => a.data.index - b.data.index,
 );
 ---
 
 <MainLayout
-  titel="Öffnungszeiten"
-  description="Aktuelle Öffnungszeiten des Freibads Delligsen"
+    titel="Öffnungszeiten"
+    description="Aktuelle Öffnungszeiten des Freibads Delligsen"
 >
-  <Grid titel="Öffnungszeiten">
-    <!--<Banner
+    <Grid titel="Öffnungszeiten">
+        <!--<Banner
     id="Heimatfest"
     title="Geänderte Öffnungszeiten aufgrund des Heimatfestes"
     icon="LogosPartytownIcon"
   >
   <p>Samstag (08.06) und Sonntag (09.06) nur von <b> 10 - 12 Uhr</b>. Freitag (07.06) und Montag (10.06) normal von <b>15 -20 Uhr</b>.</p>
   </Banner>-->
-    <!--Bei schlechtem Wetter kann die Badezeit früher enden !!! -->
-    <!--
+        <!--Bei schlechtem Wetter kann die Badezeit früher enden !!! -->
+        <!--
   <Banner
     title="Bei schlechtem Wetter kann die Badezeit früher enden !!!"
     icon="IcRoundRainy"
     bg_color="error"
   /> -->
-    <!--   <Banner
+        <!--   <Banner
   title="Saisonverlängerung"
   icon="IcRoundTimelapse"
   bg_color="positive">
   Die Saison wurde bis zum 6. September 2024 von 17 bis 20 Uhr verlängert.
 </Banner> -->
-    {
-      zeiten.map((zeit) => (
-        <PreiseCard
-          title={zeit.data.title}
-          icon={zeit.data.icon}
-          color={zeit.data.color}
-          badge_top={zeit.data.badge_top}
-          badge_bottom={zeit.data.badge_bottom}
-          badge_bottom_link={zeit.data.badge_bottom_link}
-          pos1={zeit.data.pos1}
-          pos1_num={zeit.data.pos1_num}
-          pos2={zeit.data.pos2}
-          pos2_num={zeit.data.pos2_num}
-          pos3={zeit.data.pos3}
-          pos3_num={zeit.data.pos3_num}
-        />
-      ))
-    }
-  </Grid>
+        {
+            zeiten.map((zeit) => (
+                <PreiseCard
+                    title={zeit.data.title}
+                    icon={zeit.data.icon}
+                    color={zeit.data.color}
+                    badge_top={zeit.data.badge_top}
+                    badge_bottom={zeit.data.badge_bottom}
+                    badge_bottom_link={zeit.data.badge_bottom_link}
+                    pos1={zeit.data.pos1}
+                    pos1_num={zeit.data.pos1_num}
+                    pos2={zeit.data.pos2}
+                    pos2_num={zeit.data.pos2_num}
+                    pos3={zeit.data.pos3}
+                    pos3_num={zeit.data.pos3_num}
+                />
+            ))
+        }
+    </Grid>
 </MainLayout>
 
 <style>
-  a {
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-  }
-  [astro-icon] {
-    height: 24px;
-    vertical-align: bottom;
-    font-size: 24px !important;
-  }
+    a {
+        text-decoration: none;
+        color: var(--text);
+        display: flex;
+    }
+    [astro-icon] {
+        height: 24px;
+        vertical-align: bottom;
+        font-size: 24px !important;
+    }
 </style>

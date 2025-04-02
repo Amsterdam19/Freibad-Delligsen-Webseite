@@ -1,137 +1,146 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 interface Props {
-  title: string;
-  icon: string;
-  badge_bottom?: string;
-  badge_bottom_link?: string;
-  badge_top?: string;
-  color?: string;
-  pos1?: string;
-  pos1_num?: string;
-  pos2?: string;
-  pos2_num?: string;
-  pos3?: string;
-  pos3_num?: string;
+    title: string;
+    icon: string;
+    badge_bottom?: string;
+    badge_bottom_link?: string;
+    badge_top?: string;
+    color?: string;
+    pos1?: string;
+    pos1_num?: string;
+    pos2?: string;
+    pos2_num?: string;
+    pos3?: string;
+    pos3_num?: string;
 }
 const {
-  title,
-  icon,
-  badge_bottom,
-  badge_bottom_link,
-  badge_top,
-  color = "white",
-  pos1,
-  pos1_num,
-  pos2,
-  pos2_num,
-  pos3,
-  pos3_num,
+    title,
+    icon,
+    badge_bottom,
+    badge_bottom_link,
+    badge_top,
+    color = "white",
+    pos1,
+    pos1_num,
+    pos2,
+    pos2_num,
+    pos3,
+    pos3_num,
 } = Astro.props as Props;
 ---
 
 <div
-  class="card bg-base-100 w-96 shadow-xl items-center"
-  style={`background-color: color-mix(in oklab,${color}, white 70%);`}
+    class="card bg-base-100 w-96 shadow-xl items-center"
+    style={`background-color: color-mix(in oklab,${color}, white 70%);`}
 >
-  <Icon name={icon} style={`color: color-mix(in oklab,${color}, black 50%);`} />
-  <div class="card-body w-full bg-white rounded-b-2xl">
-    <h2 class="card-title text-2xl">
-      {title}
-      {
-        badge_top ? (
-          <div class="badge badge-secondary h-auto">{badge_top}</div>
-        ) : (
-          ""
-        )
-      }
-    </h2>
-    <p>
-      <table class="w-full">
-        <tbody class="space-y-6 text-center divide-y dark:divide-gray-300">
-          <tr>
-            <th scope="row" class="text-left">
-              <h3 class="py-3">{pos1}</h3>
-            </th>
-            <td>
-              <span class="block text-sm w-max">{pos1_num}</span>
-            </td>
-          </tr>
-          {
-            pos2 && (
-              <tr>
-                <th scope="row" class="text-left">
-                  <h3 class="py-3">{pos2}</h3>
-                </th>
-                <td>
-                  <span class="block text-sm w-max">{pos2_num}</span>
-                </td>
-              </tr>
-            )
-          }
-          {
-            pos3 && (
-              <tr>
-                <th scope="row" class="text-left">
-                  <h3 class="py-3">{pos3}</h3>
-                </th>
-                <td>
-                  <span class="block text-sm w-max">{pos3_num}</span>
-                </td>
-              </tr>
-            )
-          }
-        </tbody>
-      </table>
-    </p>
+    <Icon
+        name={icon}
+        style={`color: color-mix(in oklab,${color}, black 50%);`}
+    />
+    <div class="card-body w-full bg-white rounded-b-2xl">
+        <h2 class="card-title text-2xl">
+            {title}
+            {
+                badge_top ? (
+                    <div class="badge badge-secondary h-auto">{badge_top}</div>
+                ) : (
+                    ""
+                )
+            }
+        </h2>
+        <p>
+            <table class="w-full">
+                <tbody
+                    class="space-y-6 text-center divide-y dark:divide-gray-300"
+                >
+                    <tr>
+                        <th scope="row" class="text-left">
+                            <h3 class="py-3">{pos1}</h3>
+                        </th>
+                        <td>
+                            <span class="block text-sm w-max">{pos1_num}</span>
+                        </td>
+                    </tr>
+                    {
+                        pos2 && (
+                            <tr>
+                                <th scope="row" class="text-left">
+                                    <h3 class="py-3">{pos2}</h3>
+                                </th>
+                                <td>
+                                    <span class="block text-sm w-max">
+                                        {pos2_num}
+                                    </span>
+                                </td>
+                            </tr>
+                        )
+                    }
+                    {
+                        pos3 && (
+                            <tr>
+                                <th scope="row" class="text-left">
+                                    <h3 class="py-3">{pos3}</h3>
+                                </th>
+                                <td>
+                                    <span class="block text-sm w-max">
+                                        {pos3_num}
+                                    </span>
+                                </td>
+                            </tr>
+                        )
+                    }
+                </tbody>
+            </table>
+        </p>
 
-    {
-      (badge_bottom && !badge_bottom_link) && (
-        <div class="card-actions justify-end">
-          <div class="badge badge-outline h-auto">{badge_bottom}</div>
-        </div>
-      )
-    }
-    {
-      (badge_bottom && badge_bottom_link) && 
-      (<div class="card-actions justify-end">
-        <div class="badge badge-outline h-auto">
-          <a slot="badge_bottom"
-            target="_blank"
-            href={badge_bottom_link}
-          >
-            <Icon name="IcRoundLink"/>
-            {badge_bottom}
-          </a>
-        </div>
-      </div>)
-    }
-    <slot name="badge_bottom" />
-  </div>
+        {
+            badge_bottom && !badge_bottom_link && (
+                <div class="card-actions justify-end">
+                    <div class="badge badge-outline h-auto">{badge_bottom}</div>
+                </div>
+            )
+        }
+        {
+            badge_bottom && badge_bottom_link && (
+                <div class="card-actions justify-end">
+                    <div class="badge badge-outline h-auto">
+                        <a
+                            slot="badge_bottom"
+                            target="_blank"
+                            href={badge_bottom_link}
+                        >
+                            <Icon name="IcRoundLink" />
+                            {badge_bottom}
+                        </a>
+                    </div>
+                </div>
+            )
+        }
+        <slot name="badge_bottom" />
+    </div>
 </div>
 
 <style>
-  .card {
-    flex: 1 0 20rem;
-    max-width: min(100%, 27rem);
-    @apply w-full;
-  }
-  [astro-icon] {
-    max-width: 15rem;
-    @apply py-1;
-  }
+    .card {
+        flex: 1 0 20rem;
+        max-width: min(100%, 27rem);
+        @apply w-full;
+    }
+    [data-icon] {
+        max-width: 15rem;
+        @apply py-1 w-full;
+    }
+    a {
+        text-decoration: none;
+        color: var(--text);
+        display: flex;
+    }
+    [data-icon="IcRoundLink"] {
+        height: 24px;
+        vertical-align: bottom;
+        font-size: 24px !important;
+        padding: 0px !important;
+        width: auto;
+    }
 </style>
-<style>
-  a {
-    text-decoration: none;
-    color: var(--text);
-    display: flex;
-  }
-  [astro-icon="IcRoundLink"] {
-    height: 24px;
-    vertical-align: bottom;
-    font-size: 24px !important;
-    padding: 0px !important;
-  }
-</style>
-

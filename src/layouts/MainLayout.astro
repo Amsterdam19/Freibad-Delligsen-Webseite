@@ -11,108 +11,111 @@ import { ClientRouter } from "astro:transitions";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 export interface Props {
-	titel: string;
-	description: string;
-	image?: string;
+    titel: string;
+    description: string;
+    image?: string;
 }
 
 const {
-	titel,
-	description,
-	image = "../assets/images/Sprungturm2.jpg",
+    titel,
+    description,
+    image = "../assets/images/Sprungturm2.jpg",
 } = Astro.props;
 ---
 
 <html lang="de">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/freibadicon.svg" />
-		<link
-			rel="preload"
-			href="/fonts/Monteserrat/Montserrat-VariableFont_wght.ttf"
-			as="font"
-			type="font/ttf"
-			crossorigin="anonymous"
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/freibadicon.svg" />
+        <link
+            rel="preload"
+            href="/fonts/Monteserrat/Montserrat-VariableFont_wght.ttf"
+            as="font"
+            type="font/ttf"
+            crossorigin="anonymous"
+        />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <link rel="sitemap" href="/sitemap-index.xml" />
 
-		<!-- Canonical URL -->
-		<link rel="canonical" href={canonicalURL} />
+        <!-- Canonical URL -->
+        <link rel="canonical" href={canonicalURL} />
 
-		<!-- Primary Meta Tags -->
-		<title>{titel}</title>
-		<meta name="title" content={titel} />
-		<meta name="description" content={description} />
+        <!-- Primary Meta Tags -->
+        <title>{titel}</title>
+        <meta name="title" content={titel} />
+        <meta name="description" content={description} />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
-		<meta property="og:title" content={titel} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={new URL(image, Astro.url)} />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={titel} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={new URL(image, Astro.url)} />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content={titel} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL(image, Astro.url)} />
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={titel} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-		<!--Nav Script -->
-		<!-- <script src="../js/nav.js"></script> -->
+        <!--Nav Script -->
+        <!-- <script src="../js/nav.js"></script> -->
 
-		<ClientRouter />
-	</head>
-	<body>
-		<div id="page-container">
-			<div>
-				<header class="dontPrint">
-					<div class="content-grid">
-						<NavigationBar />
-					</div>
-				</header>
-				<main id="swup">
-					<div class="slot transition-fade content-grid">
-						<slot />
-					</div>
-				</main>
-			</div>
-			<div class="dontPrint">
-				<Footer />
-			</div>
-		</div>
-		<script src="../js/app.js"></script>
-		<style>
-			#page-container {
-				min-height: 100vh;
-				min-height: 100svh;
-				display: grid;
-				align-content: space-between;
-			}
-			.slot {
-				width: 100%;
-			}
-			body {
-				background-color: var(--background);
-			}
-			/* Define a transition duration during page visits */
-			html.is-changing .transition-fade {
-				transition: opacity 0.25s;
-				opacity: 1;
-			}
+        <ClientRouter />
+    </head>
+    <body>
+        <div id="page-container" class="relative bg-base-200">
+            <div id="body-container" class="z-10 min-h-[73svh]">
+                <header class="dontPrint">
+                    <div class="content-grid">
+                        <NavigationBar />
+                    </div>
+                </header>
+                <main id="swup">
+                    <div class="slot transition-fade content-grid">
+                        <slot />
+                    </div>
+                </main>
+            </div>
+            <div class="dontPrint">
+                <Footer classes="invisible -z-10" />
+                <Footer classes="fixed bottom-0" />
+            </div>
+        </div>
+        <script src="../js/app.js"></script>
+        <style>
+            #page-container {
+                min-height: 100vh;
+                min-height: 100svh;
+                display: grid;
+                align-content: space-between;
+            }
+            .slot {
+                width: 100%;
+            }
+            #body-container {
+                background-color: var(--background);
+                padding-bottom: 2rem;
+                border-radius: 0 0 1rem 1rem;
+            }
+            /* Define a transition duration during page visits */
+            html.is-changing .transition-fade {
+                transition: opacity 0.25s;
+                opacity: 1;
+            }
 
-			/* Define the styles for the unloaded pages */
-			html.is-animating .transition-fade {
-				opacity: 0;
-			}
+            /* Define the styles for the unloaded pages */
+            html.is-animating .transition-fade {
+                opacity: 0;
+            }
 
-			@media print {
-				.dontPrint {
-					display: none;
-				}
-			}
-		</style>
-	</body>
+            @media print {
+                .dontPrint {
+                    display: none;
+                }
+            }
+        </style>
+    </body>
 </html>

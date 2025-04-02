@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import NavItem from "./NavbarItem.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -145,7 +145,7 @@ const { className } = Astro.props;
         flex-direction: row;
     }
 
-    .logo [astro-icon="freibadLogo"] {
+    .logo [data-icon="freibadLogo"] {
         display: block !important;
         fill: var(--primary-dark);
         width: 50px !important;

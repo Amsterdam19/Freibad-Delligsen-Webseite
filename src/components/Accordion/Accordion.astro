@@ -10,90 +10,90 @@ import Volleyball from "@assets/images/accordion/Volleyball.jpg";
 ---
 
 <div class="wrapper breakout">
-  <div class="accordion breakout" id="accordion">
-    <AccordionItem 
-      src={pool}
-      icon="IcRoundPool"
-      label="50 Meter Bahn"
-      active="imgActive"
-      width="3840"
-    />
-    <AccordionItem
-      src={Sprungturm}
-      icon="IcRoundScubaDiving"
-      label="Sprungturm"
-      active="no"
-      width="1024"
-    />
-    <AccordionItem
-      src={Spielplatz}
-      icon="IcRoundSportsKabaddi"
-      label="Spielplatz"
-      active="no"
-      width="1920"
-    />
-    <AccordionItem
-      src={Fußball}
-      icon="IcRoundSportsSoccer"
-      label="Fußball"
-      active="no"
-      width="1920"
-    />
-    <AccordionItem
-      src={Volleyball}
-      icon="IcRoundSportsVolleyball"
-      label="Volleyball"
-      active="no"
-      width="4032"
-    />
-  </div>
+    <div class="accordion breakout" id="accordion">
+        <AccordionItem
+            src={pool}
+            icon="IcRoundPool"
+            label="50 Meter Bahn"
+            active="imgActive"
+            width="3840"
+        />
+        <AccordionItem
+            src={Sprungturm}
+            icon="IcRoundScubaDiving"
+            label="Sprungturm"
+            active="no"
+            width="1024"
+        />
+        <AccordionItem
+            src={Spielplatz}
+            icon="IcRoundSportsKabaddi"
+            label="Spielplatz"
+            active="no"
+            width="1920"
+        />
+        <AccordionItem
+            src={Fußball}
+            icon="IcRoundSportsSoccer"
+            label="Fußball"
+            active="no"
+            width="1920"
+        />
+        <AccordionItem
+            src={Volleyball}
+            icon="IcRoundSportsVolleyball"
+            label="Volleyball"
+            active="no"
+            width="4032"
+        />
+    </div>
 </div>
 
 <style>
-  /*https://github.com/kevin-powell/accordion*/
+    /*https://github.com/kevin-powell/accordion*/
 
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  img {
-    max-width: 100%;
-    display: block;
-  }
-
-  .wrapper {
-    margin-inline: auto;
-    background-color: var(--bg-color);
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-
-  .accordion {
-    --_button-size: 3rem;
-    --_panel-padding: 0.75rem;
-    --_panel-gap: 1rem;
-
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-
-    contain: content;
-    /* added padding to prevent issue with outlines */
-    padding: 1rem;
-
-    width: 100%;
-
-    /* demo only */
-    padding-block: 5rem;
-  }
-
-  @media (min-width: 45em) {
-    .accordion {
-      flex-direction: row;
-      height: 40rem;
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
     }
-  }
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+
+    .wrapper {
+        margin-inline: auto;
+        background-color: var(--bg-color);
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .accordion {
+        --_button-size: 3rem;
+        --_panel-padding: 0.75rem;
+        --_panel-gap: 1rem;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        contain: content;
+        /* added padding to prevent issue with outlines */
+        padding: 1rem;
+
+        width: 100%;
+
+        /* demo only */
+        padding-block: 5rem;
+    }
+
+    @media (min-width: 45em) {
+        .accordion {
+            flex-direction: row;
+            height: 40rem;
+        }
+    }
 </style>

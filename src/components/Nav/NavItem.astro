@@ -1,6 +1,6 @@
 ---
 const { title, url, icon, current } = Astro.props;
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <li class="fancy-li">
@@ -34,11 +34,11 @@ import { Icon } from "astro-icon";
     color: white !important;
     background-color: var(--primary);
   }
-  li:hover [astro-icon] {
+  li:hover [data-icon] {
     fill: var(--primary);
   }
-  .active [astro-icon],
-  .active:hover [astro-icon] {
+  .active [data-icon],
+  .active:hover [data-icon] {
     fill: white !important;
   }
   a {
@@ -62,7 +62,7 @@ import { Icon } from "astro-icon";
   }
   html.is-leaving .active {
   }
-  [astro-icon] {
+  [data-icon] {
     display: none;
     fill: var(--text);
     transition: all 0.2s ease-in-out;
@@ -70,7 +70,7 @@ import { Icon } from "astro-icon";
     height: 24px;
   }
   @media screen and (max-width: 1270px) {
-    [astro-icon] {
+    [data-icon] {
       max-width: unset;
       display: block;
     }

@@ -6,261 +6,278 @@ import Kurse from "../components/Kurse/Kurse.astro";
 import LandingLogo from "../components/Index/LandingLogo.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Countdown from "components/Countdown.astro";
+import Sponsors from "components/Index/Sponsors.astro";
 ---
 
 <MainLayout
-  titel="Startseite Freibad Delligsen"
-  description="Freibad Delligsen - Schwimmen in der Hilsmulde"
+    titel="Startseite Freibad Delligsen"
+    description="Freibad Delligsen - Schwimmen in der Hilsmulde"
 >
-  <LandingLogo>
-    <div class="quickLink">
-      <Verlinkung
-        href="/mitglied/"
-        label="Vereinsmitglied werden"
-        classes="transition-fade primary"
-      />
-      <!-- <Verlinkung
-        href="/zeiten"
-        label="Saisonverlängerung"
-        classes="transition-fade secondary"
-      /> -->
-    </div>
-  </LandingLogo>
-  <!--Erst 99 Tage vor Saisonstart-->
-   <Countdown title="Saisonstart" date="2025-05-30T10:00:00" bg_color="secondary"> 
-    Die Saison startet am 30. Mai 2025.
-  </Countdown>
+    <LandingLogo>
+        <div id="quickLink">
+            <Verlinkung
+                href="/mitglied/"
+                label="Vereinsmitglied werden"
+                classes="btn-primary"
+            />
+            <Verlinkung href="/job" label="Ferienjob" classes="btn-secondary" />
+        </div>
+    </LandingLogo>
+    <!--Erst 99 Tage vor Saisonstart-->
+    <Countdown
+        title="Saisonstart"
+        date="2025-05-30T10:00:00"
+        bg_color="secondary"
+    >
+        Die Saison startet am 30. Mai 2025.
+    </Countdown>
 
-  <Accordion />
-  <OSM className="full-width" />
-  <Kurse />
+    <Accordion />
+    <Sponsors />
+    <OSM className="full-width" />
+    <Kurse />
 </MainLayout>
 
 <style>
-  :root {
-    --indexBRadius: var(--border-radius);
-  }
-  nav,
-  nav.sticking {
-    transition: all 0.3s ease-in-out;
-    box-shadow: none;
-    background-color: white;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
-  }
-
-  nav.notSticking {
-    background-color: var(--nav-bg-color);
-    box-shadow:
-      var(--nav-shadow),
-      0 -9px white;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-  }
-
-  .wave3 {
-    display: none;
-  }
-
-  .wave {
-    width: 100%;
-    height: calc(100vh - var(--navbar-height));
-    height: calc(100svh - var(--navbar-height));
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 346" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 0 C 161.20000000000002 0 241.79999999999998 139 403 139 L 403 139 L 403 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 402 139 C 482 139 522 44 602 44 L 602 44 L 602 0 L 402 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 601 44 C 1128.6 44 1392.4 346 1920 346 L 1920 346 L 1920 0 L 601 0 Z" stroke-width="0"></path></svg>');
-    background-repeat: no-repeat;
-    transform: rotate(180deg) rotateY(180deg);
-  }
-
-  .wave span {
-    display: none;
-    text-align: center;
-  }
-
-  .wave h1 {
-    font-size: 50pt;
-    color: var(--light-blue);
-    width: calc(100% - 32px);
-    text-align: end;
-    transform: rotate(180deg) rotateY(180deg);
-    text-shadow: 4px 4px 1px #2e577e;
-    margin: 16px;
-    padding-bottom: 3vh;
-  }
-
-  @media screen and (min-width: 1270px) {
-    nav {
-      height: 100vh;
-      height: 100svh;
-      position: -webkit-sticky;
-      /* Safari */
-      position: sticky;
+    :root {
+        --indexBRadius: var(--border-radius);
     }
-
-    nav.sticking .nav-links {
-      animation: slideOut 0.3s ease-in-out;
-    }
-
-    nav.notSticking .nav-links {
-      animation: slideIn 0.3s ease-in-out;
-    }
-
-    nav .noLink,
-    nav.sticking .noLink {
-      display: none;
-      opacity: 0;
-    }
-
-    nav.notSticking .noLink {
-      display: block;
-      opacity: 1;
-      animation: slideIn 0.3s ease-in-out;
-    }
-
-    .wave3 {
-      display: block;
-      width: 100%;
-      height: calc(100vh - var(--navbar-height));
-      background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 346" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 0 C 161.20000000000002 0 241.79999999999998 139 403 139 L 403 139 L 403 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 402 139 C 482 139 522 44 602 44 L 602 44 L 602 0 L 402 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 601 44 C 1128.6 44 1392.4 346 1920 346 L 1920 346 L 1920 0 L 601 0 Z" stroke-width="0"></path></svg>');
-      background-repeat: no-repeat;
-      transform: rotate(180deg) rotateY(180deg);
-    }
-
-    .wave3 h1 {
-      font-size: 50pt;
-      color: var(--light-blue);
-      width: calc(100% - 32px);
-      text-align: end;
-      transform: rotate(180deg) rotateY(180deg);
-      text-shadow: 4px 4px 1px var(--main-color);
-      padding-bottom: 3vh;
-    }
-  }
-
-  @media screen and (max-width: 500px) {
     nav,
     nav.sticking {
-      transition: all 0.3s ease-in-out;
-      transition: box-shadow 0s;
-      box-shadow: none;
-      background-color: transparent;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
+        transition: all 0.3s ease-in-out;
+        box-shadow: none;
+        background-color: white;
+        -webkit-backdrop-filter: none;
+        backdrop-filter: none;
     }
 
     nav.notSticking {
-      background-color: var(--nav-bg-color);
-      box-shadow:
-        var(--nav-shadow),
-        0 -9px white;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
+        background-color: var(--nav-bg-color);
+        box-shadow:
+            var(--nav-shadow),
+            0 -9px white;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
     }
 
-    nav .burger,
-    nav.sticking .burger {
-      background-color: var(--bg-color);
-      padding: 10px;
-      border-radius: 16px;
-    }
-
-    nav .logo,
-    nav.sticking .logo {
-      opacity: 0;
-    }
-
-    nav.notSticking .logo {
-      opacity: 1;
-      animation: slideIn 0.3s ease-in-out;
-    }
-
-    nav.notSticking .burger {
-      background-color: transparent;
-    }
-
-    nav.solidWhite {
-      background-color: white;
-    }
-
-    nav.solidWhite .logo {
-      opacity: 1;
-      animation: slideIn 0.3s ease-in-out;
-    }
-
-    nav.solidWhite {
-      transition: background 0.2s 0.1s ease-in-out;
+    .wave3 {
+        display: none;
     }
 
     .wave {
-      background-image: none;
-      display: grid;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 2fr;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .wave h1 {
-      display: inline;
-      padding-top: 40%;
-      vertical-align: bottom;
+        width: 100%;
+        height: calc(100vh - var(--navbar-height));
+        height: calc(100svh - var(--navbar-height));
+        background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 346" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 0 C 161.20000000000002 0 241.79999999999998 139 403 139 L 403 139 L 403 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 402 139 C 482 139 522 44 602 44 L 602 44 L 602 0 L 402 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 601 44 C 1128.6 44 1392.4 346 1920 346 L 1920 346 L 1920 0 L 601 0 Z" stroke-width="0"></path></svg>');
+        background-repeat: no-repeat;
+        transform: rotate(180deg) rotateY(180deg);
     }
 
     .wave span {
-      display: block;
-      transform: rotate(180deg) rotateY(180deg);
-      filter: var(--filter-light-blue);
-      font-size: 4rem;
-    }
-  }
-
-  @keyframes slideIn {
-    0% {
-      transform: translateX(-10vw);
+        display: none;
+        text-align: center;
     }
 
-    100% {
-      transform: translateX(0);
-    }
-  }
-
-  @keyframes slideOut {
-    0% {
-      transform: translateX(10vw);
-      box-shadow: none;
-    }
-
-    100% {
-      transform: translateX(0);
-    }
-  }
-  @keyframes swipeUpLink {
-    0% {
-      transform: translateY(10vw);
-      opacity: 0;
-    }
-
-    100% {
-      transform: translateY(0);
-      opacity: 1;
-    }
-  }
-
-  .quickLink {
-    display: flex;
-    margin-top: 30px;
-    align-items: center;
-  }
-
-  @media only screen and (max-width: 500px) {
-    .quickLink {
-      display: grid;
-    }
-  }
-
-  @media (max-width: 830px) {
     .wave h1 {
-      text-align: center;
-      font-size: xxx-large;
+        font-size: 50pt;
+        color: var(--light-blue);
+        width: calc(100% - 32px);
+        text-align: end;
+        transform: rotate(180deg) rotateY(180deg);
+        text-shadow: 4px 4px 1px #2e577e;
+        margin: 16px;
+        padding-bottom: 3vh;
     }
-  }
+
+    @media screen and (min-width: 1270px) {
+        nav {
+            height: 100vh;
+            height: 100svh;
+            position: -webkit-sticky;
+            /* Safari */
+            position: sticky;
+        }
+
+        nav.sticking .nav-links {
+            animation: slideOut 0.3s ease-in-out;
+        }
+
+        nav.notSticking .nav-links {
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        nav .noLink,
+        nav.sticking .noLink {
+            display: none;
+            opacity: 0;
+        }
+
+        nav.notSticking .noLink {
+            display: block;
+            opacity: 1;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        .wave3 {
+            display: block;
+            width: 100%;
+            height: calc(100vh - var(--navbar-height));
+            background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1920 346" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path fill="rgba(255, 255, 255, 1)" d="M 0 0 C 161.20000000000002 0 241.79999999999998 139 403 139 L 403 139 L 403 0 L 0 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 402 139 C 482 139 522 44 602 44 L 602 44 L 602 0 L 402 0 Z" stroke-width="0"></path> <path fill="rgba(255, 255, 255, 1)" d="M 601 44 C 1128.6 44 1392.4 346 1920 346 L 1920 346 L 1920 0 L 601 0 Z" stroke-width="0"></path></svg>');
+            background-repeat: no-repeat;
+            transform: rotate(180deg) rotateY(180deg);
+        }
+
+        .wave3 h1 {
+            font-size: 50pt;
+            color: var(--light-blue);
+            width: calc(100% - 32px);
+            text-align: end;
+            transform: rotate(180deg) rotateY(180deg);
+            text-shadow: 4px 4px 1px var(--main-color);
+            padding-bottom: 3vh;
+        }
+    }
+
+    @media screen and (max-width: 500px) {
+        nav,
+        nav.sticking {
+            transition: all 0.3s ease-in-out;
+            transition: box-shadow 0s;
+            box-shadow: none;
+            background-color: transparent;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+
+        nav.notSticking {
+            background-color: var(--nav-bg-color);
+            box-shadow:
+                var(--nav-shadow),
+                0 -9px white;
+            -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+        }
+
+        nav .burger,
+        nav.sticking .burger {
+            background-color: var(--bg-color);
+            padding: 10px;
+            border-radius: 16px;
+        }
+
+        nav .logo,
+        nav.sticking .logo {
+            opacity: 0;
+        }
+
+        nav.notSticking .logo {
+            opacity: 1;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        nav.notSticking .burger {
+            background-color: transparent;
+        }
+
+        nav.solidWhite {
+            background-color: white;
+        }
+
+        nav.solidWhite .logo {
+            opacity: 1;
+            animation: slideIn 0.3s ease-in-out;
+        }
+
+        nav.solidWhite {
+            transition: background 0.2s 0.1s ease-in-out;
+        }
+
+        .wave {
+            background-image: none;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 2fr;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .wave h1 {
+            display: inline;
+            padding-top: 40%;
+            vertical-align: bottom;
+        }
+
+        .wave span {
+            display: block;
+            transform: rotate(180deg) rotateY(180deg);
+            filter: var(--filter-light-blue);
+            font-size: 4rem;
+        }
+    }
+
+    @keyframes slideIn {
+        0% {
+            transform: translateX(-10vw);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideOut {
+        0% {
+            transform: translateX(10vw);
+            box-shadow: none;
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+    @keyframes swipeUpLink {
+        0% {
+            transform: translateY(10vw);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    #quickLink {
+        display: flex;
+        margin-top: 30px;
+        align-items: center;
+        gap: 2rem 1rem;
+        transition: all 0.2s ease-in;
+        display: inline-block;
+        opacity: 0;
+        animation: 0.5s cubic-bezier(0, 0, 0.34, 0.96) 1s forwards slideup;
+    }
+
+    @media only screen and (max-width: 500px) {
+        #quickLink {
+            display: grid;
+        }
+    }
+    @keyframes slideup {
+        from {
+            transform: translateY(100px);
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @media (max-width: 830px) {
+        .wave h1 {
+            text-align: center;
+            font-size: xxx-large;
+        }
+    }
 </style>

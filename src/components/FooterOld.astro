@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <footer class="content-grid">
@@ -116,7 +116,7 @@ import { Icon } from "astro-icon";
     align-items: center;
   }
 
-  [astro-icon] {
+  [data-icon] {
     width: 24px;
     height: 24px;
     color: color-mix(in oklab, var(--primary) 5%, white);
@@ -187,7 +187,7 @@ import { Icon } from "astro-icon";
     justify-content: space-around;
   }
 
-  .logo [astro-icon="freibadLogo"] {
+  .logo [data-icon="freibadLogo"] {
     display: block !important;
     fill: var(--primary-dark);
     width: min(5rem, 100px) !important;

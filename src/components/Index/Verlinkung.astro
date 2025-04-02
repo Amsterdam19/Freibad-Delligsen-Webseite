@@ -1,63 +1,14 @@
 ---
 interface Props {
-  href: string;
-  label: string;
-  classes: string;
+    href: string;
+    label: string;
+    classes: string;
 }
 const { href, label, classes } = Astro.props as Props;
 ---
 
-<a href={href} class={classes}><button type="button">{label}</button></a>
-
-<style>
-  button {
-    cursor: pointer;
-    margin: 0 16px;
-    transition: all 0.2s ease-in;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    padding: 1em 2em;
-    border: none;
-    opacity: 1;
-    border-radius: var(--border-radius);
-    display: inline-block;
-    font-size: 1.2rem;
-    font-weight: 600;
-    opacity: 0;
-    animation: .5s cubic-bezier(0, 0, 0.34, 0.96)  1s forwards slideup;
-  }
-  .primary button {
-    background-color: var(--primary);
-    color: white;
-  }
-  .secondary button {
-    background-color: var(--secondary);
-    color: var(--text);
-  }
-
-  button:hover {
-    opacity: .8;
-  }
-
-  @media only screen and (max-width: 500px) {
-    a {
-      width: 80;
-    }
-
-    button {
-      width: 100%;
-      min-width: 200px;
-      margin: 10px 0;
-    }
-  }
-  @keyframes slideup {
-  from {
-    transform: translateY(100px);
-  }
-
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-</style>
+<a
+    role="button"
+    href={href}
+    class:list={["verlinkung", "btn", "btn-lg", classes]}>{label}</a
+>
