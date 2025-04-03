@@ -24,14 +24,7 @@ import { Icon } from "astro-icon/components";
 
 <style>
     a {
-        font-weight: 600;
-        font-size: 1.125rem;
-        line-height: calc(1.75 / 1.125);
-    }
-    @media screen and (min-width: 64rem) {
-        a {
-            padding-block: 0.5rem;
-        }
+        @apply font-semibold text-lg lg:px-2;
     }
     [data-icon] {
         display: none;
