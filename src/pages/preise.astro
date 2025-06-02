@@ -3,11 +3,11 @@ import PreiseCard from "components/Card/PreiseCard.astro";
 import Grid from "../components/Grid.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 
-import { getCollection } from 'astro:content';
+import { getCollection } from "astro:content";
 const preise = (await getCollection("preise")).sort(
-	(a, b) => a.data.index - b.data.index);
+    (a, b) => a.data.index - b.data.index,
+);
 console.log(preise[0].data.color);
-
 ---
 
 <MainLayout
@@ -15,20 +15,28 @@ console.log(preise[0].data.color);
     description="Eintrittspreise für Einzelkarten, Abendtarif und Jahreskarten"
 >
     <Grid titel="Eintrittspreise">
-        {preise.map((preis) => (
-            <PreiseCard 
-                title={preis.data.title} 
-                icon={preis.data.icon} 
-                color={preis.data.color} 
-                badge_top={preis.data.badge_top} 
-                badge_bottom={preis.data.badge_bottom}
-                pos1={preis.data.pos1}
-                pos1_num={preis.data.pos1_num}
-                pos2={preis.data.pos2}
-                pos2_num={preis.data.pos2_num}
-                pos3={preis.data.pos3}
-                pos3_num={preis.data.pos3_num}/>
-          ))}
+        {
+            preise.map((preis) => (
+                <PreiseCard
+                    title={preis.data.title}
+                    icon={preis.data.icon}
+                    color={preis.data.color}
+                    badge_top={preis.data.badge_top}
+                    badge_bottom={preis.data.badge_bottom}
+                    pos1={preis.data.pos1}
+                    pos1_num={preis.data.pos1_num}
+                    pos2={preis.data.pos2}
+                    pos2_num={preis.data.pos2_num}
+                    pos3={preis.data.pos3}
+                    pos3_num={preis.data.pos3_num}
+                />
+            ))
+        }
     </Grid>
-    <div class="h-12"></div>
+    <p class="h-12 text-right mt-4 flex gap-2 justify-end">
+        <b>*</b><span class="text-left">
+            Kinder und Jugendliche (ab 4 - 18 Jahre) oder Schüler*innen,
+            Auszubildende und Studierende <br /><b>Nur mit gültigem Nachweis</b>
+        </span>
+    </p>
 </MainLayout>

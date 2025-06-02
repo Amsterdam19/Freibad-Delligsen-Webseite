@@ -13,6 +13,9 @@ interface Props {
     pos2_num?: string;
     pos3?: string;
     pos3_num?: string;
+    pos4?: string;
+    pos4_num?: string;
+    width_type?: "fit" | "max";
 }
 const {
     title,
@@ -27,6 +30,9 @@ const {
     pos2_num,
     pos3,
     pos3_num,
+    pos4,
+    pos4_num,
+    width_type = "max",
 } = Astro.props as Props;
 ---
 
@@ -59,7 +65,11 @@ const {
                             <h3 class="py-3">{pos1}</h3>
                         </th>
                         <td>
-                            <span class="block text-sm w-max">{pos1_num}</span>
+                            <span
+                                class={`block text-sm ${width_type === "fit" ? "w-fit" : "w-max"} text-left`}
+                            >
+                                {pos1_num}
+                            </span>
                         </td>
                     </tr>
                     {
@@ -69,7 +79,9 @@ const {
                                     <h3 class="py-3">{pos2}</h3>
                                 </th>
                                 <td>
-                                    <span class="block text-sm w-max">
+                                    <span
+                                        class={`block text-sm ${width_type === "fit" ? "w-fit" : "w-max"} text-left`}
+                                    >
                                         {pos2_num}
                                     </span>
                                 </td>
@@ -83,8 +95,26 @@ const {
                                     <h3 class="py-3">{pos3}</h3>
                                 </th>
                                 <td>
-                                    <span class="block text-sm w-max">
+                                    <span
+                                        class={`block text-sm ${width_type === "fit" ? "w-fit" : "w-max"} text-left`}
+                                    >
                                         {pos3_num}
+                                    </span>
+                                </td>
+                            </tr>
+                        )
+                    }
+                    {
+                        pos4 && (
+                            <tr>
+                                <th scope="row" class="text-left">
+                                    <h3 class="py-3">{pos4}</h3>
+                                </th>
+                                <td>
+                                    <span
+                                        class={`block text-sm ${width_type === "fit" ? "w-fit" : "w-max"} text-left`}
+                                    >
+                                        {pos4_num}
                                     </span>
                                 </td>
                             </tr>
@@ -142,5 +172,8 @@ const {
         font-size: 24px !important;
         padding: 0px !important;
         width: auto;
+    }
+    th {
+        padding-right: 0.5rem;
     }
 </style>
