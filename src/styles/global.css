@@ -105,6 +105,10 @@ h4 {
   text-wrap: balance;
 }
 
+a {
+  text-decoration: underline;
+}
+
 .top_div {
   width: 100%;
   height: var(--navbar-height);
@@ -214,4 +218,14 @@ img.full-width {
 
 #Heimatfest {
   background-image: linear-gradient(to right, #fee140 0%, #70c6fa 100%);
+}
+
+article > p:has(img) {
+  @apply max-w-2xl w-full mx-auto;
+}
+
+.support-bg {
+  background-image: url(/Becken.jpg);
+  background-position: center;
+  background-size: cover;
 }

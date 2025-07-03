@@ -2,7 +2,7 @@
 import Accordion from "../components/Accordion/Accordion.astro";
 import OSM from "../components/Index/OSM.astro";
 import Verlinkung from "../components/Index/Verlinkung.astro";
-import Kurse from "../components/Kurse/Kurse.astro";
+import Kurse from "../components/Kurse.astro";
 import LandingLogo from "../components/Index/LandingLogo.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Countdown from "components/Countdown.astro";
@@ -15,12 +15,17 @@ import Sponsors from "components/Index/Sponsors.astro";
 >
     <LandingLogo>
         <div id="quickLink">
+            <!--<<Verlinkung href="/job" label="Ferienjob" classes="btn-secondary" /> -->
+            <Verlinkung
+                href="/veranstaltungen/index.html#Poolparty"
+                label="Poolparty"
+                classes="btn-primary"
+            />
             <Verlinkung
                 href="/mitglied/"
                 label="Vereinsmitglied werden"
-                classes="btn-primary"
+                classes="btn-secondary"
             />
-            <Verlinkung href="/job" label="Ferienjob" classes="btn-secondary" />
         </div>
     </LandingLogo>
     <!--Erst 99 Tage vor Saisonstart

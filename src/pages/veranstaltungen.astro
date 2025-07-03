@@ -2,10 +2,20 @@
 import Grid from "../components/Grid.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import TermineItem from "../components/Veranstaltungen/TermineItem.astro";
+import { getCollection, render } from 'astro:content';
 
-import { getCollection } from 'astro:content';
-const veranstaltungen = (await getCollection("veranstaltungen")).sort(
-	(a, b) => a.data.date.valueOf() - b.data.date.valueOf());
+const rawVeranstaltungen = await getCollection("veranstaltungen");
+const veranstaltungen = await Promise.all(
+  rawVeranstaltungen
+    .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+    .map(async (veranstaltung) => {
+      const { Content } = await render(veranstaltung);
+      return {
+        ...veranstaltung,
+        Content,
+      };
+    })
+);
 ---
 
 <MainLayout
@@ -15,14 +25,19 @@ const veranstaltungen = (await getCollection("veranstaltungen")).sort(
     <Grid titel="Veranstaltungen">
         <ul class="timeline timeline-snap-icon max-md:timeline-compact timeline-vertical w-full">
             {veranstaltungen.map((veranstaltung, index) => (
-                <TermineItem date={veranstaltung.data.date.toLocaleDateString("de-de", {
-				year: "numeric",
-				month: "long",
-                day: "numeric",
-			})} titel={veranstaltung.data.title} description={veranstaltung.data.description} index={index}/>
-              ))}
+                <TermineItem
+                    date={veranstaltung.data.date.toLocaleDateString("de-DE", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                    })}
+                    titel={veranstaltung.data.title}
+                    description={veranstaltung.data.description}
+                    index={index}
+                >
+                    <veranstaltung.Content />
+                </TermineItem>
+            ))}
         </ul>
     </Grid>
 </MainLayout>
-<style>
-</style>

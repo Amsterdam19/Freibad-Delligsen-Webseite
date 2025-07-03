@@ -3,56 +3,21 @@ import { Icon } from "astro-icon/components";
 interface Props {
   title: string;
   icon: string;
-  bg_color?: string;
-  id: string;
+  bg_color?: "alert-info" | "alert-success" | "alert-warning" | "alert-error";
+  id?: string;
+  classes?: string;
 }
-const { title, icon, bg_color = "error", id } = Astro.props as Props;
+const { title, icon, bg_color, id, classes } = Astro.props as Props;
 ---
 
-<div class="banner" style={"background-color: var(--" + bg_color + ")"} id={id}>
-  <div class="banner-wrapper">
-    <Icon name={icon} />
-    <h3>{title}</h3>
+<div
+  role="alert"
+  class:list={["alert", "shadow-lg", classes, bg_color ? bg_color : ""]}
+  id={id}
+>
+  <Icon name={icon} class="stroke-current h-10 w-10 shrink-0" />
+  <div>
+    <h3 class="font-bold">{title}</h3>
+    <div class="text-xs"><slot /></div>
   </div>
-    <slot />
 </div>
-
-<style>
-  [data-icon] {
-    color: var(--text);
-    height: var(--_icon_size);
-    vertical-align: bottom;
-    font-size: var(--_icon_size) !important;
-  }
-  .banner-wrapper {
-    --_icon_size: 3rem;
-    display: grid;
-    grid-template-columns: var(--_icon_size) auto;
-    gap: 2rem;
-    align-items: center;
-  }
-  h3 {
-    text-wrap: balance;
-  }
-  .banner {
-    font-size: larger;
-    color: var(--text);
-    width: 100%;
-    padding: 3% 5%;
-    text-wrap: balance;
-    border-radius: var(--border-radius);
-    display: grid;
-    gap: 2rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  .banner::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        height: 100%;
-        width: 7.5px;
-        background-color: rgba(0, 0, 0, 0.1);
-    }
-</style>

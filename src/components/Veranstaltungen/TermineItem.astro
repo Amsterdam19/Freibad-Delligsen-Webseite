@@ -1,15 +1,41 @@
 ---
+
+import { getContrastYIQ, sanitizeId } from '../../js/utils.js';
+
+
 interface Props {
     date: string;
     titel: string;
     description?: string;
     index: number;
+    id?: string; 
 }
+const { date, titel, description = "", index, id} = Astro.props;
 
-const { date, titel, description = "", index} = Astro.props;
+const colorArra = [
+    "#DE3163", // Ein sanftes Apricot
+    "#FF7F50", // Ein sanftes Gelb
+    "#FFEF00", // Ein sanftes Mintgrün
+    "#9FE2BF", // Ein sanftes Himmelblau
+    "green",
+    "#FF677D", // Ein sanftes Erdbeerrot
+    "#6495ED", // Ein sanftes Koralle
+    "#40E0D0", // Ein sanftes Lavendel
+    "#CCCCFF",
+    
+    "#D9BF77", // Ein sanftes Goldbraun
+    "#6B4226"  // Ein sanftes Dunkelbraun
+];
+const colorArray = [
+    "#151615",
+];
+
+const textColor = getContrastYIQ(colorArray[index % colorArray.length]);
+
+const newId = sanitizeId(id ? id : titel);
 ---
 
-<li>
+<li id={newId}>
     <div class="timeline-middle">
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -23,13 +49,17 @@ const { date, titel, description = "", index} = Astro.props;
         >
     </div>
     <div
-        class={index % 2
-            ? "timeline-end mb-10"
-            : "timeline-start mb-10 md:text-end"}
+        class:list={["timeline-box", "shadow-xl", "!mb-10", "border-2",index % 2
+            ? "timeline-end"
+            : "timeline-start md:text-end"]}
+            style={`border-color: color-mix(in oklab, ${colorArray[index % colorArray.length]} 50%, transparent); background-color: color-mix(in oklab, ${colorArray[index % colorArray.length]} 5%, transparent);`}
     >
-        <time class="font-mono italic">{date}</time>
-        <div class="text-lg font-black">{titel}</div>
+        <div class="badge gap-2 text-lg" style={`background-color: ${colorArray[index % colorArray.length]}; color: ${textColor}`}>
+            <time class="font-mono italic">{date}</time>
+        </div>
+        <div class="text-3xl font-semibold hyphens-auto text-balance">{titel}</div>
         {description}
+        <slot/>
     </div>
     <hr />
 </li>

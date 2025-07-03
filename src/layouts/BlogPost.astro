@@ -8,32 +8,30 @@ import Back from "../components/Back.astro";
 
 type Props = CollectionEntry<"neues">["data"];
 
-const { title, description, pubDate, updatedDate, src, width, height } =
+const { title, description, pubDate, updatedDate, src } =
   Astro.props;
 ---
 
 <MainLayout titel={title} description={description}>
   <article>
-    <div class="content">
-      <div>
-        <h1 class="title">{title}</h1>
-        <FormattedDate date={pubDate} />
-        {
-          updatedDate && (
-            <div class="last-updated-on">
-              Last updated on <FormattedDate date={updatedDate} />
-            </div>
-          )
-        }
-      </div>
-
-      {src && <BlogImage src={src} alt={src} width={width} height={height} />}
-      <div class="slot">
-        <slot />
-      </div>
+    <div>
+      <h1 class="title">{title}</h1>
+      <FormattedDate date={pubDate} />
     </div>
+    {
+      updatedDate && (
+        <div class="last-updated-on">
+          Last updated on <FormattedDate date={updatedDate} />
+        </div>
+      )
+    }
+
+    {src && <BlogImage src={src} alt={src} classes="max-w-2xl mx-auto" />}
+    <slot />
     <div class="flex justify-end">
-      <a href="javascript:history.back()" role="button" class="btn">Zurück <Icon name="undo" class="h-6 w-6"/></a>
+      <a href="javascript:history.back()" role="button" class="btn"
+        >Zurück <Icon name="undo" class="h-6 w-6" /></a
+      >
     </div>
   </article>
 </MainLayout>
@@ -42,19 +40,10 @@ const { title, description, pubDate, updatedDate, src, width, height } =
     display: flex;
     justify-content: flex-end;
   }
-  .content {
-    color: var(--text);
-    max-width: 600px;
-    display: grid;
-    gap: 3rem;
-  }
-  .content div {
-    display: grid;
-    gap: 20px;
-  }
   .slot {
     text-align: justify;
   }
+
   article {
     color: var(--text);
     display: grid;

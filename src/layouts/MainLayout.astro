@@ -14,12 +14,14 @@ export interface Props {
     titel: string;
     description: string;
     image?: string;
+    classes?: string;
 }
 
 const {
     titel,
     description,
     image = "../assets/images/Sprungturm2.jpg",
+    classes,
 } = Astro.props;
 ---
 
@@ -67,7 +69,7 @@ const {
     </head>
     <body>
         <div id="page-container" class="relative bg-base-200">
-            <div id="body-container" class="z-10 min-h-[73svh]">
+            <div id="body-container" class:list={["z-10", "min-h-[73svh]", classes]}>
                 <header class="dontPrint">
                     <div class="content-grid">
                         <NavigationBar />

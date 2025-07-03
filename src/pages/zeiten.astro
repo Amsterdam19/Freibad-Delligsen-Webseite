@@ -38,6 +38,16 @@ const zeiten = (await getCollection("zeiten")).sort(
   bg_color="positive">
   Die Saison wurde bis zum 6. September 2024 von 17 bis 20 Uhr verlängert.
 </Banner> -->
+        <!-- <div class="w-full">
+            <Banner
+            title="Geänderte Öffnungszeiten am 9. und 10. Juni"
+            icon="IcRoundTimelapse"
+            bg_color="alert-error"
+            id="changedTimesBannner"
+            classes="w-fit">
+            Am 9. und 10. Juni ist die Öffnungszeit von 15-20 Uhr.
+            </Banner> 
+        </div> -->
         {
             zeiten.map((zeit) => (
                 <PreiseCard

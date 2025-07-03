@@ -8,7 +8,9 @@ height: "3024"
 ---
 
 In diesem Jahr öffneten wir zum ersten Mal an einem Freitagabend unsere Türen. Die alte Tradition, dass Dr. Klaus Richter zum „Anpfiff“ das Alphorn spielte blieb. Wir luden ein zum kostenfreien Schwimmen, zu Cocktails und Musik!  Der erste  warme  Frühsommerabend  lockte viele Besucher und Badegäste ins Wasser und auf die Terrasse. Es war eine wahrer Volltreffer!
- Wir freuen uns auf eine sonnige Saison 2025!
+
+Wir freuen uns auf eine sonnige Saison 2025!
+
 ![Cocktailbar](../../assets/images/2025/Saisonstart%202025/cocktailbar.jpeg "Cocktailbar")
 ![Cocktailbar](../../assets/images/2025/Saisonstart%202025/cocktailbar2.jpeg "Cocktailbar")
 ![Collage](../../assets/images/2025/Saisonstart%202025/collage.jpeg "Collage")

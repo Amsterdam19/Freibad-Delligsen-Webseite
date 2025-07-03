@@ -7,11 +7,17 @@ import GalerieItem from "../components/Galerie/GalerieItem.astro";
 import Sprungturm from "@assets/images/galerie/Sprungturm.jpg";
 import Sprungturm2 from "@assets/images/galerie/Sprungturm2.jpg";
 import Sonnenuntergang from "@assets/images/galerie/Sonnenuntergang.jpg";
-import historischeAnsicht from "@assets/images/galerie/3701.jpg";
+import Wasserpilz from "@assets/images/galerie/Wasserpilz.jpg";
+import ente from "@assets/images/galerie/ente.jpg";
 import Marathonschwimmen from "@assets/images/galerie/Marathonschwimmen_2022-08-13.jpg";
 import Lichtkunst1 from "@assets/images/galerie/IMG-20220507-WA0005.jpg";
 import Lichtkunst2 from "@assets/images/galerie/IMG-20220507-WA0027.jpg";
 import Trabantentreffen from "@assets/images/galerie/Trabantentreffen_2022-08-13.jpg";
+import Volleyballplatz from "@assets/images/galerie/Volleyballplatz.jpg";
+import Fußball from "@assets/images/galerie/Fußball.jpg";
+import Becken from "@assets/images/galerie/Becken.jpg";
+
+
 import Image from "astro/components/Image.astro";
 import ImageCard from "components/Card/ImageCard.astro";
 ---
@@ -25,12 +31,19 @@ import ImageCard from "components/Card/ImageCard.astro";
         <div class="image-mosaic">
             <ImageCard img={Sprungturm} title="Sprungturm" id="strungturm" classes="card-tall card-wide"/>
             <ImageCard img={Marathonschwimmen} title="Marathonschwimmen" id="marathonschwimmen" classes="card-tall"/>
-            <ImageCard img={historischeAnsicht} title="historischeAnsicht" id="historischeAnsicht" classes="card-wide"/>
+            <ImageCard img={ente} title="Badeente" id="ente" classes="card-wide"/>
             <ImageCard img={Sprungturm2} title="Strungturm2" id="strungturm2" classes="card-tall"/>
-            <ImageCard img={Sonnenuntergang} title="Sonnenuntergang" id="sonnenuntergang" classes="card-tall"/>
-            <ImageCard img={Lichtkunst1} title="Lichtkunst1" id="lichtkunst1"/>
-            <ImageCard img={Lichtkunst2} title="Lichtkunst2" id="lichtkunst2"/>
             <ImageCard img={Trabantentreffen} title="Trabantentreffen" id="trabantentreffen"/>
+            
+            <ImageCard img={Lichtkunst1} title="Lichtkunst1" id="lichtkunst1"/>
+            <ImageCard img={Volleyballplatz} title="Volleyballplatz" id="volleyballplatz" classes="card-tall card-wide"/>
+            
+            <ImageCard img={Sonnenuntergang} title="Sonnenuntergang" id="sonnenuntergang" classes="card-tall"/>
+            
+            <ImageCard img={Wasserpilz} title="Wasserpilz" id="Wasserpilz" classes="card-tall"/>
+            <ImageCard img={Lichtkunst2} title="Lichtkunst2" id="lichtkunst2"/>
+            <ImageCard img={Fußball} title="Fußballplatz" id="fußball" classes="card-wide"/>
+            <ImageCard img={Becken} title="Becken" id="becken" classes="card-wide"/>
         </div>
     </Grid>
 </MainLayout>
