@@ -8,5 +8,6 @@ Disallow: /documents/
 Disallow: /_astro/
 Disallow: /index_old/
 Disallow: /svg/
+Disallow: /unterstuetzen/
 
 Sitemap: http://freibad-delligsen.de/sitemap-index.xml
