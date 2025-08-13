@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 interface Props {
   title: string;
   icon: string;
-  bg_color?: "alert-info" | "alert-success" | "alert-warning" | "alert-error";
+  bg_color?: string;
   id?: string;
   classes?: string;
 }
@@ -12,7 +12,8 @@ const { title, icon, bg_color, id, classes } = Astro.props as Props;
 
 <div
   role="alert"
-  class:list={["alert", "shadow-lg", classes, bg_color ? bg_color : ""]}
+  class:list={["alert", "shadow-lg", classes]}
+  style={`background-color: ${bg_color};`}
   id={id}
 >
   <Icon name={icon} class="stroke-current h-10 w-10 shrink-0" />
