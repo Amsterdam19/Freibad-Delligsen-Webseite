@@ -12,7 +12,7 @@ interface Props {
 }
 const { date, titel, description = "", index, id} = Astro.props;
 
-const colorArra = [
+const colorArray = [
     "#DE3163", // Ein sanftes Apricot
     "#FF7F50", // Ein sanftes Gelb
     "#FFEF00", // Ein sanftes Mintgrün
@@ -26,7 +26,7 @@ const colorArra = [
     "#D9BF77", // Ein sanftes Goldbraun
     "#6B4226"  // Ein sanftes Dunkelbraun
 ];
-const colorArray = [
+const colorArra = [
     "#151615",
 ];
 
@@ -54,7 +54,7 @@ const newId = sanitizeId(id ? id : titel);
             : "timeline-start md:text-end"]}
             style={`border-color: color-mix(in oklab, ${colorArray[index % colorArray.length]} 50%, transparent); background-color: color-mix(in oklab, ${colorArray[index % colorArray.length]} 5%, transparent);`}
     >
-        <div class="badge gap-2 text-lg" style={`background-color: ${colorArray[index % colorArray.length]}; color: ${textColor}`}>
+        <div class="badge gap-2 text-lg py-3" style={`background-color: ${colorArray[index % colorArray.length]}; color: ${textColor}`}>
             <time class="font-mono italic">{date}</time>
         </div>
         <div class="text-3xl font-semibold hyphens-auto text-balance">{titel}</div>
