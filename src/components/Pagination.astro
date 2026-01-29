@@ -9,11 +9,11 @@ const next = currentPage < totalPage ? "" : "disabled";
 ---
 
 <nav aria-label="Blog pages">
-  <a role="button" class="btn" disabled={prev === "disabled"} href={prevUrl}>
+  <a role="button" class="btn box-s-3" disabled={prev === "disabled"} href={prevUrl}>
     <Icon name="IcRoundArrowBack" height="24" width="24" />
     Zurück</a
   >
-  <a role="button" class="btn" disabled={next === "disabled"} href={nextUrl}>
+  <a role="button" class="btn box-s-3" disabled={next === "disabled"} href={nextUrl}>
     <Icon name="IcRoundArrowForward" height="24" width="24" />
     Weiter</a
   >
@@ -29,5 +29,11 @@ const next = currentPage < totalPage ? "" : "disabled";
   }
   p {
     text-align: center;
+  }
+  a {
+    background-color: var(--accent2);
+  }
+  a:hover {
+    background-color: var(--accent2);
   }
 </style>

@@ -8,7 +8,7 @@
 
 
   --text: #000000;
-  --background: white;
+  --background: #FCEEE3;
   --primary: #235fa4;
   --primary-dark: color-mix(in oklab, var(--primary), black);
   --secondary: color-mix(in oklab, var(--primary) 10%, var(--background));
@@ -24,6 +24,15 @@
   --nav-bg-color: rgba(255, 255, 255, 0.8);
   --site-width: 80rem;
 
+  --background: #F9F5F2;
+  --primary:#8EA8EA;
+  --secondary: #A259FF;
+  --accent:#EA4C88;
+  --accent-dark: #B82B5F;
+  --accent2: #F8CB45;
+  --accent3: #1EA193;
+  --accent4: #FE91E7;
+  --card: #FFFFFE;
 
   --old: #2e577e;
   --main-color: var(--primary);
@@ -57,13 +66,23 @@
   src: url("/fonts/Monteserrat/Montserrat-VariableFont_wght.ttf");
   font-display: swap;
 }
+@font-face {
+  font-family: "Work_Sans";
+  src: url("/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf");
+  font-display: swap;
+}
 
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Monteserrat";
+  font-family: "Work_Sans";
   line-height: 1.75rem;
+}
+
+html {
+  background-color: var(--background);
+  font-family: 'Courier New', Courier, monospace;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -73,8 +92,27 @@
   }
 }
 
-[data-icon="freibadLogo"] ellipse {
-  fill: var(--primary) !important;
+.box-s-5,
+.box-s-5:hover {
+  box-shadow: black 6px 5px;
+  border: black 3px solid;
+}
+
+.box-s-3,
+.box-s-3:hover {
+  box-shadow: black 4px 3px;
+  border: black 2px solid;
+}
+
+.box-s-1,
+.box-s-1:hover {
+  box-shadow: black 2px 1px;
+  border: black 1px solid;
+}
+
+.svg-stroke {
+  stroke: black;
+  stroke-width: 1px;
 }
 
 img,
@@ -228,4 +266,22 @@ article > p:has(img) {
   background-image: url(/Becken.jpg);
   background-position: center;
   background-size: cover;
+}
+
+
+.autoShowDisabled {
+  animation: text-appear both;
+  animation-timeline: view();
+  animation-range: entry 20% cover 100vh;
+}
+
+@keyframes text-appear{
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

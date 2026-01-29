@@ -37,19 +37,23 @@ const {
 ---
 
 <div
-    class="card bg-base-100 w-96 shadow-xl items-center"
-    style={`background-color: color-mix(in oklab,${color}, white 70%);`}
+    class="card bg-base-100 w-96 shadow-xl items-center box-s-5 autoShow"
+    style={`background-color: color-mix(in oklab,${color}, white 55%);`}
 >
     <Icon
         name={icon}
-        style={`color: color-mix(in oklab,${color}, black 50%);`}
+        style={`color: ${color};
+        stroke: black;
+        stroke-width: 3%;
+        stroke-linecap: round;
+        filter: drop-shadow(4px 3px black);`}
     />
-    <div class="card-body w-full bg-white rounded-b-2xl">
-        <h2 class="card-title text-2xl">
+    <div class="card-body w-full bg-white rounded-2xl z-10">
+        <h2 class="card-title text-3xl">
             {title}
             {
                 badge_top ? (
-                    <div class="badge badge-secondary h-auto">{badge_top}</div>
+                    <div class="badge badge-primary h-auto box-s-1">{badge_top}</div>
                 ) : (
                     ""
                 )
@@ -127,14 +131,14 @@ const {
         {
             badge_bottom && !badge_bottom_link && (
                 <div class="card-actions justify-end">
-                    <div class="badge badge-outline h-auto">{badge_bottom}</div>
+                    <div class="badge badge-outline h-auto box-s-1">{badge_bottom}</div>
                 </div>
             )
         }
         {
             badge_bottom && badge_bottom_link && (
                 <div class="card-actions justify-end">
-                    <div class="badge badge-outline h-auto">
+                    <div class="badge badge-outline h-auto box-s-1">
                         <a
                             slot="badge_bottom"
                             target="_blank"

@@ -4,10 +4,10 @@ export interface Props {
 	date: Date;
 }
 
-const { date } = Astro.props;
+const { date, ...props } = Astro.props;
 ---
 
-<span class="badge badge-neutral">
+<span class="badge badge-neutral box-s-1" style="background-color: var(--accent3);" {...props}>
 	<time datetime={date.toISOString()}>
 		<div>
 			<Icon name="IcRoundAccessTime" />
@@ -26,6 +26,7 @@ const { date } = Astro.props;
 		display: flex;
 		align-items: center;
 		gap: 0.5rem;
+		font-size: 1.1rem;
 	}
 	[data-icon] {
 		height: 1rem;

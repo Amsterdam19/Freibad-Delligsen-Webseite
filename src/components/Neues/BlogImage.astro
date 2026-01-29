@@ -1,28 +1,26 @@
 ---
-const { src, alt, width = 4, height = 3, radius =  "var(--border-radius)", classes} = Astro.props;
+const { src, alt, width = 4, height = 3, radius =  "var(--border-radius)", classes, ...props} = Astro.props;
 import { Image } from 'astro:assets';
 ---
-<div style={"border-radius:"+radius+";"} class:list={[
-    classes,
-  ]}>
-    <Image
+<Image
     loading="eager"
     quality="mid"
     src={src}
     format="webp"
     width={1000}
     alt={alt}
+    style={"border-radius:"+radius+";"}
+    class:list={[
+        classes,
+        ]}
+    {...props}
 />
-</div>
 
 <style>
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-    }
-    div {
-        height: 100%;
-        overflow: hidden;
+        border-radius: 0.8rem 0.8rem 0 0;
     }
 </style>

@@ -8,11 +8,11 @@ import MainLayout from "../layouts/MainLayout.astro";
         <p>
             Das Freibad Delligsen sucht für die kommende Saison Badeaufsichten!
         </p>
-        <div class="card bg-base-100 shadow-xl p-4">
+        <div class="card bg-base-100 box-s-5 p-4">
             <h2 class="text-2xl">Voraussetzungen:</h2>
             <ul class="list-disc">
                 <li>körperliche Fitness</li>
-                <li>18 Jahre</li>
+                <li>≥18 Jahre</li>
                 <li>
                     aktueller Erste Hilfe Kurs <br />(nicht älter als zwei
                     Jahre) <br />
@@ -26,12 +26,12 @@ import MainLayout from "../layouts/MainLayout.astro";
 
         <p>
             Bitte meldet euch per E-Mail:<br />
-            <a href="mailto:foerderverein@freibad-delligsen.de"
+            <a href="mailto:foerderverein@freibad-delligsen.de" id="mail"
                 >foerderverein@freibad-delligsen.de</a
             >
         </p>
 
-        <a class="buttonA" href="/documents/ferienjob.jpeg"
+        <a class="buttonA box-s-3" href="/documents/ferienjob.jpeg"
             ><span>Flyer</span></a
         >
     </div>
@@ -65,10 +65,12 @@ import MainLayout from "../layouts/MainLayout.astro";
         margin-left: 1.2rem;
     }
 
+    #mail {
+        color: var(--accent);
+    }
+
     .buttonA {
-        border: none;
         border-radius: var(--border-radius);
-        color: #fff;
         cursor: pointer;
         display: flex;
         justify-content: center;
@@ -81,6 +83,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         width: 160px;
         background-color: var(--primary);
         text-decoration: none;
+        color: var(--text);
     }
     span {
         font-weight: 700;

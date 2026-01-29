@@ -2,7 +2,7 @@
 
 ---
 
-<div class="grid">
+<div class="grid box-s-5">
     <div class="left">
         <slot name="left" />
     </div>
@@ -16,16 +16,15 @@
         width: 100%;
         color: var(--text);
         display: grid;
-        gap: 30px;
+        gap: 1rem;
         grid-template-columns: 1fr 1fr;
-        background-color: var(--article);
-        padding: 4%;
-        border-radius: 16px;
-        border: var(--border-grey) 1px solid;
+        background-color: white;
+        padding: 1rem;
+        border-radius: 1rem;
     }
     @media screen and (max-width: 900px) {
         .grid {
-            display: block;
+            grid-template-columns: 1fr;
         }
     }
 </style>

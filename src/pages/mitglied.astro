@@ -20,7 +20,7 @@ import { Icon } from "astro-icon/components";
             Die Beitrittserklärung einschl. Jahresbeiträge und die Satzung erhalten
             Sie hier als Download:
         </p>
-        <div class="download card bg-base-100 shadow-xl items-center p-2">
+        <div class="download card bg-base-100 box-s-5 items-center p-2">
             <Icon name="IcRoundDownload" />
             <ul>
                 <li>
@@ -45,7 +45,7 @@ import { Icon } from "astro-icon/components";
 </MainLayout>
 <style>
     h1 {
-        font-weight: 500;
+        font-weight: 600;
         margin-block: 1rem;
         font-size: clamp(1.7rem, 1.4551rem + 1.3061vw, 2.5rem);
     }
@@ -61,8 +61,11 @@ import { Icon } from "astro-icon/components";
         grid-template-columns: 1fr 4fr;
     }
     [data-icon] {
+        color: var(--accent2);
         width: 100%;
-        color: var(--primary);
+        filter: drop-shadow(3px 2px black);
+        stroke: black;
+        stroke-width: 5%;
     }
     a {
         color: var(--text);

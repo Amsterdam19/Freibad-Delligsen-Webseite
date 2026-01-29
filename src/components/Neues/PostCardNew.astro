@@ -1,10 +1,11 @@
 ---
-import FormattedDateSmall from "../FormattedDateSmall.astro";
+import FormattedDate from "components/FormattedDate.astro";
 import BlogImage from "./BlogImage.astro";
+import { slugify } from "js/utils";
 const { img, titel, pubDate, description, href } = Astro.props;
 ---
 
-<div class="card bg-base-100 shadow-xl grid">
+<div class="card grid box-s-5 autoShow">
     <figure>
         {
             img && (
@@ -13,21 +14,20 @@ const { img, titel, pubDate, description, href } = Astro.props;
                     alt={img}
                     radius="none"
                     classes="w-full"
+                    transition:name={slugify(titel)+"-img"}
                 />
             )
         }
     </figure>
     <div class="card-body">
-        <div class="badge badge-ghost">
-            <FormattedDateSmall date={pubDate} />
-        </div>
-        <h2 class="card-title">
+        <h2 class="card-title text-2xl" transition:name={slugify(titel)+"-title"}>
             {titel}
         </h2>
+        <FormattedDate date={pubDate} transition:name={slugify(titel)+"-date"}/>
         <p>{description}</p>
         <div class="card-actions justify-end">
             <a href={href}>
-                <button class="btn btn-primary"
+                <button class="btn btn-primary box-s-3"
                     >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -50,5 +50,13 @@ const { img, titel, pubDate, description, href } = Astro.props;
         grid-template-rows: 15rem auto;
         width: 100%;
         max-width: 25.6rem;
+    
+    }
+    .card-body {
+        /*background-color: var(--card);*/
+        border-radius: 0 0 1rem 1rem;
+    }
+    figure {
+        border-radius: initial;
     }
 </style>

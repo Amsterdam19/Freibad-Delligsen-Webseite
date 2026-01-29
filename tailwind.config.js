@@ -8,11 +8,11 @@ export default {
     themes: [
       {
         mytheme: {
-          "primary": "#235fa4",
-          "secondary": "#143b64",
-          "accent": "#d41d54",
+          "primary": "#8EA8EA",
+          "secondary": "#A259FF",
+          "accent": "#EA4C88",
           "neutral": "#E8EFF7",
-          "base-100": "#ffffff",
+          "base-100": "#F9F5F2",
           "info": "#5293dd",
           "success": "#a3e635",
           "warning": "#f59e0b",

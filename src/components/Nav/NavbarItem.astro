@@ -1,20 +1,27 @@
 ---
-const { title, url, icon, current } = Astro.props;
+const { title, url, icon, current, ...props } = Astro.props;
 import { Icon } from "astro-icon/components";
+import { slugify } from "js/utils";
 ---
 
 <li>
     {
         current === url ? (
             <a
-                class="active !bg-primary !hover:bg-primary !text-white"
+                class="active box-s-3"
                 href={"/" + url}
+                transition:name={"nav-item-"+slugify(title)+"-"+icon}
+                {...props}
             >
                 {icon ? <Icon name={icon} /> : ""}
                 &nbsp;{title}
             </a>
         ) : (
-            <a href={"/" + url}>
+            <a 
+                href={"/" + url}
+                transition:name={"nav-item-"+slugify(title)+"-"+icon}
+                {...props}
+            >
                 {icon ? <Icon name={icon} /> : ""}
                 &nbsp;{title}
             </a>
@@ -24,8 +31,13 @@ import { Icon } from "astro-icon/components";
 
 <style>
     a {
-        @apply font-semibold text-lg lg:px-2 no-underline;
+        @apply font-semibold text-lg lg:px-2 no-underline rounded-full;
     }
+    .active {
+        background-color: var(--accent2) !important;
+        pointer-events: none;
+    }
+
     [data-icon] {
         display: none;
         fill: var(--text);

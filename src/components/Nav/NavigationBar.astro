@@ -7,25 +7,26 @@ const currentPath = pathname.split("/");
 const { className } = Astro.props;
 ---
 
-<div class="drawer drawer-end">
+<div class="drawer drawer-end z-50">
     <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content flex flex-col">
         <!-- Navbar -->
-        <div class="navbar pb-10 pt-4 px-0 w-full justify-between">
-            <a class="no-underline" href="/">
-                <div class="logo">
-                    <Icon name="freibadLogo" />
-                    <h4>Freibad Delligsen</h4>
-                </div>
+        <div class=" " class:list={["navbar pb-10 pt-4 px-0 w-full justify-end md:justify-center", {"md:justify-between justify-between" : currentPath[1]}]}>
+            {currentPath[1] ? 
+            <a class="no-underline" href="/" transition:name="nav-logo">
+                <h4>Freibad Delligsen</h4>
             </a>
+             : ""}
             <div class="hidden flex-none xl:block">
                 <ul class="menu menu-horizontal gap-2">
                     <!-- Navbar menu content here -->
-                    <NavItem
+                    {currentPath[1] ? 
+                        <NavItem
                         title="Startseite"
                         url=""
                         current={currentPath[1]}
                     />
+                         : ""}
                     <NavItem
                         title="Öffnungszeiten"
                         url="zeiten"
@@ -58,12 +59,14 @@ const { className } = Astro.props;
                     id="hamburger"
                     for="nav-drawer"
                     aria-label="toggle sidebar"
-                    class="group transition flex items-center justify-center btn btn-square has-aria-pressed:btn-outline"
+                    class="group transition flex items-center justify-center btn btn-square has-aria-pressed:btn-outline box-s-3"
                     onclick="this.setAttribute('aria-pressed', !(this.getAttribute('aria-pressed') === 'true'))"
+                    style="background-color: var(--accent);"
                 >
                     <svg
-                        class="w-6 h-6 fill-current pointer-events-none"
-                        viewBox="0 0 16 16"
+                        class="w-6 h-6 fill-current pointer-events-none svg-stroke"
+                        viewBox="-0.5 0 16 17"
+                        style="fill: var(--accent-dark);"
                         xmlns="http://www.w3.org/2000/svg"
                     >
                         <rect
@@ -140,22 +143,9 @@ const { className } = Astro.props;
 </div>
 
 <style>
-    .logo {
-        display: flex;
-        flex-direction: row;
-    }
-
-    .logo [data-icon="freibadLogo"] {
-        display: block !important;
-        fill: var(--primary-dark);
-        width: 50px !important;
-    }
-
-    .logo h4 {
-        color: var(--primary-dark);
-        font-size: clamp(1.1rem, 0.9776rem + 0.6531vw, 1.5rem);
-        font-weight: 700;
-        letter-spacing: -1px;
-        margin-left: 1rem;
+    h4 {
+        font-size: clamp(1.5rem, 1.4082rem + 0.4898vw, 1.8rem);
+        font-weight: 900;
+        letter-spacing: -0.2px;
     }
 </style>

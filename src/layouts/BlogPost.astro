@@ -5,6 +5,7 @@ import BlogImage from "../components/Neues/BlogImage.astro";
 import MainLayout from "./MainLayout.astro";
 import { Icon } from "astro-icon/components";
 import Back from "../components/Back.astro";
+import { slugify } from "js/utils";
 
 type Props = CollectionEntry<"neues">["data"];
 
@@ -14,10 +15,10 @@ const { title, description, pubDate, updatedDate, src } =
 
 <MainLayout titel={title} description={description}>
   <article>
-    <div>
-      <h1 class="title">{title}</h1>
-      <FormattedDate date={pubDate} />
-    </div>
+    {src && <BlogImage src={src} alt={src} transition:name={slugify(title)+"-img"}/>}
+
+    <h1 class="title" transition:name={slugify(title)+"-title"}>{title}</h1>
+    <FormattedDate date={pubDate} transition:name={slugify(title)+"-date"}/>
     {
       updatedDate && (
         <div class="last-updated-on">
@@ -25,11 +26,9 @@ const { title, description, pubDate, updatedDate, src } =
         </div>
       )
     }
-
-    {src && <BlogImage src={src} alt={src} classes="max-w-2xl mx-auto" />}
     <slot />
     <div class="flex justify-end">
-      <a href="javascript:history.back()" role="button" class="btn"
+      <a href="javascript:history.back()" role="button" class="btn box-s-3" style="background-color: var(--accent);"
         >Zurück <Icon name="undo" class="h-6 w-6" /></a
       >
     </div>
@@ -56,7 +55,7 @@ const { title, description, pubDate, updatedDate, src } =
   }
   h1 {
     font-weight: 700;
-    margin-block: 1rem;
+    margin-block: 1rem 0.5rem;
     font-size: clamp(2rem, 0.7179rem + 4.1026vw, 4rem);
   }
   @media screen and (max-width: 1050px) {

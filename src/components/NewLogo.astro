@@ -1,0 +1,43 @@
+<div id="wave">
+</div>
+
+<style>
+
+#wave {
+    background-color: var(--primary);
+    position: relative;
+    width: 100%;
+    height: 40rem;
+}
+
+#wave::before,
+#wave::after {
+    content: "";
+    z-index: 10;
+    inset: 0;
+    position: absolute;
+    background-color: var(--background);
+}
+
+#wave::before {
+    top: 10rem;
+    bottom: 20rem;
+    --mask:
+      radial-gradient(3.77rem at 50% 5.2rem,#000 99%,#0000 101%) calc(50% - 4rem) 0/8rem 51% repeat-x,
+      radial-gradient(3.77rem at 50% -3.2rem,#0000 99%,#000 101%) 50% 2rem/8rem calc(51% - 2rem) repeat-x,
+      radial-gradient(3.77rem at 50% calc(100% - 5.2rem),#000 99%,#0000 101%) 50% 100%/8rem 51% repeat-x,
+      radial-gradient(3.77rem at 50% calc(100% + 3.2rem),#0000 99%,#000 101%) calc(50% - 4rem) calc(100% - 2rem)/8rem calc(51% - 2rem) repeat-x;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
+
+#wave::after {
+    top: 30rem;
+    --mask:
+    radial-gradient(3.77rem at 50% 5.2rem,#000 99%,#0000 101%) calc(50% - 4rem) 0/8rem 100%,
+    radial-gradient(3.77rem at 50% -3.2rem,#0000 99%,#000 101%) 50% 2rem/8rem 100% repeat-x;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+
+</style>

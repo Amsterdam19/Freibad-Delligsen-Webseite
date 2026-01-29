@@ -1,28 +1,30 @@
 ---
 import { Icon } from "astro-icon/components";
 
-const { classes } = Astro.props;
+const { classes, ...props } = Astro.props;
 ---
 
 <footer
     class:list={["footer bg-base-200 text-base-content p-10 mt-8", classes]}
+    {...props}
 >
-    <aside>
-        <Icon name="freibadLogo" width="70" height="70" />
+    <aside class="justify-center">
+        <Icon name="MapSwimming" width="60%" style={'color: var(--primary); stroke: var(--primary-dark); stroke-width: 2px; filter: drop-shadow(4px 2px black);'}/>
         <p>
             <span
                 style="color: var(--primary-dark);
-        font-size: 18pt;
+        font-size: 22pt;
         font-weight: 700;
         letter-spacing: -1px;"
-                >Freibad Delligsen</span
+        class="text-center"
+                >Freibad<br />Delligsen</span
             >
             <br />
-            © Förderverein Freibad Delligsen
+            
         </p>
     </aside>
     <nav>
-        <h6 class="footer-title">Informationen</h6>
+        <h6 class="mb-2 font-bold uppercase">Informationen</h6>
         <a class="link link-hover" href="/ueber/">&Uuml;ber unsere Geschichte</a
         >
         <a class="link link-hover" href="/impressum/">Impressum</a>
@@ -33,12 +35,12 @@ const { classes } = Astro.props;
         >
     </nav>
     <nav>
-        <h6 class="footer-title">Unterstützen</h6>
+        <h6 class="mb-2 font-bold uppercase">Unterstützen</h6>
         <a class="link link-hover" href="/mitglied/">Vereinsmitglied werden</a>
         <a class="link link-hover" href="/job/">Ferienjob</a>
     </nav>
     <nav>
-        <h6 class="footer-title">Soziale Medien</h6>
+        <h6 class="mb-2 font-bold uppercase">Soziale Medien</h6>
         <div class="grid grid-flow-col gap-4">
             <a class="a" href="/rss/" aria-label="Folgt uns via RSS"
                 ><div class="tooltip tooltip-bottom" data-tip="RSS">
@@ -66,3 +68,4 @@ const { classes } = Astro.props;
         </div>
     </nav>
 </footer>
+<p class="text-center">© Förderverein Freibad Delligsen</p>

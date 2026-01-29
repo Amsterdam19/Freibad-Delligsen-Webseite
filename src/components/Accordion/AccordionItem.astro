@@ -4,14 +4,14 @@ import { Picture } from 'astro:assets';
 const { src, icon, label, active, width } = Astro.props;
 ---
 
-<div class={"accordion-panel " + active}>
+<div class={"accordion-panel box-s-5 " + active}>
   <h2>
     <button
       class="accordion-trigger"
       aria-controls="panel1-content"
       aria-expanded="true"
     >
-      <Icon class="accordion-icon" name={icon} />
+      <Icon class="accordion-icon box-s-3" name={icon} />
       <span class="accordion-title" id="panel1-title">{label}</span>
     </button>
   </h2>
@@ -43,7 +43,6 @@ const { src, icon, label, active, width } = Astro.props;
     border-radius: calc(
       ((var(--_panel-padding) * 2) + var(--_button-size)) / 2
     );
-    box-shadow: var(--nav-shadow);
   }
   @media (prefers-reduced-motion: no-preference) {
     .accordion-panel {

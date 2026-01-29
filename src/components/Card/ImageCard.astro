@@ -5,7 +5,7 @@ const { img, title, id, classes } = Astro.props;
 ---
 
 <div
-    class:list={["card", classes]}
+    class:list={["card", "box-s-5", classes]}
     style={`background-image: url(${img.src});`}
     onclick={`${id}.showModal()`}
 >
@@ -17,7 +17,7 @@ const { img, title, id, classes } = Astro.props;
                 <div class="flex gap-3">
                     <a
                         role="button"
-                        class="btn btn-primary"
+                        class="btn btn-primary box-s-3"
                         href={img.src}
                         target="_blank"
                     >
@@ -26,7 +26,7 @@ const { img, title, id, classes } = Astro.props;
                     </a>
                     <form method="dialog">
                         <!-- if there is a button, it will close the modal -->
-                        <button class="btn">Schließen</button>
+                        <button class="btn box-s-3">Schließen</button>
                     </form>
                 </div>
             </div>
@@ -46,34 +46,18 @@ const { img, title, id, classes } = Astro.props;
     h2 {
         color: var(--text);
         font-size: 1.9rem;
-        font-weight: 400;
+        font-weight: 600;
     }
     .card {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background: #353535;
-        font-size: 3rem;
-        color: #fff;
-        box-shadow:
-            rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem,
-            rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
-        height: 100%;
-        width: 100%;
-        border-radius: 4px;
-        transition: all 500ms;
-        overflow: hidden;
+        border-radius: 1rem;
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        padding: 0;
-        margin: 0;
     }
 
     img {
         max-height: 80vh;
-        max-height: 80svhı;
+        max-height: 80svh;
     }
 
     @media screen and (min-width: 600px) {

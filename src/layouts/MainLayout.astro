@@ -6,7 +6,25 @@ import "../styles/global.css";
 import NavigationBar from "../components/Nav/NavigationBar.astro";
 import Footer from "../components/Footer.astro";
 
-import { ClientRouter } from "astro:transitions";
+import { ClientRouter, fade } from "astro:transitions";
+
+const anim = {
+  old: {
+    name: "fall-old",
+    duration: "0.4s",
+    easing: "ease-in",
+  },
+  new: {
+    name: "fall-new",
+    duration: "0.4s",
+    easing: "ease-in",
+  },
+};
+
+const customTransition = {
+    forwards: anim,
+    backwards: anim,
+};
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
@@ -25,7 +43,7 @@ const {
 } = Astro.props;
 ---
 
-<html lang="de">
+<html lang="de" style="background-color: var(--background);">
     <head>
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg+xml" href="/freibadicon.svg" />
@@ -81,19 +99,52 @@ const {
                         <NavigationBar />
                     </div>
                 </header>
-                <main id="swup">
+                <main transition:animate={(Astro.url.pathname.includes("/neues/")) ? fade() : customTransition}>
                     <div class="slot transition-fade content-grid">
                         <slot />
                     </div>
                 </main>
             </div>
             <div class="dontPrint">
-                <Footer classes="invisible -z-10" />
-                <Footer classes="fixed bottom-0" />
+                <Footer classes="invisible -z-10"/>
+                <Footer classes="fixed bottom-0"/>
             </div>
         </div>
         <script src="../js/app.js"></script>
-        <style>
+        <style is:global>
+            @keyframes fall-old {
+              0% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+              30% {
+                opacity: 0,2;
+              }
+              40% {
+                opacity: 0;
+              }
+              100% {
+                opacity: 0;
+                transform: translateY(50px);
+              }
+            }
+            @keyframes fall-new {
+              0% {
+                opacity: 0;
+                transform: translateY(-50px);
+              }
+              60% {
+                opacity: 0;
+              }
+              70% {
+                opacity: 0.2;
+              }
+              100% {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
             #page-container {
                 min-height: 100vh;
                 min-height: 100svh;

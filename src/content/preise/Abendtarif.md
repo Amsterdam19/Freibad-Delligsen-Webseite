@@ -6,8 +6,8 @@ pos2: "ermäßigt*:"
 pos2_num: "1,00 €"
 pos3: "Kinder unter 4 Jahren in Begleitung Erwachsener:"
 pos3_num: "frei"
-color: red
+color: "#F44E1C"
 badge_top: "Ab 19 Uhr"
-icon: sunset
+icon: UilSunset
 index: 1
 ---
