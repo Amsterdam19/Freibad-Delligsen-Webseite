@@ -99,7 +99,8 @@ const {
                         <NavigationBar />
                     </div>
                 </header>
-                <main transition:animate={(Astro.url.pathname.includes("/neues/")) ? fade() : customTransition}>
+                <!-- <main transition:animate={(Astro.url.pathname.includes("/neues/")) ? fade() : customTransition}>-->
+                <main transition:animate="fade">
                     <div class="slot transition-fade content-grid">
                         <slot />
                     </div>
