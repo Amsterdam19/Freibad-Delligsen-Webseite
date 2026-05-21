@@ -2,6 +2,8 @@ import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
 import icon from "astro-icon";
 
+import tailwindcss from "@tailwindcss/vite";
+
 // https://astro.build/config
 //http://freibad-delligsen.de
 export default defineConfig({
@@ -49,6 +51,7 @@ export default defineConfig({
         return item;
       },
     }),
+    tailwindcss(),
     icon(),
   ],
 });

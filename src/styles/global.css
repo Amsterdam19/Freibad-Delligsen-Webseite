@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
 :root {
   --navbar-height: 7rem;
   --test: hsla(216, 86%, 36%, 0.932);
