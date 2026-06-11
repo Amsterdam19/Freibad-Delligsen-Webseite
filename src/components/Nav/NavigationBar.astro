@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon/components";
 import NavItem from "./NavbarItem.astro";
 
 const pathname = new URL(Astro.request.url).pathname;
@@ -7,8 +6,7 @@ const currentPath = pathname.split("/");
 const { className } = Astro.props;
 ---
 
-<div class="drawer drawer-end z-50">
-    <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
+<div class:list={["drawer z-50", {"hidden" : currentPath[1]==""}, "xl:grid"]}>
     <div class="drawer-content flex flex-col">
         <!-- Navbar -->
         <div class=" " class:list={["navbar pb-10 pt-4 px-0 w-full justify-end md:justify-center", {"md:justify-between justify-between" : currentPath[1]}]}>
@@ -16,9 +14,9 @@ const { className } = Astro.props;
             <a class="no-underline" href="/" transition:name="nav-logo">
                 <h4>Freibad Delligsen</h4>
             </a>
-             : ""}
+             : <div style="display: none;"></div>}
             <div class="hidden flex-none xl:block">
-                <ul class="menu menu-horizontal gap-2">
+                <ul id="desktop-nav-ul" class="menu menu-horizontal gap-2 box-s-3">
                     <!-- Navbar menu content here -->
                     {currentPath[1] ? 
                         <NavItem
@@ -54,95 +52,18 @@ const { className } = Astro.props;
                     />
                 </ul>
             </div>
-            <div class="flex-none xl:hidden z-20">
-                <label
-                    id="hamburger"
-                    for="nav-drawer"
-                    aria-label="toggle sidebar"
-                    class="group transition flex items-center justify-center btn btn-square has-aria-pressed:btn-outline box-s-3"
-                    onclick="this.setAttribute('aria-pressed', !(this.getAttribute('aria-pressed') === 'true'))"
-                    style="background-color: var(--accent);"
-                >
-                    <svg
-                        class="w-6 h-6 fill-current pointer-events-none svg-stroke"
-                        viewBox="-0.5 0 16 17"
-                        style="fill: var(--accent-dark);"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <rect
-                            class="origin-center -translate-y-[5px] translate-x-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-x-0 group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:rotate-[315deg]"
-                            y="7"
-                            width="9"
-                            height="2"
-                            rx="1"></rect>
-                        <rect
-                            class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-[[aria-pressed=true]]:rotate-45"
-                            y="7"
-                            width="16"
-                            height="2"
-                            rx="1"></rect>
-                        <rect
-                            class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:-rotate-[225deg]"
-                            y="7"
-                            width="9"
-                            height="2"
-                            rx="1"></rect>
-                    </svg>
-                </label>
-            </div>
         </div>
         <!-- Page content here -->
-    </div>
-    <div class="drawer-side z-10">
-        <label
-            for="nav-drawer"
-            aria-label="close sidebar"
-            class="drawer-overlay"
-            onclick="document.getElementById('hamburger').setAttribute('aria-pressed', !(document.getElementById('hamburger').getAttribute('aria-pressed') === 'true'))">
-        </label>
-        <ul class="menu bg-base-100 min-h-full max-w-80 w-full p-4 pt-20 gap-3">
-            <!-- Sidebar content here -->
-            <NavItem
-                title="Startseite"
-                url=""
-                current={currentPath[1]}
-                icon="home"
-            />
-            <NavItem
-                title="Öffnungszeiten"
-                url="zeiten"
-                current={currentPath[1]}
-                icon="time"
-            />
-            <NavItem
-                title="Eintrittspreise"
-                url="preise"
-                current={currentPath[1]}
-                icon="pay"
-            />
-            <NavItem
-                title="Veranstaltungen"
-                url="veranstaltungen"
-                current={currentPath[1]}
-                icon="date"
-            />
-            <NavItem
-                title="Neuigkeiten"
-                url="neues"
-                current={currentPath[1]}
-                icon="news"
-            />
-            <NavItem
-                title="Galerie"
-                url="galerie"
-                current={currentPath[1]}
-                icon="gallery"
-            />
-        </ul>
     </div>
 </div>
 
 <style>
+    #desktop-nav-ul {
+        background-color: white;
+        border-radius: 50rem;
+        padding: .3rem;
+    }
+
     h4 {
         font-size: clamp(1.5rem, 1.4082rem + 0.4898vw, 1.8rem);
         font-weight: 900;

@@ -1,28 +1,38 @@
 ---
-const { title, url, icon, current, ...props } = Astro.props;
+const { title, url, icon, current, index, ...props } = Astro.props;
 import { Icon } from "astro-icon/components";
 import { slugify } from "js/utils";
+
+const colorArray = [
+    "var(--accent)",
+    "var(--accent2)",
+    "var(--accent3)",
+    "var(--accent4)",
+    "var(--secondary)",
+    "var(--primary)",
+];
 ---
 
-<li>
+<li class="w-full">
     {
         current === url ? (
             <a
                 class="active"
                 href={"/" + url}
                 transition:name={"nav-item-"+slugify(title)+"-"+icon}
+                style={`background-color: ${colorArray[index % colorArray.length]};`}
                 {...props}
             >
-                {icon ? <Icon name={icon} /> : ""}
+                {icon ? <Icon name={icon} style="color: var(--text);"/> : ""}
                 &nbsp;{title}
             </a>
         ) : (
-            <a 
+            <a
                 href={"/" + url}
                 transition:name={"nav-item-"+slugify(title)+"-"+icon}
                 {...props}
             >
-                {icon ? <Icon name={icon} /> : ""}
+                {icon ? <Icon name={icon} style={`color: ${colorArray[index % colorArray.length]};`}/> : ""}
                 &nbsp;{title}
             </a>
         )
@@ -31,18 +41,17 @@ import { slugify } from "js/utils";
 
 <style>
     a {
+        font-size: clamp(1.5rem, 1.125rem + 2vw, 2rem);
+        padding: .8rem 1rem;
         border: transparent 2px solid;
-        @apply font-semibold text-lg lg:px-2 no-underline rounded-full;
+        @apply font-semibold no-underline rounded-full;
     }
     .active {
-        background-color: var(--primary) !important;
         pointer-events: none;
         border: black 2px solid;
     }
 
     [data-icon] {
-        display: none;
-        fill: var(--text);
         transition: all 0.2s ease-in-out;
         width: 24px;
         height: 24px;

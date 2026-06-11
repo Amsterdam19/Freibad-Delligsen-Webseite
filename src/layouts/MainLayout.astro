@@ -7,6 +7,7 @@ import NavigationBar from "../components/Nav/NavigationBar.astro";
 import Footer from "../components/Footer.astro";
 
 import { ClientRouter, fade } from "astro:transitions";
+import NavigationBarMobile from "components/Nav/NavigationBarMobile.astro";
 
 const anim = {
   old: {
@@ -49,7 +50,7 @@ const {
         <link rel="icon" type="image/svg+xml" href="/freibadicon.svg" />
         <link
             rel="preload"
-            href="/fonts/Monteserrat/Montserrat-VariableFont_wght.ttf"
+            href="/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf"
             as="font"
             type="font/ttf"
             crossorigin="anonymous"
@@ -96,6 +97,8 @@ const {
             <div id="body-container" class:list={["z-10", "min-h-[73svh]", classes]}>
                 <header class="dontPrint">
                     <div class="content-grid">
+                        <NavigationBarMobile />
+                        <slot name="landingLogo"/>
                         <NavigationBar />
                     </div>
                 </header>

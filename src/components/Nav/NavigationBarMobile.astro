@@ -1,0 +1,163 @@
+---
+import NavItem from "./NavbarItemMobile.astro";
+
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.split("/");
+const { className } = Astro.props;
+---
+
+<div id="hamburger-button-container" class="xl:hidden z-20">
+    <label
+        id="hamburger"
+        for="nav-drawer"
+        aria-label="toggle sidebar"
+        aria-pressed="false"
+        class="group transition flex items-center justify-center btn has-aria-pressed:btn-outline btn-circle relative"
+        onclick="this.setAttribute('aria-pressed', !(this.getAttribute('aria-pressed') === 'true'))"
+        style="background-color: var(--accent);"
+    >
+        <svg
+            class="w-6 h-6 fill-current pointer-events-none svg-stroke"
+            viewBox="-0.5 0 16 17"
+            style="fill: var(--accent-dark);"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <rect
+                class="origin-center -translate-y-[5px] translate-x-[7px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-x-0 group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:rotate-[315deg]"
+                y="7"
+                width="9"
+                height="2"
+                rx="1"></rect>
+            <rect
+                class="origin-center transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.8)] group-[[aria-pressed=true]]:rotate-45"
+                y="7"
+                width="16"
+                height="2"
+                rx="1"></rect>
+            <rect
+                class="origin-center translate-y-[5px] transition-all duration-300 ease-[cubic-bezier(.5,.85,.25,1.1)] group-[[aria-pressed=true]]:translate-y-0 group-[[aria-pressed=true]]:-rotate-[225deg]"
+                y="7"
+                width="9"
+                height="2"
+                rx="1"></rect>
+        </svg>
+    </label>
+</div>
+<div class="drawer drawer-end z-50">
+    <input id="nav-drawer" type="checkbox" class="drawer-toggle" />
+    <div class="drawer-side z-10">
+        <label
+            for="nav-drawer"
+            aria-label="close sidebar"
+            class="drawer-overlay"
+            onclick="document.getElementById('hamburger').setAttribute('aria-pressed', !(document.getElementById('hamburger').getAttribute('aria-pressed') === 'true'))">
+        </label>
+        <ul class="menu gap-3 grid absolute">
+            <!-- Sidebar content here -->
+            <NavItem
+                title="Startseite"
+                url=""
+                current={currentPath[1]}
+                icon="home"
+                index="0"
+            />
+            <NavItem
+                title="Öffnungszeiten"
+                url="zeiten"
+                current={currentPath[1]}
+                icon="time"
+                index="1"
+            />
+            <NavItem
+                title="Eintrittspreise"
+                url="preise"
+                current={currentPath[1]}
+                icon="pay"
+                index="2"
+            />
+            <NavItem
+                title="Veranstaltungen"
+                url="veranstaltungen"
+                current={currentPath[1]}
+                icon="date"
+                index="3"
+            />
+            <NavItem
+                title="Neuigkeiten"
+                url="neues"
+                current={currentPath[1]}
+                icon="news"
+                index="4"
+            />
+            <NavItem
+                title="Galerie"
+                url="galerie"
+                current={currentPath[1]}
+                icon="gallery"
+                index="5"
+            />
+        </ul>
+    </div>
+</div>
+
+<style>
+    ul {
+        bottom: 0;
+        background-color: white;
+        border-radius: 2rem;
+        justify-items: start;
+        margin: .5rem;
+        width: calc(100%-1rem);
+        max-width: 35rem;
+        padding-bottom: 5.5rem;
+        transition-property: opacity, transform !important;
+        border: black 2px solid;
+    }
+
+    #hamburger-button-container {
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 60;
+    }
+
+    #hamburger {
+        width: 4rem;
+        height: 4rem;
+        border: black 2px solid;
+    }
+
+    #hamburger::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 2rem;
+        box-shadow: black 4px 3px;
+        opacity: 0;
+        transition: opacity .2s ease-in-out;
+    }
+
+    #hamburger-button-container > [aria-pressed="false"]::after {
+        opacity: 1;
+    }
+
+    .drawer-overlay {
+        background-color: rgba(0, 0, 0, 0.2) !important;
+        opacity: 0;
+        transition-property: opacity !important;
+        transition-timing-function: cubic-bezier(.46,.03,.52,.96) !important;
+    }
+
+    .drawer-toggle:checked ~ .drawer-side > .drawer-overlay {
+        opacity: 1;
+    }
+
+    .drawer > .drawer-toggle ~ .drawer-side > :not(.drawer-overlay) {
+        transform: translateY(50%) translateX(50%) scale(0);
+        opacity: 0;
+    }
+    .drawer > .drawer-toggle:checked ~ .drawer-side > :not(.drawer-overlay) {
+        transform: translateY(0) translateX(0) scale(1) !important;
+        opacity: 1;
+    }
+</style>
