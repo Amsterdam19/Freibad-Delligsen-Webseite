@@ -9,7 +9,7 @@ const { className } = Astro.props;
 <div class:list={["drawer z-50", {"hidden" : currentPath[1]==""}, "xl:grid"]}>
     <div class="drawer-content flex flex-col">
         <!-- Navbar -->
-        <div class=" " class:list={["navbar pb-10 pt-4 px-0 w-full justify-end md:justify-center", {"md:justify-between justify-between" : currentPath[1]}]}>
+        <div class=" " class:list={["navbar pb-10 pt-4 px-0 w-full justify-end", {"md:justify-between justify-between" : currentPath[1]}]}>
             {currentPath[1] ? 
             <a class="no-underline" href="/" transition:name="nav-logo">
                 <h4>Freibad Delligsen</h4>

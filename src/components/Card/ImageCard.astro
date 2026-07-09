@@ -1,17 +1,19 @@
 ---
+import { getImage } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 const { img, title, id, classes } = Astro.props;
+const optimizedImg = await getImage({src: img, format: 'avif'})
 ---
 
 <div
     class:list={["card", "box-s-5", classes]}
-    style={`background-image: url(${img.src});`}
+    style={`background-image: url(${optimizedImg.src});`}
     onclick={`${id}.showModal()`}
 >
     <dialog id={id} class="modal">
         <div class="modal-box w-auto">
-            <img class="rounded-xl" src={img.src} />
+            <img class="rounded-xl" src={optimizedImg.src} />
             <div class="modal-action justify-between gap-3 flex-wrap w-full">
                 <h2>{title}</h2>
                 <div class="flex gap-3">
