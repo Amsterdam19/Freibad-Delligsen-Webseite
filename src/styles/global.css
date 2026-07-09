@@ -1,25 +1,24 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
-/*
 @plugin "daisyui/theme" {
-  name: "mytheme";
+  name: "light";
   default: true;
   prefersdark: false;
   color-scheme: light; 
 
-  --color-primary: #8EA8EA,
-  --color-secondary: #A259FF,
-  --color-accent: #EA4C88,
-  --color-neutral: #E8EFF7,
-  --color-base-100: #F9F5F2,
-  --color-info: #5293dd,
-  --color-success: #a3e635,
-  --color-warning: #f59e0b,
-  --color-error: #e11d48,
-  --rounded-btn: 0.75rem,
+  --color-primary: #8EA8EA;
+  --color-secondary: #A259FF;
+  --color-accent: #EA4C88;
+  --color-neutral: #E8EFF7;
+  --color-base-100: #F9F5F2;
+  --color-info: #5293dd;
+  --color-success: #a3e635;
+  --color-warning: #f59e0b;
+  --color-error: #e11d48;
+  --radius-box: 1rem;
+  --radius-field: 0.75rem;
 }
-*/
 
 :root {
   --navbar-height: 7rem;
@@ -41,7 +40,7 @@
   --positive: color-mix(in oklab, var(--secondary) 80%, green);
   --article: color-mix(in oklab, var(--secondary) 10%, var(--background));
   --accent: #d41d54;
-  --border-radius: .7rem;
+  --border-radius: 1rem;
   --border-grey: #cecece63;
   --border-grey: color-mix(in oklab, var(--secondary) 90%, grey);
   --nav-bg-color: rgba(255, 255, 255, 0.8);
@@ -101,12 +100,14 @@
   font-display: swap;
 }
 
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: "Work_Sans";
-  line-height: 1.75rem;
+@layer base {
+  * {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Work_Sans";
+    line-height: 1.75rem;
+  }
 }
 
 html {
@@ -170,10 +171,6 @@ h3,
 h4 {
   line-height: normal;
   text-wrap: balance;
-}
-
-a {
-  text-decoration: underline;
 }
 
 .top_div {
