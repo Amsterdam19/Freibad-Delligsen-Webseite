@@ -7,7 +7,7 @@ export interface Props {
 const { date, ...props } = Astro.props;
 ---
 
-<span class="badge badge-neutral box-s-1" style="background-color: var(--accent3);" {...props}>
+<span class="badge badge-accent badge-soft" {...props}>
 	<time datetime={date.toISOString()}>
 		<div>
 			<Icon name="IcRoundAccessTime" />

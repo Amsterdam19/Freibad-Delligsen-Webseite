@@ -27,12 +27,21 @@ const colorArrayOld = [
     "#6B4226"  // Ein sanftes Dunkelbraun
 ];
 const colorArray = [
-    "var(--accent)",
-    "var(--accent2)",
-    "var(--accent3)",
-    "var(--accent4)",
-    "var(--secondary)",
-    "var(--primary)",
+    "var(--color-primary)",
+    "var(--color-secondary)",
+    "var(--color-accent)",
+    "var(--color-warning)",
+    "var(--color-success)",
+    "var(--color-error)",
+];
+
+const colorDaisy = [
+    "badge-primary",
+    "badge-secondary",
+    "badge-accent",
+    "badge-warning",
+    "badge-success",
+    "badge-error",
 ];
 
 const textColor = getContrastYIQ(colorArray[index % colorArray.length]);
@@ -60,7 +69,7 @@ const newId = sanitizeId(id ? id : titel);
             : "timeline-start md:text-end rounded-tr-none"]}
         style="background-color: white;"
     >
-        <div class="badge gap-2 text-lg py-3 box-s-1 my-4" style={`background-color: ${colorArray[index % colorArray.length]};`}>
+        <div class:list={["badge badge-soft gap-2 text-lg py-3 my-4", colorDaisy[index % colorDaisy.length]]} style={`color: color-mix(in oklab, ${colorArray[index % colorArray.length]}  60%, black);`}>
             <time class="font-mono">{date}</time>
         </div>
         <div class="text-3xl font-semibold hyphens-auto text-balance">{titel}</div>
@@ -69,5 +78,3 @@ const newId = sanitizeId(id ? id : titel);
     </div>
     <hr />
 </li>
-
-<!-- style={`border-color: color-mix(in oklab, ${colorArray[index % colorArray.length]} 50%, transparent); background-color: color-mix(in oklab, ${colorArray[index % colorArray.length]} 5%, transparent);`} -->

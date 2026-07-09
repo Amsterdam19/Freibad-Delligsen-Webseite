@@ -7,14 +7,14 @@
   prefersdark: false;
   color-scheme: light; 
 
-  --color-primary: #8EA8EA;
+  --color-primary: #235fa4;
   --color-secondary: #A259FF;
-  --color-accent: #EA4C88;
+  --color-accent: #de1a65;
   --color-neutral: #E8EFF7;
   --color-base-100: #F9F5F2;
   --color-info: #5293dd;
-  --color-success: #a3e635;
-  --color-warning: #f59e0b;
+  --color-success: #a6ec35;
+  --color-warning: #faa513;
   --color-error: #e11d48;
   --radius-box: 1rem;
   --radius-field: 0.75rem;
@@ -27,6 +27,17 @@
   --test3: hsl(216, 66.67%, 94.12%);
   --test4: hsl(210.65, 61.33%, 70.59%);
   --test5: hsl(215.32, 51.67%, 52.94%);
+
+  --color-primary: #235fa4;
+  --color-secondary: #A259FF;
+  --color-accent: #de1a65;
+  --color-neutral: #E8EFF7;
+  --color-base-100: #F9F5F2;
+  --color-info: #4da0ff;
+  --color-success: #a6ec35;
+  --color-warning: #faa513;
+  --color-error: #e11d48;
+  --radius-box: 1rem;
 
 
   --text: #000000;
@@ -55,6 +66,12 @@
   --accent3: #1EA193;
   --accent4: #FE91E7;
   --card: #FFFFFE;
+
+  --background: #F9F5F2;
+  --primary: var(--color-primary);
+  --secondary: var(--color-secondary);
+  --accent: var(--color-accent);
+  --accent3: #62dc50;
 
   --old: #2e577e;
   --main-color: var(--primary);

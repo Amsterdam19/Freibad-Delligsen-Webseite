@@ -36,9 +36,10 @@ import { slugify } from "js/utils";
         @apply font-semibold text-lg lg:px-2 no-underline rounded-full;
     }
     .active {
-        background-color: var(--primary) !important;
+        background-color: var(--color-primary) !important;
         pointer-events: none;
         border: black 2px solid;
+        color: color-mix(in oklab, var(--color-primary) 10%, white);
     }
 
     [data-icon] {
