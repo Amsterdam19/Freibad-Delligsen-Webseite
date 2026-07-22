@@ -8,4 +8,4 @@ Teilnahmegebühr **3€**
 
 Anmeldung am Samstag direkt im Freibad
 
-[Weitere Infos](/flyer/stundenschwimmen.jpeg)
+[Weitere Infos](/flyer/stundenschwimmen.jpg)
